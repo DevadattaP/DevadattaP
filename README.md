@@ -22,7 +22,7 @@ Welcome to my GitHub profile! I'm a Computer Science Engineering student with a 
   <img  title="🔥 Get streak stats for your profile at git.io/streak-stats" alt="Mark streak" src="https://github-readme-streak-stats.herokuapp.com/?user=devadattap&theme=dark&hide_border=false" /> 
 </td>
 <td width="50%" align="center">
-  <img  align="center"  src="https://github-readme-stats.vercel.app/api/top-langs/?username=devadattap&theme=dark&hide_border=false&no-bg=true&no-frame=true&langs_count=10"/>
+  <img  align="center"  src="https://github-readme-stats.vercel.app/api/top-langs/?username=devadattap&theme=dark&hide_border=false&no-bg=true&no-frame=true&langs_count=8"/>
   </td>
 </tr>
 </table>
