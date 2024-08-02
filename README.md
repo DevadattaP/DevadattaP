@@ -16,13 +16,13 @@ Welcome to my GitHub profile! I'm a Computer Science Engineering student with a 
 <p align="center">
 <table align="center">
 <tr border="none">
-<td width="50%" align="center">
-  <img  align="center"  src="https://github-readme-stats.vercel.app/api?username=devadattap&theme=dark&show_icons=true&count_private=true" />
+<td width="100%" align="center">
+  <img  src="https://github-readme-stats.vercel.app/api?username=devadattap&theme=dark&show_icons=true&count_private=true" />
+  <img src="https://github.com/devadattap/github-stats/blob/master/generated/overview.svg#gh-dark-mode-only" />
   <br></br>
-  <img  title="🔥 Get streak stats for your profile at git.io/streak-stats" alt="Mark streak" src="https://github-readme-streak-stats.herokuapp.com/?user=devadattap&theme=dark&hide_border=false" /> 
-</td>
-<td width="50%" align="center">
-  <img  align="center"  src="https://github-readme-stats.vercel.app/api/top-langs/?username=devadattap&layout=compact&custom_title=Most%20used%20languages&langs_count=15&include_all_commits=true&hide_progress=false&hide_border=false&theme=dark"/>
+  <img alt="Mark streak" src="https://github-readme-streak-stats.herokuapp.com/?user=devadattap&theme=dark&hide_border=false" /> 
+<img src="https://github.com/devadattap/github-stats/blob/master/generated/languages.svg#gh-dark-mode-only" />
+  <br>
   </td>
 </tr>
 </table>
