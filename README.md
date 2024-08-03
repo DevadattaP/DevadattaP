@@ -18,10 +18,10 @@ Welcome to my GitHub profile! I'm a Computer Science Engineering student with a 
 <tr border="none">
 <td width="100%" align="center">
   <img  src="https://github-readme-stats.vercel.app/api?username=devadattap&theme=dark&show_icons=true&count_private=true" />
-  <img src="https://github.com/devadattap/github-stats/blob/master/generated/overview.svg#gh-dark-mode-only" />
+  <img src="./generated/overview.svg#gh-dark-mode-only" />
   <br></br>
   <img alt="Mark streak" src="https://github-readme-streak-stats.herokuapp.com/?user=devadattap&theme=dark&hide_border=false" /> 
-<img src="https://github.com/devadattap/github-stats/blob/master/generated/languages.svg#gh-dark-mode-only" />
+<img src="./generated/languages.svg#gh-dark-mode-only" />
   <br>
   </td>
 </tr>
