@@ -3,8 +3,8 @@ Welcome to my GitHub profile! I'm a Computer Science Engineering student with a 
 
 ## About Me
 
-- 🎓 **Education**: Pursuing a degree in Computer Science Engineering
-- 🤖 **Specialization**: Artificial Intelligence and Machine Learning
+- 🎓 **Education**: Completed BE CSE(AI&ML) from FAMT (under Mumbai University), now pursuing MTech in Data Science at IIT Palakkad.
+- 🤖 **Specialization**: Artificial Intelligence, Machine Learning, Data Science
 - 🔌 **Passion**: Bridging the gap between code and circuits, and making things work
 - 🤝 **Team Player**: Love collaborating and solving problems with a tech twist
 - 🌱 **Curious Learner**: Always up for new adventures and creative projects
