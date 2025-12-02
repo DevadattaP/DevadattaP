@@ -1,14 +1,13 @@
 <h1 align="center">Hi 👋, I'm Devadatta Pokharanakar</h1>
-Welcome to my GitHub profile! I'm a Computer Science Engineering student with a deep love for both the digital and tangible worlds. Whether it's crafting intelligent algorithms or designing nifty circuits, I thrive on exploring the intersection of software and hardware.
+Welcome to my GitHub profile! I'm a Computer Science Engineering grad who enjoys working with both software and hardware. Whether it's building ML models or tinkering with circuits, I love exploring how the two worlds meet.
 
 ## About Me
 
-- 🎓 **Education**: Completed BE CSE(AI&ML) from FAMT (under Mumbai University), now pursuing MTech in Data Science at IIT Palakkad.
-- 🤖 **Specialization**: Artificial Intelligence, Machine Learning, Data Science
-- 🔌 **Passion**: Bridging the gap between code and circuits, and making things work
-- 🤝 **Team Player**: Love collaborating and solving problems with a tech twist
-- 🌱 **Curious Learner**: Always up for new adventures and creative projects
-- 📖 I’m currently learning **Django**
+- 🎓 I completed my BE in CSE (AI & ML) from FAMT under Mumbai University, and I'm currently pursuing an MTech in Data Science at IIT Palakkad.
+- 🤖 I'm especially interested in AI, machine learning, and data-driven systems.
+- 🔌 I enjoy projects where I can blend coding with electronics.
+- 🤝 I like working in teams and solving problems together.
+- 🌱 I’m always trying to learn something new.
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=devadattap&label=Profile%20views&color=0e75b6&style=flat" alt="devadattap" /> </p>
 
@@ -35,7 +34,7 @@ Welcome to my GitHub profile! I'm a Computer Science Engineering student with a 
 <p align="left">
 <a href="https://dev.to/devadattap" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/devto.svg" alt="devadattap" height="30" width="40" /></a>
 <a href="https://twitter.com/devadatta_p" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="devadatta_p" height="30" width="40" /></a>
-<a href="https://linkedin.com/in/devadatta-pokharanakar-540aab219" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="devadatta-pokharanakar-540aab219" height="30" width="40" /></a>
+<a href="https://linkedin.com/in/devadatta-pokharanakar" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="devadatta-pokharanakar-540aab219" height="30" width="40" /></a>
 <a href="https://stackoverflow.com/users/devadatta-pokharanakar" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" alt="devadatta-pokharanakar" height="30" width="40" /></a>
 <a href="https://codesandbox.com/dmpokharanakar" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codesandbox.svg" alt="dmpokharanakar" height="30" width="40" /></a>
 <a href="https://www.codechef.com/users/devadatta_p" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/codechef.svg" alt="devadatta_p" height="30" width="40" /></a>
@@ -53,6 +52,18 @@ Welcome to my GitHub profile! I'm a Computer Science Engineering student with a 
 ## Projects and Contributions
 While some of my repositories are private due to confidentiality, here's an overview of the types of projects I've worked on:
 
+### CodeHunt
+- **Technologies**: Flutter android application
+- **Description**: Similar to treaser hunt, but with twist of solving C snippet to get clue.
+
+### Insurance DApp
+- **Technologies**: Ethereum blockchain (Ganache), Truffle, node.js
+- **Description**: Decentralized App (dApp) using private blockchain for insurance system
+
+### Auto Email Sender
+- **Technologies**: Python, Jenkins
+- **Description**: CICD automation using Jenkins for sending emails to group using python
+
 ### AquaSense: Water Supply Network Monitoring System
 - **Technologies**: React, PostgreSQL, GIS integration
 - **Description**: Monitors water supply networks and can be integrated with IoT for real-time data collection and analysis.
@@ -61,17 +72,21 @@ While some of my repositories are private due to confidentiality, here's an over
 - **Technologies**: Computer Vision
 - **Description**: A computer vision-based interface that allows users to control their computer using gestures as a mouse and keyboard.
 
-### CarPriceWise
-- **Technologies**: Machine Learning
-- **Description**: An intelligent solution that provides insights into car prices based on various factors.
+### Fun In Maths
+- **Technologies**: Java, JavaFX
+- **Description**: Mathematical games
 
-### DigiVision
-- **Technologies**: Neural Networks
-- **Description**: A neural network-based system for recognizing digits and alphabets in images.
+### Character Recognizer
+- **Technologies**: K-NN algorithm
+- **Description**: A system for recognizing digits and alphabets in images.
 
-### CognisionAI
-- **Technologies**: Artificial Intelligence
+### Species recognizer
+- **Technologies**: YOLO model
 - **Description**: An AI system that uses cognitive abilities to classify objects in images.
+
+### Priya's Butic
+- **Technologies**: Java Android application
+- **Description**: Developed for a small business to register customers, orders, billing tracking
 
 ### HealthAssist: Your Personal Health Buddy
 - **Technologies**: Android, Fuzzy Logic
@@ -82,18 +97,18 @@ While some of my repositories are private due to confidentiality, here's an over
 - **Description**: Empowers music lovers to fine-tune their skills through an extensive collection of practice accompaniments.
 
 ### Artrack: Ammunition Tracking System
-- **Technologies**: Physics, Environmental Data Analysis
+- **Technologies**: Physics, Environmental Data, Indian missiles & artilories data
 - **Description**: Utilizes physics laws and environmental data to ensure highly accurate missile trajectories.
 
 
 ## Let's Connect!
-<a href="https://linkedin.com/in/devadatta-pokharanakar-540aab219" target="_blank">
+<a href="https://linkedin.com/in/devadatta-pokharanakar" target="_blank">
 <img src="https://img.shields.io/badge/linkedin-%2300acee.svg?color=405DE6&style=for-the-badge&logo=linkedin&logoColor=white" alt=linkedin style="margin-bottom: 5px;"/></a>
 <a href="mailto:dmpokharanakar@gmail.com" target="_blank">
 <img src=https://img.shields.io/badge/gmail-%2300acee.svg?color=EA4335&style=for-the-badge&logo=gmail&logoColor=white alt=gmail style="margin-bottom: 5px;" /></a>
 <br>
 
-Feel free to explore my public repositories, connect on LinkedIn, or reach out via email. I'm always eager to learn, tinker, and create innovative solutions. Let's build something amazing together!
+Feel free to explore my public repositories, connect on LinkedIn, or reach out via email. I'm always eager to learn, connect, and create innovative solutions. Let's build something amazing together!
 
 ---
 
