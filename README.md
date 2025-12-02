@@ -64,6 +64,10 @@ While some of my repositories are private due to confidentiality, here's an over
 - **Technologies**: Python, Jenkins
 - **Description**: CICD automation using Jenkins for sending emails to group using python
 
+### Document ChatBot
+- **Technologies**: DistilBERT and FLAN-T5 with GloVe
+- **Description**: Document-based chatbot application that uses two different architectures for question answering and document summarization.
+
 ### AquaSense: Water Supply Network Monitoring System
 - **Technologies**: React, PostgreSQL, GIS integration
 - **Description**: Monitors water supply networks and can be integrated with IoT for real-time data collection and analysis.
