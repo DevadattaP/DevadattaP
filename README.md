@@ -8,6 +8,8 @@ Welcome to my GitHub profile! I'm a Computer Science Engineering grad who enjoys
 - 🔌 I enjoy projects where I can blend coding with electronics.
 - 🤝 I like working in teams and solving problems together.
 - 🌱 I’m always trying to learn something new.
+- 🐧 Recently I shifted to Linux (Ubuntu) from Windows, and I am really enjoying it.
+- Right now I am learning Supabase integration with Python.
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=devadattap&label=Profile%20views&color=0e75b6&style=flat" alt="devadattap" /> </p>
 
