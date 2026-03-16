@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Blog — Devadatta Pokharanakar</title>
+<meta name="description" content="Blog by Devadatta Pokharanakar — ML, software development, tutorials, student life."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #0A0A0A;
+    --ink-mid:    #444444;
+    --ink-light:  #888888;
+    --paper:      #FAFAFA;
+    --paper-mid:  #F0EFED;
+    --paper-dark: #E4E2DF;
+    --rule:       #0A0A0A;
+    --rule-light: #DDDDDD;
+    --serif:      'DM Serif Display', Georgia, serif;
+    --sans:       'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); overflow-x: hidden; cursor: crosshair; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  @keyframes fadeUp   { from{opacity:0;transform:translateY(14px);}  to{opacity:1;transform:translateY(0);} }
+  @keyframes fadeIn   { from{opacity:0;}                              to{opacity:1;} }
+  @keyframes pulse    { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+  @keyframes heartPop { 0%{transform:scale(1);} 40%{transform:scale(1.4);} 70%{transform:scale(0.9);} 100%{transform:scale(1);} }
+
+  .reveal   { opacity:0; animation:fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
+  .reveal-1 { animation-delay:0.05s; }
+  .reveal-2 { animation-delay:0.15s; }
+  .reveal-3 { animation-delay:0.25s; }
+
+  /* ── SHARED CHROME ── */
+  .top-rule { height:3px; background:var(--ink); }
+
+  .sitemap-bar { background:var(--paper-mid); border-bottom:0.5px solid var(--rule-light); padding:10px 48px; display:flex; align-items:center; justify-content:flex-end; gap:8px; }
+  .sitemap-bar span { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); }
+  .sitemap-bar a { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid); border-bottom:0.5px solid var(--ink-mid); }
+
+  nav { display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:58px; border-bottom:0.5px solid var(--rule-light); position:sticky; top:0; background:var(--paper); z-index:200; }
+  .nav-logo { font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; cursor:pointer; }
+  .nav-links { display:flex; gap:24px; list-style:none; }
+  .nav-links a { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid); padding-bottom:2px; border-bottom:1.5px solid transparent; transition:color 0.15s; }
+  .nav-links a:hover, .nav-links a.active { color:var(--ink); border-bottom-color:var(--ink); }
+  .nav-cta { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; background:var(--ink); color:var(--paper); padding:8px 18px; border:none; cursor:pointer; display:inline-block; transition:background 0.15s; }
+  .nav-cta:hover { background:var(--ink-mid); }
+
+  /* ── PAGE HEADER ── */
+  .page-header { display:grid; grid-template-columns:1fr 1.5px 1fr; border-bottom:1px solid var(--rule); min-height:160px; }
+  .ph-left { padding:40px 48px; display:flex; flex-direction:column; justify-content:space-between; }
+  .ph-breadcrumb { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-light); margin-bottom:16px; }
+  .ph-breadcrumb a { border-bottom:0.5px solid var(--ink-light); cursor:pointer; }
+  .ph-title { font-family:var(--serif); font-size:clamp(32px,4vw,52px); line-height:1.04; letter-spacing:-0.02em; }
+  .ph-title em { font-style:italic; border-bottom:3px solid var(--ink); padding-bottom:2px; }
+  .ph-divider { background:var(--rule); }
+  .ph-right { padding:40px 48px; background:var(--paper-mid); display:flex; flex-direction:column; justify-content:space-between; }
+  .ph-desc { font-size:13px; color:var(--ink-mid); line-height:1.8; max-width:400px; margin-bottom:20px; }
+  .ph-stats { display:flex; gap:32px; }
+  .ph-stat .n { font-family:var(--serif); font-size:26px; color:var(--ink); line-height:1; }
+  .ph-stat .l { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); margin-top:4px; }
+
+  /* ── FILTER BAR (list view) ── */
+  .filter-bar { padding:0 48px; border-bottom:1px solid var(--rule); display:flex; align-items:center; gap:0; overflow-x:auto; background:var(--paper); scrollbar-width:none; }
+  .filter-bar::-webkit-scrollbar { display:none; }
+  .filter-label { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); padding:16px 20px 16px 0; border-right:0.5px solid var(--rule-light); margin-right:16px; white-space:nowrap; flex-shrink:0; }
+  .filter-btn { font-family:var(--sans); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:16px 16px; background:transparent; color:var(--ink-light); border:none; border-bottom:2px solid transparent; cursor:pointer; white-space:nowrap; transition:color 0.15s, border-color 0.15s; flex-shrink:0; }
+  .filter-btn:hover { color:var(--ink); }
+  .filter-btn.active { color:var(--ink); border-bottom-color:var(--ink); font-weight:500; }
+  .filter-count { font-size:9px; color:var(--ink-light); margin-left:3px; }
+
+  /* ── BLOG LIST ── */
+  #blog-list { }
+
+  .blog-row {
+    display: grid;
+    grid-template-columns: 200px 1.5px 1fr;
+    border-bottom: 1px solid var(--rule);
+    cursor: pointer;
+    transition: background 0.15s;
+    animation: fadeUp 0.45s cubic-bezier(0.22,1,0.36,1) both;
+  }
+  .blog-row:hover { background: var(--paper-mid); }
+  .blog-row.hidden { display: none; }
+
+  .br-meta {
+    padding: 28px 24px 28px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .br-divider { background: var(--rule-light); }
+
+  .br-body { padding: 28px 48px 28px 36px; }
+
+  .br-cat {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 10px;
+  }
+
+  .br-title {
+    font-family: var(--serif);
+    font-size: clamp(17px, 2vw, 22px);
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+    transition: border-color 0.15s;
+    display: inline;
+    border-bottom: 1.5px solid transparent;
+  }
+  .blog-row:hover .br-title { border-bottom-color: var(--ink); }
+
+  .br-excerpt {
+    display: block;
+    font-size: 12.5px;
+    color: var(--ink-mid);
+    line-height: 1.75;
+    margin-top: 8px;
+    margin-bottom: 14px;
+  }
+
+  .br-footer { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+
+  .br-date { font-size: 10px; color: var(--ink-light); letter-spacing: 0.06em; }
+
+  .br-read-time { font-size: 10px; color: var(--ink-light); letter-spacing: 0.04em; }
+
+  .br-stat {
+    display: flex; align-items: center; gap: 5px;
+    font-size: 11px; color: var(--ink-light);
+  }
+  .br-stat svg { width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:1.5; flex-shrink:0; }
+
+  .br-read-cta {
+    margin-left: auto;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    border-bottom: 1px solid var(--ink-mid);
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .blog-row:hover .br-read-cta { color: var(--ink); border-color: var(--ink); }
+
+  /* ── META COLUMN CONTENT ── */
+  .br-num { font-family: var(--serif); font-size: 28px; color: var(--paper-dark); line-height: 1; }
+  .br-meta-date { font-size: 11px; color: var(--ink-light); letter-spacing: 0.05em; line-height: 1.5; }
+  .br-meta-likes { display:flex; align-items:center; gap:5px; font-size:11px; color:var(--ink-light); }
+  .br-meta-likes svg { width:12px; height:12px; stroke:currentColor; fill:none; stroke-width:1.5; }
+
+  /* ── ARTICLE VIEW ── */
+  #article-view { display: none; animation: fadeIn 0.3s ease; }
+
+  /* Article nav bar */
+  .art-nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 48px;
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper-mid);
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .art-nav-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 9px 18px;
+    background: transparent; color: var(--ink);
+    border: 1px solid var(--rule);
+    cursor: pointer; transition: all 0.15s;
+  }
+  .art-nav-btn:hover { background: var(--ink); color: var(--paper); }
+  .art-nav-btn:disabled { opacity:0.3; cursor:not-allowed; pointer-events:none; }
+  .art-nav-btn svg { width:12px; height:12px; stroke:currentColor; fill:none; stroke-width:2; }
+
+  .art-nav-center { text-align: center; }
+  .art-nav-pos { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-light); }
+  .art-nav-title { font-size:11px; color:var(--ink); font-weight:500; max-width:300px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+  /* Article layout */
+  .article-wrap {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .article-main { padding: 56px 56px 56px 56px; border-right: 1px solid var(--rule); }
+
+  .art-cat { font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-light); margin-bottom:16px; }
+
+  .art-title {
+    font-family: var(--serif);
+    font-size: clamp(26px, 3.5vw, 44px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+
+  .art-meta {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--rule-light);
+    margin-bottom: 32px;
+  }
+
+  .art-meta-item { font-size:11px; color:var(--ink-light); letter-spacing:0.04em; display:flex; align-items:center; gap:5px; }
+  .art-meta-item svg { width:13px; height:13px; stroke:currentColor; fill:none; stroke-width:1.5; }
+  .art-meta-sep { width:3px; height:3px; background:var(--rule-light); border-radius:50%; }
+
+  /* Article body typography */
+  .art-body { font-size:15px; color:var(--ink-mid); line-height:1.85; }
+  .art-body p { margin-bottom: 1.4em; }
+  .art-body h2 { font-family:var(--serif); font-size:22px; color:var(--ink); margin:2em 0 0.7em; letter-spacing:-0.01em; }
+  .art-body h3 { font-family:var(--sans); font-size:14px; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink); margin:1.6em 0 0.6em; }
+  .art-body strong { color:var(--ink); font-weight:500; }
+  .art-body em { font-style:italic; }
+  .art-body code { font-family:monospace; font-size:13px; background:var(--paper-dark); padding:2px 6px; border-radius:2px; color:var(--ink); }
+  .art-body pre { background:var(--ink); color:var(--paper); padding:20px 24px; margin:1.5em 0; border-radius:0; overflow-x:auto; }
+  .art-body pre code { background:transparent; color:var(--paper); padding:0; font-size:12.5px; line-height:1.7; }
+  .art-body ul, .art-body ol { margin-left:20px; margin-bottom:1.4em; display:flex; flex-direction:column; gap:6px; }
+  .art-body li { font-size:15px; color:var(--ink-mid); line-height:1.7; }
+  .art-body blockquote { border-left:3px solid var(--ink); padding:12px 20px; margin:1.5em 0; background:var(--paper-mid); font-style:italic; color:var(--ink-mid); }
+
+  /* Article images */
+  .art-img-wrap { margin: 1.8em 0; border: 1px solid var(--rule-light); }
+  .art-img-wrap img { width:100%; display:block; }
+  .art-img-placeholder { aspect-ratio:16/8; background:var(--paper-dark); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; }
+  .art-img-placeholder svg { width:28px; height:28px; stroke:var(--ink-light); fill:none; stroke-width:1; }
+  .art-img-placeholder span { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); }
+  .art-img-caption { font-size:10px; color:var(--ink-light); letter-spacing:0.05em; padding:8px 12px; border-top:0.5px solid var(--rule-light); background:var(--paper-mid); }
+
+  /* Tags at end of article */
+  .art-tags-wrap { margin-top:40px; padding-top:24px; border-top:1px solid var(--rule-light); display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .art-tags-label { font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-light); }
+  .art-tag { font-size:9px; letter-spacing:0.08em; text-transform:uppercase; border:0.5px solid var(--rule-light); color:var(--ink-mid); padding:4px 10px; }
+
+  /* ARTICLE SIDEBAR */
+  .article-side { padding: 40px 32px; display: flex; flex-direction: column; gap: 32px; }
+
+  .side-section-title { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--rule); }
+
+  /* Like widget */
+  .like-widget { display:flex; flex-direction:column; align-items:center; gap:8px; }
+
+  .like-btn {
+    width:52px; height:52px;
+    border: 1.5px solid var(--rule);
+    background: transparent;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .like-btn:hover { background: var(--paper-dark); }
+  .like-btn.liked { background: var(--ink); border-color: var(--ink); }
+  .like-btn.liked .like-icon { stroke: var(--paper); fill: var(--paper); }
+  .like-btn.popping { animation: heartPop 0.4s ease; }
+  .like-icon { width:22px; height:22px; stroke:var(--ink); fill:none; stroke-width:1.5; transition:stroke 0.2s, fill 0.2s; }
+
+  .like-count { font-family:var(--serif); font-size:22px; color:var(--ink); line-height:1; }
+  .like-label { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); }
+
+  /* Share links */
+  .share-links { display:flex; flex-direction:column; gap:8px; }
+  .share-link { display:flex; align-items:center; justify-content:space-between; padding:9px 12px; border:0.5px solid var(--rule-light); font-size:11px; color:var(--ink); cursor:pointer; transition:background 0.15s, color 0.15s; }
+  .share-link:hover { background:var(--ink); color:var(--paper); }
+  .share-link .sl-arrow { font-size:12px; }
+
+  /* Related posts */
+  .related-item { padding:12px 0; border-bottom:0.5px solid var(--rule-light); cursor:pointer; }
+  .related-item:last-child { border-bottom:none; }
+  .related-item:hover .rel-title { border-bottom-color:var(--ink); }
+  .rel-cat { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); margin-bottom:5px; }
+  .rel-title { font-family:var(--serif); font-size:14px; color:var(--ink); line-height:1.3; border-bottom:1px solid transparent; display:inline; transition:border-color 0.15s; }
+
+  /* ── ENGAGEMENT ZONE (likes + comments) ── */
+  .engagement-zone {
+    border-top: 1px solid var(--rule);
+    background: var(--paper);
+  }
+
+  /* Comments header */
+  .comments-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 56px;
+    border-bottom: 0.5px solid var(--rule-light);
+    cursor: pointer;
+    transition: background 0.15s;
+    user-select: none;
+  }
+  .comments-header:hover { background: var(--paper-mid); }
+
+  .ch-left { display:flex; align-items:center; gap:12px; }
+  .ch-title { font-family:var(--serif); font-size:18px; color:var(--ink); }
+  .ch-count { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); background:var(--paper-dark); padding:4px 10px; }
+  .ch-toggle { font-size:20px; color:var(--ink-light); transition:transform 0.25s; }
+  .ch-toggle.open { transform: rotate(180deg); }
+
+  /* Comments body (collapsible) */
+  .comments-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .comments-body.open { max-height: 9999px; }
+
+  .comments-inner { padding: 32px 56px 0; }
+
+  /* Comment form */
+  .comment-form-wrap { margin-bottom: 36px; }
+  .cf-label { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--rule); }
+
+  .cf-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
+
+  .cf-input {
+    width:100%; font-family:var(--sans); font-size:12.5px; color:var(--ink); background:transparent;
+    border:none; border-bottom:1px solid var(--rule); padding:10px 0; outline:none; resize:none; transition:border-color 0.15s;
+  }
+  .cf-input:focus { border-bottom-color:var(--ink); }
+  .cf-input::placeholder { color:var(--ink-light); }
+  .cf-textarea { width:100%; font-family:var(--sans); font-size:12.5px; color:var(--ink); background:transparent; border:none; border-bottom:1px solid var(--rule); padding:10px 0; outline:none; resize:none; height:72px; transition:border-color 0.15s; margin-bottom:14px; }
+  .cf-textarea:focus { border-bottom-color:var(--ink); }
+  .cf-textarea::placeholder { color:var(--ink-light); }
+
+  .btn-comment-submit {
+    font-family:var(--sans); font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    background:var(--ink); color:var(--paper); padding:11px 28px; border:1.5px solid var(--ink);
+    cursor:pointer; transition:all 0.15s;
+  }
+  .btn-comment-submit:hover { background:transparent; color:var(--ink); }
+
+  /* Comment list */
+  .comments-list { display:flex; flex-direction:column; gap:0; }
+
+  .comment-item {
+    padding: 22px 0;
+    border-bottom: 0.5px solid var(--rule-light);
+    animation: fadeUp 0.3s ease both;
+  }
+  .comment-item:last-child { border-bottom: none; }
+
+  .ci-header { display:flex; align-items:baseline; justify-content:space-between; margin-bottom:8px; gap:12px; }
+  .ci-name { font-size:13px; font-weight:500; color:var(--ink); }
+  .ci-date { font-size:10px; color:var(--ink-light); letter-spacing:0.05em; white-space:nowrap; }
+  .ci-text { font-size:13px; color:var(--ink-mid); line-height:1.75; }
+
+  .ci-like-btn {
+    background:none; border:none; cursor:pointer;
+    display:inline-flex; align-items:center; gap:4px;
+    font-size:10px; color:var(--ink-light); letter-spacing:0.05em;
+    margin-top:8px; padding:0; transition:color 0.15s;
+  }
+  .ci-like-btn:hover { color:var(--ink); }
+  .ci-like-btn.liked { color:var(--ink); }
+  .ci-like-btn svg { width:11px; height:11px; stroke:currentColor; fill:none; stroke-width:1.5; }
+  .ci-like-btn.liked svg { fill:currentColor; }
+
+  .comments-close-row { padding:20px 0 32px; text-align:center; }
+  .comments-close-btn { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid); border-bottom:1px solid var(--ink-mid); cursor:pointer; background:none; border-top:none; border-left:none; border-right:none; padding-bottom:2px; }
+
+  .no-comments { padding:24px 0 16px; font-size:13px; color:var(--ink-light); font-style:italic; }
+
+  /* ── FOOTER ── */
+  footer { background:var(--ink); padding:48px; display:grid; grid-template-columns:1.2fr 1fr; gap:48px; }
+  .footer-brand .footer-logo { font-family:var(--serif); font-size:22px; color:var(--paper); margin-bottom:10px; }
+  .footer-brand .footer-tagline { font-size:11px; color:rgba(255,255,255,0.5); line-height:1.7; margin-bottom:20px; }
+  .footer-brand .footer-email { font-size:11px; color:rgba(255,255,255,0.7); }
+  .footer-nav { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  .footer-nav-title { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:16px; }
+  .footer-nav-links { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .footer-nav-links li a { font-size:12px; color:rgba(255,255,255,0.65); transition:color 0.15s; }
+  .footer-nav-links li a:hover { color:#fff; }
+  .footer-bottom { background:#111; padding:16px 48px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-bottom span { font-size:10px; letter-spacing:0.08em; color:rgba(255,255,255,0.35); }
+  .footer-visitor { font-size:10px; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:8px; }
+  .fdot { width:6px; height:6px; border-radius:50%; background:#fff; animation:pulse 2s infinite; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width:960px) {
+    nav { padding:0 20px; }
+    .nav-links { display:none; }
+    .page-header { grid-template-columns:1fr; }
+    .ph-divider { display:none; }
+    .ph-left, .ph-right { padding:28px 24px; }
+    .filter-bar { padding:0 24px; }
+    .blog-row { grid-template-columns:1fr; }
+    .br-divider { display:none; }
+    .br-meta { padding:20px 24px 0; flex-direction:row; align-items:center; gap:16px; flex-wrap:wrap; }
+    .br-num { display:none; }
+    .br-body { padding:12px 24px 24px; }
+    .article-wrap { grid-template-columns:1fr; }
+    .article-main { padding:32px 24px; border-right:none; border-bottom:1px solid var(--rule); }
+    .article-side { padding:28px 24px; }
+    .comments-header, .comments-inner { padding-left:24px; padding-right:24px; }
+    .cf-row { grid-template-columns:1fr; }
+    .comments-close-row { padding-bottom:24px; }
+    .art-nav-bar { padding:12px 24px; }
+    footer { grid-template-columns:1fr; gap:32px; padding:36px 24px; }
+    .footer-bottom { padding:14px 24px; flex-direction:column; gap:6px; text-align:center; }
+    .sitemap-bar { padding:10px 24px; }
+    .art-nav-center { display:none; }
+  }
+
+  @media (max-width:540px) {
+    .footer-nav { grid-template-columns:1fr; gap:24px; }
+    .ph-stats { gap:20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+<div class="sitemap-bar">
+  <span>Navigate →</span>
+  <a href="sitemap.html">Sitemap</a>
+</div>
+
+<!-- NAVBAR -->
+<nav class="reveal reveal-1">
+  <div class="nav-logo" onclick="showList()"><a href="index.html">D. Pokharanakar</a></div>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="index.html#education">Education</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="certifications.html">Certifications</a></li>
+    <li><a href="art.html">Art</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="resume.pdf" download class="nav-cta">Download CV</a>
+</nav>
+
+<!-- ═══════════════════════════
+     LIST VIEW
+═══════════════════════════ -->
+<div id="list-view">
+
+  <div class="page-header">
+    <div class="ph-left reveal reveal-2">
+      <div>
+        <div class="ph-breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Blog</div>
+        <h1 class="ph-title">The <em>Blog</em></h1>
+      </div>
+    </div>
+    <div class="ph-divider"></div>
+    <div class="ph-right reveal reveal-3">
+      <p class="ph-desc">Tutorials, deep-dives, and reflections on machine learning, software engineering, student life at IIT, and the occasional creative tangent.</p>
+      <div class="ph-stats">
+        <div class="ph-stat"><div class="n" id="stat-posts">4</div><div class="l">Posts</div></div>
+        <div class="ph-stat"><div class="n" id="stat-likes">0</div><div class="l">Total likes</div></div>
+        <div class="ph-stat"><div class="n" id="stat-comments">0</div><div class="l">Comments</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-bar reveal reveal-2">
+    <span class="filter-label">Category</span>
+    <button class="filter-btn active" onclick="filterPosts('all',this)">All <span class="filter-count" id="fc-all">4</span></button>
+    <button class="filter-btn" onclick="filterPosts('ml',this)">ML / AI <span class="filter-count">1</span></button>
+    <button class="filter-btn" onclick="filterPosts('tutorial',this)">Tutorial <span class="filter-count">1</span></button>
+    <button class="filter-btn" onclick="filterPosts('dev',this)">Dev <span class="filter-count">1</span></button>
+    <button class="filter-btn" onclick="filterPosts('life',this)">Student Life <span class="filter-count">1</span></button>
+  </div>
+
+  <div id="blog-list"></div>
+
+</div><!-- /#list-view -->
+
+
+<!-- ═══════════════════════════
+     ARTICLE VIEW
+═══════════════════════════ -->
+<div id="article-view">
+
+  <!-- TOP NAV -->
+  <div class="art-nav-bar" id="art-nav-top">
+    <button class="art-nav-btn" id="btn-prev-top" onclick="navigatePost(-1)">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Previous post
+    </button>
+    <div class="art-nav-center">
+      <div class="art-nav-pos" id="art-nav-pos-top"></div>
+      <div class="art-nav-title" id="art-nav-title-top"></div>
+    </div>
+    <button class="art-nav-btn" id="btn-next-top" onclick="navigatePost(1)">
+      Next post
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <!-- ARTICLE CONTENT -->
+  <div class="article-wrap">
+
+    <div class="article-main">
+      <div class="art-cat"  id="art-cat"></div>
+      <h1 class="art-title" id="art-title"></h1>
+      <div class="art-meta" id="art-meta"></div>
+      <div class="art-body" id="art-body"></div>
+      <div class="art-tags-wrap" id="art-tags-wrap"></div>
+    </div>
+
+    <div class="article-side">
+
+      <!-- LIKE WIDGET -->
+      <div>
+        <div class="side-section-title">Did you like this?</div>
+        <div class="like-widget">
+          <button class="like-btn" id="art-like-btn" onclick="toggleLike()">
+            <svg class="like-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </button>
+          <div class="like-count" id="art-like-count">0</div>
+          <div class="like-label">Likes</div>
+        </div>
+      </div>
+
+      <!-- SHARE -->
+      <div>
+        <div class="side-section-title">Share this post</div>
+        <div class="share-links">
+          <div class="share-link" onclick="copyLink()">
+            <span>Copy link</span><span class="sl-arrow" id="copy-icon">↗</span>
+          </div>
+          <a class="share-link" id="share-twitter" target="_blank">
+            <span>Share on X / Twitter</span><span class="sl-arrow">↗</span>
+          </a>
+          <a class="share-link" id="share-linkedin" target="_blank">
+            <span>Share on LinkedIn</span><span class="sl-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- RELATED POSTS -->
+      <div>
+        <div class="side-section-title">Other posts</div>
+        <div id="related-posts"></div>
+      </div>
+
+      <!-- BACK -->
+      <div>
+        <button onclick="showList()" style="font-family:var(--sans);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;background:transparent;color:var(--ink-mid);border:0.5px solid var(--rule-light);padding:10px 16px;cursor:pointer;width:100%;transition:all 0.15s;" onmouseover="this.style.background='var(--ink)';this.style.color='var(--paper)'" onmouseout="this.style.background='transparent';this.style.color='var(--ink-mid)'">← Back to all posts</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ENGAGEMENT: COMMENTS -->
+  <div class="engagement-zone">
+    <div class="comments-header" onclick="toggleComments()">
+      <div class="ch-left">
+        <span class="ch-title">Comments</span>
+        <span class="ch-count" id="comments-count-badge">0</span>
+      </div>
+      <span class="ch-toggle" id="ch-toggle-icon">▾</span>
+    </div>
+
+    <div class="comments-body" id="comments-body">
+      <div class="comments-inner">
+        <!-- Comment form -->
+        <div class="comment-form-wrap">
+          <div class="cf-label">Leave a comment</div>
+          <div class="cf-row">
+            <input class="cf-input" id="cf-name"  type="text"  placeholder="Your name *"/>
+            <input class="cf-input" id="cf-email" type="email" placeholder="Your email (not published)"/>
+          </div>
+          <textarea class="cf-textarea" id="cf-text" placeholder="Write your comment..."></textarea>
+          <button class="btn-comment-submit" onclick="submitComment()">Post Comment</button>
+        </div>
+
+        <!-- Comments list -->
+        <div class="comments-list" id="comments-list"></div>
+        <p class="no-comments" id="no-comments-msg" style="display:none">No comments yet. Be the first!</p>
+
+        <div class="comments-close-row">
+          <button class="comments-close-btn" onclick="toggleComments()">Close comments ↑</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM NAV (mirror of top) -->
+  <div class="art-nav-bar" id="art-nav-bottom" style="border-top:1px solid var(--rule);border-bottom:none;">
+    <button class="art-nav-btn" id="btn-prev-bottom" onclick="navigatePost(-1)">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Previous post
+    </button>
+    <div class="art-nav-center">
+      <div class="art-nav-pos" id="art-nav-pos-bottom"></div>
+      <div class="art-nav-title" id="art-nav-title-bottom"></div>
+    </div>
+    <button class="art-nav-btn" id="btn-next-bottom" onclick="navigatePost(1)">
+      Next post
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+</div><!-- /#article-view -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-logo">Devadatta<br>Pokharanakar</div>
+    <div class="footer-tagline">Data Scientist · Developer · Artist<br>MTech @ IIT Palakkad</div>
+    <div class="footer-email">dmpokharanakar@gmail.com</div>
+  </div>
+  <div class="footer-nav">
+    <div>
+      <div class="footer-nav-title">Navigate</div>
+      <ul class="footer-nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#education">Education</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-nav-title">Pages</div>
+      <ul class="footer-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">All Projects</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="art.html">Art Gallery</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2025 Devadatta Mahesh Pokharanakar · Built with plain HTML, CSS & JS</span>
+  <div class="footer-visitor">
+    <div class="fdot"></div>
+    <span id="footer-visitor-display">Loading…</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     DATA + LOGIC
+══════════════════════════════════════════ -->
+<script>
+/* ══════════════════════════════
+   BLOG DATA
+   To add a post: push a new object to POSTS.
+   `body` is an HTML string — use the helpers:
+     p("text"), h2("heading"), h3("sub"), img("src","caption"),
+     code("snippet"), pre("block"), quote("text"), ul([...items])
+══════════════════════════════ */
+
+// HTML helpers
+const p    = t => `<p>${t}</p>`;
+const h2   = t => `<h2>${t}</h2>`;
+const h3   = t => `<h3>${t}</h3>`;
+const bq   = t => `<blockquote>${t}</blockquote>`;
+const code = t => `<code>${t}</code>`;
+const pre  = t => `<pre><code>${t}</code></pre>`;
+const ul   = items => `<ul>${items.map(i=>`<li>${i}</li>`).join('')}</ul>`;
+const img  = (src,cap) => `<div class="art-img-wrap">
+  ${src
+    ? `<img src="${src}" alt="${cap||''}"/>`
+    : `<div class="art-img-placeholder">
+         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+         <span>${cap||'Article image'}</span>
+       </div>`}
+  ${cap ? `<div class="art-img-caption">${cap}</div>` : ''}
+</div>`;
+
+const POSTS = [
+  {
+    id: 1,
+    slug: "stock-prediction-ml",
+    category: "ML / AI",
+    tags: ["ml"],
+    title: "Stock Price Prediction with Ensemble ML Models",
+    excerpt: "How I built a Django-powered prediction dashboard using Random Forests, LSTM, and feature engineering on live market data.",
+    date: "15 March 2025",
+    datetime: "2025-03-15",
+    readTime: "8 min read",
+    body:
+      h2("The problem with single-model prediction") +
+      p("When I started the stock prediction project at Pleximus Inc., the naive approach was tempting: grab some OHLCV data, throw it into a Random Forest, and call it done. But markets are noisy, non-stationary, and humbling. A single model that performs well on validation data can fail spectacularly in production.") +
+      p("The solution I settled on was an <strong>ensemble of three complementary models</strong> — each capturing a different signal from the data — whose outputs are combined via a soft voting mechanism.") +
+      img("", "Architecture of the three-model ensemble pipeline") +
+      h2("Feature engineering first") +
+      p("Raw OHLCV data is nearly useless as direct model input. The real value comes from derived technical indicators that quantify momentum, volatility, and trend. I engineered the following features using the ${code('ta')} library in Python:") +
+      ul(["RSI (14-day) — overbought/oversold momentum","MACD line and signal — trend direction changes","Bollinger Band width — volatility regime","20-day and 50-day SMA ratio — trend strength","On-Balance Volume (OBV) — volume-price relationship","Daily returns and log returns — stationarity"]) +
+      h3("Why stationarity matters") +
+      p("LSTMs in particular suffer when the input distribution shifts over time. Taking the first difference of closing prices, or using percentage returns instead of raw prices, makes the series stationary and dramatically improves generalisation.") +
+      pre(`# Quick stationarity check
+from statsmodels.tsa.stattools import adfuller
+result = adfuller(df['close'].pct_change().dropna())
+print(f"ADF Statistic: {result[0]:.4f}")
+print(f"p-value: {result[1]:.4f}")
+# p < 0.05 → stationary ✓`) +
+      h2("The three models") +
+      p("<strong>Random Forest</strong> handles the tabular, time-windowed features well. It's robust to noise and gives us feature importance scores for free — useful for debugging which indicators actually matter.") +
+      p("<strong>LSTM</strong> sees a rolling 30-day window of normalised features as a sequence. It captures temporal dependencies that the Random Forest misses by construction.") +
+      p("<strong>XGBoost</strong> acts as a corrector — it's trained on the residuals of the Random Forest predictions, squeezing out a few extra percentage points of accuracy on directional movement.") +
+      img("", "Predicted vs actual closing price over a 60-day test window") +
+      h2("Results and honest limitations") +
+      p("The ensemble achieved ~62% directional accuracy on the test set (20% of data, not shuffled — temporal split is essential). That sounds modest, but directional accuracy above 55% is considered useful for algorithmic strategies.") +
+      bq("Predicting exact price levels is a fool's errand. What the model actually provides is a probabilistic directional signal that, combined with risk management, can have positive expected value.") +
+      p("The Django dashboard pulls live data via Yahoo Finance every 15 minutes, runs the inference pipeline, and updates the charts. The whole stack runs on a single low-cost VPS — no GPU required at inference time."),
+    img: ""
+  },
+  {
+    id: 2,
+    slug: "leafletjs-gis-react",
+    category: "Tutorial",
+    tags: ["tutorial"],
+    title: "Integrating Leaflet.js GIS Maps into a React App",
+    excerpt: "A step-by-step walkthrough of the GIS pipeline I built for AquaSense — from tile layers to live sensor overlays.",
+    date: "22 February 2025",
+    datetime: "2025-02-22",
+    readTime: "6 min read",
+    body:
+      h2("Why Leaflet over Google Maps?") +
+      p("For AquaSense, I needed a mapping library that was open-source, worked well with custom GeoJSON overlays, and didn't require an API key tied to a billing account. Leaflet.js ticked every box — it's lightweight (~42 KB), extensively documented, and integrates cleanly with React via the ${code('react-leaflet')} wrapper.") +
+      img("", "AquaSense map dashboard showing the pipe network overlay") +
+      h2("Setting up react-leaflet") +
+      p("Start with a fresh React project and install the dependencies:") +
+      pre(`npm install leaflet react-leaflet
+# Also fix the marker icon bug (common gotcha):
+import L from 'leaflet';
+import icon from 'leaflet/dist/images/marker-icon.png';
+import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+L.Marker.prototype.options.icon = L.icon({
+  iconUrl: icon, shadowUrl: iconShadow,
+  iconAnchor: [12, 41]
+});`) +
+      h3("The basic map component") +
+      pre(`import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
+
+export default function NetworkMap({ geoData }) {
+  return (
+    <MapContainer
+      center={[16.9902, 73.3120]}
+      zoom={14}
+      style={{ height: '600px', width: '100%' }}
+    >
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; OpenStreetMap contributors'
+      />
+      {geoData && <GeoJSON data={geoData} style={styleFeature} />}
+    </MapContainer>
+  );
+}`) +
+      h2("Adding dynamic sensor overlays") +
+      p("Each pipe segment in the water network is a GeoJSON feature. The style function colours segments by pressure status — green for normal, amber for low pressure, red for detected leak. The status values come from a polling hook that hits the Python backend every 30 seconds.") +
+      pre(`function styleFeature(feature) {
+  const status = feature.properties.status;
+  const colors = { normal:'#22c55e', low:'#f59e0b', leak:'#ef4444' };
+  return {
+    color: colors[status] || '#888',
+    weight: status === 'leak' ? 4 : 2,
+    opacity: 0.85
+  };
+}`) +
+      p("Clicking a segment opens a popup with real-time data from the nearest sensor. The popup content is generated dynamically so it always shows the latest reading without re-rendering the entire map.") +
+      img("", "Popup showing sensor readings on a highlighted pipe segment") +
+      h2("PostGIS on the backend") +
+      p("The GeoJSON is served from a PostgreSQL database with the PostGIS extension. Spatial queries — like 'find all pipe segments within 200m of a reported leak' — are written in SQL using PostGIS functions and are dramatically faster than computing them in Python.") +
+      pre(`SELECT ST_AsGeoJSON(geom), status, sensor_id
+FROM pipe_segments
+WHERE ST_DWithin(
+  geom::geography,
+  ST_MakePoint(73.312, 16.990)::geography,
+  200
+);`),
+    img: ""
+  },
+  {
+    id: 3,
+    slug: "fuzzy-logic-android",
+    category: "Dev",
+    tags: ["dev"],
+    title: "Fuzzy Logic for Health Diagnostics on Android",
+    excerpt: "Why fuzzy logic outperforms hard thresholds for symptom-based diagnosis, and how I implemented it in Java for HealthAssist.",
+    date: "10 January 2025",
+    datetime: "2025-01-10",
+    readTime: "7 min read",
+    body:
+      h2("The problem with binary thresholds in healthcare") +
+      p("When designing HealthAssist, the obvious first approach was rule-based: <em>if blood sugar > 126 mg/dL, then diabetic.</em> Clean, simple, implementable in an afternoon. But dangerously wrong.") +
+      p("A patient at 125 mg/dL is not meaningfully different from one at 127 mg/dL. Clinical reality is a continuum, not a switch. Hard thresholds create sharp discontinuities where small measurement noise can flip a diagnosis entirely — not something you want in a health application.") +
+      bq("Fuzzy logic doesn't say 'yes' or 'no'. It says 'how much yes'. That's much closer to how clinical judgment actually works.") +
+      img("", "Membership functions for blood glucose: normal, pre-diabetic, diabetic") +
+      h2("Fuzzy sets and membership functions") +
+      p("In fuzzy logic, each variable is described by a <strong>membership function</strong> that maps any input value to a degree of membership between 0 and 1. For blood glucose, I defined three overlapping triangular/trapezoidal sets: Normal, Pre-diabetic, and Diabetic.") +
+      p("A glucose reading of 115 mg/dL might have: Normal membership = 0.4, Pre-diabetic membership = 0.6. This captures the genuine clinical ambiguity — the patient is <em>somewhat</em> pre-diabetic.") +
+      h3("Java implementation") +
+      pre(`public class FuzzySet {
+    private double a, b, c; // triangular params
+
+    public FuzzySet(double a, double b, double c) {
+        this.a = a; this.b = b; this.c = c;
+    }
+
+    public double membership(double x) {
+        if (x <= a || x >= c) return 0.0;
+        if (x <= b) return (x - a) / (b - a);
+        return (c - x) / (c - b);
+    }
+}
+
+// Usage:
+FuzzySet preDiabetic = new FuzzySet(100, 115, 126);
+double degree = preDiabetic.membership(115); // → 1.0`) +
+      h2("The inference engine") +
+      p("For each disease (diabetes, anemia, hypertension) I defined a set of fuzzy IF-THEN rules. The inference engine evaluates all rules, combines the output membership functions via max aggregation, and then defuzzifies the result using the centroid method to produce a final risk score between 0 and 100.") +
+      ul(["Rule 1: IF glucose IS high AND symptoms IS many THEN diabetes_risk IS high","Rule 2: IF glucose IS borderline AND age IS senior THEN diabetes_risk IS moderate","Rule 3: IF haemoglobin IS very_low THEN anemia_risk IS high"]) +
+      img("", "HealthAssist diagnosis result screen showing risk scores") +
+      h2("Why this matters for a student project") +
+      p("Beyond the technical implementation, building HealthAssist taught me how domain knowledge shapes software architecture. The fuzzy logic approach was suggested by a family member who is a doctor — a reminder that the best technical solutions come from talking to the people who will actually use them."),
+    img: ""
+  },
+  {
+    id: 4,
+    slug: "mit-manipal-hackathon",
+    category: "Student Life",
+    tags: ["life"],
+    title: "Lessons from Leading Maharashtra's Only MIT Manipal Hackathon Team",
+    excerpt: "36 hours, one team, zero sleep — what I learned about leadership and rapid prototyping under pressure.",
+    date: "4 November 2024",
+    datetime: "2024-11-04",
+    readTime: "5 min read",
+    body:
+      h2("How we got there") +
+      p("We applied on a whim. The MIT Manipal Hackathon (M#23) had a reputation for being intense — 36 hours offline, no going home, no phones after midnight. Our team of four from FAMT Ratnagiri was the only team selected from Maharashtra. That felt significant at the time. It felt terrifying by hour six.") +
+      img("", "Team at MIT Manipal campus, 19 October 2023") +
+      h2("The first six hours: excitement over clarity") +
+      p("We had three competing ideas and not enough time to properly evaluate them. The mistake most hackathon teams make — including us, initially — is spending the first two hours in vigorous debate instead of quickly prototyping all three and seeing which has legs.") +
+      bq("Speed of learning beats depth of planning when the clock is running. Build the smallest thing that reveals the biggest uncertainty.") +
+      p("We eventually settled on a smart campus navigation system using Bluetooth beacons and indoor mapping. Not because it was the best idea, but because we had the clearest vision of what 'done' looked like — critical at hour two of a 36-hour sprint.") +
+      h2("Hours 12–24: the trough") +
+      p("Nobody talks about the trough. Between midnight and 6am, everything slows down. Code that worked at 11pm mysteriously breaks at 2am. Team members get snappy. The problem that seemed elegantly scoped suddenly has three unseen dependencies.") +
+      p("The most important thing I did as team lead in this phase: I stopped trying to solve everything myself. I split the remaining work into four independent modules, assigned each to one person, and set a hard checkpoint at 5am to integrate. Parallel work is slower to coordinate but faster in total.") +
+      img("", "Working through the night — whiteboard full of revised architecture") +
+      h2("The last 12 hours: brutal prioritisation") +
+      p("By 6am we had a working prototype of the core feature but none of the polish. The temptation was to keep adding features. The right move was to make the demo path absolutely bulletproof and cut everything else.") +
+      ul(["We removed two features that worked but added demo complexity","We hardcoded the demo route rather than risk live Bluetooth issues","We rehearsed the presentation six times — each time to a teammate who pretended not to know what we built"]) +
+      h2("What I'd tell the next team") +
+      p("The technical skills matter less than you think. What actually wins hackathons: a sharply defined problem, a demo that works reliably on a single path, and a presenter who can explain the value in under 60 seconds. The rest is polish.") +
+      p("We didn't win. We made it to the final round and got strong feedback from the judges. More importantly, I came back with a clearer understanding of my own leadership gaps — which, in the long run, is worth more than any trophy."),
+    img: ""
+  }
+];
+
+/* ══════════════════════════════
+   STATE
+══════════════════════════════ */
+let currentPostIndex = 0;
+let commentsOpen = false;
+
+// Persist likes and comments in localStorage
+function getStorage(key, def) {
+  try { const v = localStorage.getItem(key); return v !== null ? JSON.parse(v) : def; }
+  catch(e) { return def; }
+}
+function setStorage(key, val) {
+  try { localStorage.setItem(key, JSON.stringify(val)); } catch(e){}
+}
+
+function getLikes()     { return getStorage('dp_blog_likes',     {}); }
+function getComments()  { return getStorage('dp_blog_comments',  {}); }
+function getClikes()    { return getStorage('dp_blog_clikes',    {}); } // comment likes
+
+function postLikeCount(id) {
+  const likes = getLikes();
+  return (likes[id] && likes[id].count) || 0;
+}
+
+function isPostLiked(id) {
+  const likes = getLikes();
+  return !!(likes[id] && likes[id].liked);
+}
+
+function postCommentCount(id) {
+  const comments = getComments();
+  return (comments[id] || []).length;
+}
+
+/* ══════════════════════════════
+   LIST VIEW
+══════════════════════════════ */
+let currentFilter = 'all';
+
+function renderList() {
+  const container = document.getElementById('blog-list');
+  const filtered  = POSTS.filter(p => currentFilter === 'all' || p.tags.includes(currentFilter));
+
+  container.innerHTML = filtered.map((post, i) => {
+    const likes    = postLikeCount(post.id);
+    const comments = postCommentCount(post.id);
+    return `
+    <div class="blog-row" data-tags="${post.tags.join(' ')}" data-id="${post.id}"
+         onclick="openPost(${POSTS.indexOf(post)})"
+         style="animation-delay:${i * 0.06}s">
+      <div class="br-meta">
+        <div class="br-num">${String(i+1).padStart(2,'0')}</div>
+        <div class="br-meta-date">${post.date}</div>
+        <div class="br-meta-date" style="color:var(--ink-light);font-size:10px">${post.readTime}</div>
+        <div class="br-meta-likes">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          ${likes}
+        </div>
+      </div>
+      <div class="br-divider"></div>
+      <div class="br-body">
+        <div class="br-cat">${post.category}</div>
+        <span class="br-title">${post.title}</span>
+        <span class="br-excerpt">${post.excerpt}</span>
+        <div class="br-footer">
+          <span class="br-date">${post.date}</span>
+          <span class="br-read-time">${post.readTime}</span>
+          <span class="br-stat">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            ${comments}
+          </span>
+          <span class="br-read-cta">Read post →</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+
+  updateHeaderStats();
+}
+
+function updateHeaderStats() {
+  const totalLikes    = POSTS.reduce((s,p) => s + postLikeCount(p.id), 0);
+  const totalComments = POSTS.reduce((s,p) => s + postCommentCount(p.id), 0);
+  document.getElementById('stat-posts').textContent    = POSTS.length;
+  document.getElementById('stat-likes').textContent    = totalLikes;
+  document.getElementById('stat-comments').textContent = totalComments;
+}
+
+function filterPosts(tag, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentFilter = tag;
+  renderList();
+}
+
+/* ══════════════════════════════
+   ARTICLE VIEW
+══════════════════════════════ */
+function openPost(index) {
+  currentPostIndex = index;
+  commentsOpen     = false;
+  renderArticle();
+  document.getElementById('list-view').style.display    = 'none';
+  document.getElementById('article-view').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showList() {
+  document.getElementById('article-view').style.display = 'none';
+  document.getElementById('list-view').style.display    = 'block';
+  renderList();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function navigatePost(dir) {
+  const newIdx = currentPostIndex + dir;
+  if (newIdx < 0 || newIdx >= POSTS.length) return;
+  openPost(newIdx);
+}
+
+function renderArticle() {
+  const post = POSTS[currentPostIndex];
+
+  // Nav bar
+  const pos = `${currentPostIndex + 1} of ${POSTS.length}`;
+  ['top','bottom'].forEach(side => {
+    const posEl = document.getElementById(`art-nav-pos-${side}`);
+    const titEl = document.getElementById(`art-nav-title-${side}`);
+    if(posEl) posEl.textContent = pos;
+    if(titEl) titEl.textContent = post.title;
+
+    const prevBtn = document.getElementById(`btn-prev-${side}`);
+    const nextBtn = document.getElementById(`btn-next-${side}`);
+    if(prevBtn) prevBtn.disabled = currentPostIndex === 0;
+    if(nextBtn) nextBtn.disabled = currentPostIndex === POSTS.length - 1;
+  });
+
+  // Article content
+  document.getElementById('art-cat').textContent   = post.category;
+  document.getElementById('art-title').textContent = post.title;
+
+  document.getElementById('art-meta').innerHTML = `
+    <span class="art-meta-item">
+      <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      ${post.date}
+    </span>
+    <span class="art-meta-sep"></span>
+    <span class="art-meta-item">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      ${post.readTime}
+    </span>
+    <span class="art-meta-sep"></span>
+    <span class="art-meta-item">
+      <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      <span id="art-meta-likes">${postLikeCount(post.id)} likes</span>
+    </span>
+    <span class="art-meta-sep"></span>
+    <span class="art-meta-item">
+      <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      <span id="art-meta-comments">${postCommentCount(post.id)} comments</span>
+    </span>`;
+
+  document.getElementById('art-body').innerHTML = post.body;
+
+  document.getElementById('art-tags-wrap').innerHTML =
+    `<span class="art-tags-label">Tags:</span>` +
+    post.tags.concat([post.category.toLowerCase()]).map(t =>
+      `<span class="art-tag">${t}</span>`).join('');
+
+  // Like widget
+  renderLikeWidget();
+
+  // Share links
+  const url = encodeURIComponent(window.location.href + '#' + post.slug);
+  const txt = encodeURIComponent(post.title + ' by @DevadattaP');
+  document.getElementById('share-twitter').href  = `https://twitter.com/intent/tweet?text=${txt}&url=${url}`;
+  document.getElementById('share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+
+  // Related posts (up to 3 excluding current)
+  const related = POSTS.filter((_,i) => i !== currentPostIndex).slice(0,3);
+  document.getElementById('related-posts').innerHTML = related.map(r => `
+    <div class="related-item" onclick="openPost(${POSTS.indexOf(r)})">
+      <div class="rel-cat">${r.category}</div>
+      <span class="rel-title">${r.title}</span>
+    </div>`).join('');
+
+  // Comments
+  document.getElementById('comments-body').classList.remove('open');
+  document.getElementById('ch-toggle-icon').classList.remove('open');
+  commentsOpen = false;
+  renderComments();
+}
+
+function renderLikeWidget() {
+  const post    = POSTS[currentPostIndex];
+  const liked   = isPostLiked(post.id);
+  const count   = postLikeCount(post.id);
+  const btn     = document.getElementById('art-like-btn');
+  const countEl = document.getElementById('art-like-count');
+  if(btn)     btn.classList.toggle('liked', liked);
+  if(countEl) countEl.textContent = count;
+}
+
+function toggleLike() {
+  const post  = POSTS[currentPostIndex];
+  const likes = getLikes();
+  const entry = likes[post.id] || { count: 0, liked: false };
+
+  if (entry.liked) {
+    entry.count = Math.max(0, entry.count - 1);
+    entry.liked = false;
+  } else {
+    entry.count++;
+    entry.liked = true;
+  }
+
+  likes[post.id] = entry;
+  setStorage('dp_blog_likes', likes);
+
+  // Animate
+  const btn = document.getElementById('art-like-btn');
+  if(btn) { btn.classList.remove('popping'); void btn.offsetWidth; btn.classList.add('popping'); }
+
+  renderLikeWidget();
+
+  // Update meta bar
+  const metaLikes = document.getElementById('art-meta-likes');
+  if(metaLikes) metaLikes.textContent = entry.count + ' likes';
+}
+
+/* ══════════════════════════════
+   COMMENTS
+══════════════════════════════ */
+function toggleComments() {
+  commentsOpen = !commentsOpen;
+  const body = document.getElementById('comments-body');
+  const icon = document.getElementById('ch-toggle-icon');
+  body.classList.toggle('open', commentsOpen);
+  icon.classList.toggle('open', commentsOpen);
+}
+
+function renderComments() {
+  const post     = POSTS[currentPostIndex];
+  const allComms = getComments();
+  const clikes   = getClikes();
+  const list     = allComms[post.id] || [];
+
+  const badge = document.getElementById('comments-count-badge');
+  const metaC = document.getElementById('art-meta-comments');
+  if(badge) badge.textContent = list.length;
+  if(metaC) metaC.textContent = list.length + ' comment' + (list.length !== 1 ? 's' : '');
+
+  const noMsg  = document.getElementById('no-comments-msg');
+  const listEl = document.getElementById('comments-list');
+
+  if(list.length === 0) {
+    noMsg.style.display  = 'block';
+    listEl.innerHTML     = '';
+  } else {
+    noMsg.style.display  = 'none';
+    listEl.innerHTML     = list.map((c,i) => {
+      const cKey  = `${post.id}_${i}`;
+      const clike = clikes[cKey] || { count: 0, liked: false };
+      return `
+        <div class="comment-item" style="animation-delay:${i*0.05}s">
+          <div class="ci-header">
+            <span class="ci-name">${escHtml(c.name)}</span>
+            <span class="ci-date">${c.date}</span>
+          </div>
+          <div class="ci-text">${escHtml(c.text)}</div>
+          <button class="ci-like-btn ${clike.liked ? 'liked' : ''}"
+                  onclick="likeComment(${i})">
+            <svg viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3H14z"/><path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/></svg>
+            ${clike.count} helpful
+          </button>
+        </div>`;
+    }).join('');
+  }
+}
+
+function submitComment() {
+  const name = document.getElementById('cf-name').value.trim();
+  const text = document.getElementById('cf-text').value.trim();
+  if (!name || !text) {
+    document.getElementById('cf-name').style.borderBottomColor = name ? 'var(--ink)' : '#c0392b';
+    document.getElementById('cf-text').style.borderBottomColor = text ? 'var(--ink)' : '#c0392b';
+    return;
+  }
+
+  const post     = POSTS[currentPostIndex];
+  const allComms = getComments();
+  if (!allComms[post.id]) allComms[post.id] = [];
+
+  const now = new Date();
+  allComms[post.id].push({
+    name, text,
+    date: now.toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' })
+  });
+
+  setStorage('dp_blog_comments', allComms);
+
+  document.getElementById('cf-name').value  = '';
+  document.getElementById('cf-email').value = '';
+  document.getElementById('cf-text').value  = '';
+  document.getElementById('cf-name').style.borderBottomColor = 'var(--ink)';
+  document.getElementById('cf-text').style.borderBottomColor = 'var(--ink)';
+
+  renderComments();
+  if (!commentsOpen) toggleComments();
+}
+
+function likeComment(idx) {
+  const post   = POSTS[currentPostIndex];
+  const clikes = getClikes();
+  const key    = `${post.id}_${idx}`;
+  const entry  = clikes[key] || { count: 0, liked: false };
+
+  if(entry.liked) { entry.count = Math.max(0,entry.count-1); entry.liked=false; }
+  else            { entry.count++; entry.liked=true; }
+
+  clikes[key] = entry;
+  setStorage('dp_blog_clikes', clikes);
+  renderComments();
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    const ic = document.getElementById('copy-icon');
+    if(ic) { ic.textContent = '✓'; setTimeout(() => { ic.textContent = '↗'; }, 1800); }
+  });
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ══════════════════════════════
+   VISITOR COUNTER
+══════════════════════════════ */
+(function(){
+  let total  = parseInt(localStorage.getItem('dp_total')  || '3842');
+  let unique = parseInt(localStorage.getItem('dp_unique') || '1231');
+  const el   = document.getElementById('footer-visitor-display');
+  if(el) el.textContent = unique.toLocaleString() + ' unique · ' + total.toLocaleString() + ' total visits';
+})();
+
+/* ══════════════════════════════
+   INIT
+══════════════════════════════ */
+renderList();
+</script>
+</body>
+</html>

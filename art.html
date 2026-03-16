@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Art Gallery — Devadatta Pokharanakar</title>
+<meta name="description" content="Art gallery of Devadatta Pokharanakar — sketches, paintings, handcrafts, and Tabla."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #0A0A0A;
+    --ink-mid:    #444444;
+    --ink-light:  #888888;
+    --paper:      #FAFAFA;
+    --paper-mid:  #F0EFED;
+    --paper-dark: #E4E2DF;
+    --rule:       #0A0A0A;
+    --rule-light: #DDDDDD;
+    --serif:      'DM Serif Display', Georgia, serif;
+    --sans:       'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); overflow-x: hidden; cursor: crosshair; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  @keyframes fadeUp    { from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);} }
+  @keyframes fadeIn    { from{opacity:0;}to{opacity:1;} }
+  @keyframes scaleIn   { from{opacity:0;transform:scale(0.96);}to{opacity:1;transform:scale(1);} }
+  @keyframes pulse     { 0%,100%{opacity:1;}50%{opacity:0.3;} }
+  @keyframes heartPop  { 0%{transform:scale(1);}40%{transform:scale(1.45);}70%{transform:scale(0.9);}100%{transform:scale(1);} }
+  @keyframes gridIn    { from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);} }
+
+  .reveal   { opacity:0; animation:fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
+  .reveal-1 { animation-delay:0.05s; }
+  .reveal-2 { animation-delay:0.15s; }
+  .reveal-3 { animation-delay:0.25s; }
+
+  /* ── CHROME ── */
+  .top-rule { height:3px; background:var(--ink); }
+
+  .sitemap-bar { background:var(--paper-mid); border-bottom:0.5px solid var(--rule-light); padding:10px 48px; display:flex; align-items:center; justify-content:flex-end; gap:8px; }
+  .sitemap-bar span { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); }
+  .sitemap-bar a { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid); border-bottom:0.5px solid var(--ink-mid); }
+
+  nav { display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:58px; border-bottom:0.5px solid var(--rule-light); position:sticky; top:0; background:var(--paper); z-index:200; }
+  .nav-logo { font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; }
+  .nav-links { display:flex; gap:24px; list-style:none; }
+  .nav-links a { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid); padding-bottom:2px; border-bottom:1.5px solid transparent; transition:color 0.15s; }
+  .nav-links a:hover, .nav-links a.active { color:var(--ink); border-bottom-color:var(--ink); }
+  .nav-cta { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; background:var(--ink); color:var(--paper); padding:8px 18px; border:none; cursor:pointer; display:inline-block; transition:background 0.15s; }
+  .nav-cta:hover { background:var(--ink-mid); }
+
+  /* ── PAGE HEADER ── */
+  .page-header { display:grid; grid-template-columns:1fr 1.5px 1fr; border-bottom:1px solid var(--rule); min-height:160px; }
+  .ph-left { padding:40px 48px; display:flex; flex-direction:column; justify-content:space-between; }
+  .ph-breadcrumb { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-light); margin-bottom:16px; }
+  .ph-breadcrumb a { border-bottom:0.5px solid var(--ink-light); }
+  .ph-title { font-family:var(--serif); font-size:clamp(32px,4vw,52px); line-height:1.04; letter-spacing:-0.02em; }
+  .ph-title em { font-style:italic; border-bottom:3px solid var(--ink); padding-bottom:2px; }
+  .ph-divider { background:var(--rule); }
+  .ph-right { padding:40px 48px; background:var(--paper-mid); display:flex; flex-direction:column; justify-content:space-between; }
+  .ph-desc { font-size:13px; color:var(--ink-mid); line-height:1.8; max-width:420px; margin-bottom:20px; }
+  .ph-stats { display:flex; gap:32px; }
+  .ph-stat .n { font-family:var(--serif); font-size:26px; color:var(--ink); line-height:1; }
+  .ph-stat .l { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); margin-top:4px; }
+
+  /* ── CATEGORY TABS ── */
+  .cat-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--rule);
+    overflow-x: auto;
+    scrollbar-width: none;
+    background: var(--paper);
+    position: sticky;
+    top: 58px;
+    z-index: 100;
+  }
+  .cat-tabs::-webkit-scrollbar { display:none; }
+
+  .cat-tab {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 20px 36px;
+    border-right: 0.5px solid var(--rule-light);
+    cursor: pointer;
+    transition: background 0.15s;
+    position: relative;
+    background: transparent;
+    border-top: none; border-bottom: none; border-left: none;
+    font-family: var(--sans);
+  }
+  .cat-tab:last-child { border-right: none; }
+  .cat-tab:hover { background: var(--paper-mid); }
+  .cat-tab.active { background: var(--paper); }
+  .cat-tab.active::after { content:''; position:absolute; bottom:-1px; left:0; right:0; height:3px; background:var(--ink); }
+
+  .cat-tab-icon { font-size:22px; line-height:1; }
+  .cat-tab-name { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-light); transition:color 0.15s; }
+  .cat-tab-count { font-size:9px; color:var(--ink-light); }
+  .cat-tab.active .cat-tab-name { color:var(--ink); font-weight:500; }
+  .cat-tab.active .cat-tab-count { color:var(--ink-mid); }
+
+  /* ── SORT / VIEW BAR ── */
+  .gallery-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 48px;
+    border-bottom: 0.5px solid var(--rule-light);
+    background: var(--paper-mid);
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .gt-left { display:flex; align-items:center; gap:16px; }
+  .gt-count { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); }
+
+  .gt-sort { display:flex; gap:0; }
+  .gt-sort-btn { font-family:var(--sans); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; padding:6px 14px; background:transparent; color:var(--ink-light); border:0.5px solid var(--rule-light); border-right:none; cursor:pointer; transition:background 0.15s,color 0.15s; }
+  .gt-sort-btn:last-child { border-right:0.5px solid var(--rule-light); }
+  .gt-sort-btn:hover { background:var(--paper-dark); color:var(--ink); }
+  .gt-sort-btn.active { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+
+  .gt-right { display:flex; align-items:center; gap:8px; }
+  .gt-view-btn { width:32px; height:32px; border:0.5px solid var(--rule-light); background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.15s; }
+  .gt-view-btn:hover, .gt-view-btn.active { background:var(--ink); }
+  .gt-view-btn:hover svg, .gt-view-btn.active svg { stroke:var(--paper); }
+  .gt-view-btn svg { width:14px; height:14px; stroke:var(--ink-light); fill:none; stroke-width:1.5; transition:stroke 0.15s; }
+
+  /* ── GALLERY GRID ── */
+  #gallery-section { padding:0 48px 56px; min-height:400px; }
+
+  .gallery-grid {
+    column-count: 3;
+    column-gap: 16px;
+    margin-top: 32px;
+  }
+
+  .gallery-grid.cols-4 { column-count: 4; column-gap: 12px; }
+  .gallery-grid.cols-2 { column-count: 2; column-gap: 20px; }
+
+  .grid-item {
+    break-inside: avoid;
+    margin-bottom: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--rule-light);
+    background: var(--paper-dark);
+    animation: gridIn 0.4s cubic-bezier(0.22,1,0.36,1) both;
+  }
+  .grid-item:hover .gi-overlay { opacity: 1; }
+  .grid-item:hover .gi-img { transform: scale(1.04); }
+
+  .gi-img {
+    width: 100%;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  /* Placeholder when no image */
+  .gi-placeholder {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--paper-dark);
+    padding: 32px 16px;
+    min-height: 160px;
+  }
+  .gi-placeholder svg { width:24px; height:24px; stroke:var(--ink-light); fill:none; stroke-width:1; }
+  .gi-placeholder span { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); text-align:center; }
+
+  .gi-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10,10,10,0.72);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 16px;
+  }
+
+  .gi-overlay-title {
+    font-family: var(--serif);
+    font-size: 15px;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+
+  .gi-overlay-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .gi-overlay-cat {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .gi-overlay-likes {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+  }
+  .gi-overlay-likes svg { width:11px; height:11px; stroke:currentColor; fill:none; stroke-width:1.5; }
+
+  /* Caption strip below image */
+  .gi-caption {
+    padding: 10px 12px;
+    border-top: 0.5px solid var(--rule-light);
+    background: var(--paper);
+  }
+  .gi-caption-title { font-size:12px; font-weight:500; color:var(--ink); margin-bottom:2px; }
+  .gi-caption-sub { font-size:10px; color:var(--ink-light); }
+
+  /* Empty state */
+  .gallery-empty { display:none; padding:80px 0; text-align:center; }
+  .gallery-empty p { font-family:var(--serif); font-size:22px; color:var(--ink-light); }
+
+  /* ── LIGHTBOX MODAL ── */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,10,0.9);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .lightbox.open { display: flex; }
+
+  /* Navigation arrows (outside card) */
+  .lb-arr {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px; height: 48px;
+    background: rgba(250,250,250,0.08);
+    border: 0.5px solid rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 20px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    z-index: 1010;
+    transition: background 0.15s;
+    user-select: none;
+  }
+  .lb-arr:hover { background: rgba(250,250,250,0.18); }
+  .lb-arr.left  { left:  16px; }
+  .lb-arr.right { right: 16px; }
+  .lb-arr:disabled { opacity:0.2; pointer-events:none; }
+  .lb-arr svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:2; }
+
+  .lb-close-btn {
+    position: fixed;
+    top: 16px; right: 16px;
+    width: 40px; height: 40px;
+    background: rgba(250,250,250,0.08);
+    border: 0.5px solid rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    z-index: 1010;
+    transition: background 0.15s;
+  }
+  .lb-close-btn:hover { background: rgba(250,250,250,0.2); }
+
+  .lb-pos-indicator {
+    position: fixed;
+    bottom: 20px; left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    z-index: 1010;
+    background: rgba(10,10,10,0.5);
+    padding: 5px 14px;
+  }
+
+  /* The card itself */
+  .lb-card {
+    background: var(--paper);
+    width: min(900px, calc(100vw - 120px));
+    max-height: calc(100vh - 40px);
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    overflow: hidden;
+    animation: scaleIn 0.25s ease;
+    border: 1px solid var(--rule);
+  }
+
+  /* Image panel */
+  .lb-img-panel {
+    background: var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 380px;
+    position: relative;
+  }
+
+  .lb-img-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    max-height: calc(100vh - 40px);
+  }
+
+  .lb-img-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+  }
+  .lb-img-placeholder svg { width:36px; height:36px; stroke:rgba(255,255,255,0.3); fill:none; stroke-width:1; }
+  .lb-img-placeholder span { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.3); }
+
+  /* Info panel */
+  .lb-info {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: calc(100vh - 40px);
+    border-left: 1px solid var(--rule);
+  }
+
+  .lb-info-top { padding:28px 24px 20px; border-bottom:0.5px solid var(--rule-light); }
+
+  .lb-cat { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+  .lb-cat-dot { width:6px; height:6px; background:var(--ink); border-radius:50%; }
+
+  .lb-title { font-family:var(--serif); font-size:20px; color:var(--ink); line-height:1.2; margin-bottom:8px; }
+
+  .lb-desc { font-size:12.5px; color:var(--ink-mid); line-height:1.75; }
+
+  /* Tools/medium section */
+  .lb-tools-section { padding:18px 24px; border-bottom:0.5px solid var(--rule-light); }
+  .lb-section-label { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); margin-bottom:10px; }
+  .lb-tool-tags { display:flex; gap:6px; flex-wrap:wrap; }
+  .lb-tool-tag { font-size:9px; letter-spacing:0.08em; text-transform:uppercase; border:0.5px solid var(--rule-light); color:var(--ink-mid); padding:4px 10px; transition:background 0.15s,color 0.15s; }
+  .lb-tool-tag:hover { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+
+  /* Likes section */
+  .lb-engage-section { padding:18px 24px; border-bottom:0.5px solid var(--rule-light); display:flex; align-items:center; justify-content:space-between; }
+
+  .lb-like-widget { display:flex; align-items:center; gap:12px; }
+  .lb-like-btn {
+    width:40px; height:40px;
+    border:1.5px solid var(--rule);
+    background:transparent;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:background 0.2s, border-color 0.2s;
+  }
+  .lb-like-btn:hover { background:var(--paper-dark); }
+  .lb-like-btn.liked { background:var(--ink); border-color:var(--ink); }
+  .lb-like-btn.liked .lb-like-icon { stroke:var(--paper); fill:var(--paper); }
+  .lb-like-btn.popping { animation:heartPop 0.4s ease; }
+  .lb-like-icon { width:18px; height:18px; stroke:var(--ink); fill:none; stroke-width:1.5; transition:stroke 0.2s,fill 0.2s; }
+
+  .lb-like-info .lb-like-count { font-family:var(--serif); font-size:20px; color:var(--ink); line-height:1; }
+  .lb-like-info .lb-like-label { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); }
+
+  /* Comments toggle */
+  .lb-comments-toggle {
+    display:flex; align-items:center; gap:8px;
+    font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid);
+    background:none; border:none; cursor:pointer;
+    padding:0; transition:color 0.15s;
+  }
+  .lb-comments-toggle:hover { color:var(--ink); }
+  .lb-comments-toggle svg { width:14px; height:14px; stroke:currentColor; fill:none; stroke-width:1.5; }
+
+  /* Comments panel (collapsible) */
+  .lb-comments-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-top: 0.5px solid var(--rule-light);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease;
+  }
+  .lb-comments-section.open { max-height: 600px; }
+
+  .lb-comments-inner { padding:16px 24px; display:flex; flex-direction:column; gap:0; overflow-y:auto; flex:1; }
+  .lb-comment-form-label { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); margin-bottom:12px; }
+
+  .lb-cf-input {
+    width:100%; font-family:var(--sans); font-size:12px; color:var(--ink); background:transparent;
+    border:none; border-bottom:1px solid var(--rule); padding:8px 0; outline:none; resize:none; transition:border-color 0.15s; margin-bottom:10px;
+  }
+  .lb-cf-input:focus { border-bottom-color:var(--ink); }
+  .lb-cf-input::placeholder { color:var(--ink-light); }
+  .lb-cf-textarea { width:100%; font-family:var(--sans); font-size:12px; color:var(--ink); background:transparent; border:none; border-bottom:1px solid var(--rule); padding:8px 0; outline:none; resize:none; height:56px; transition:border-color 0.15s; margin-bottom:12px; }
+  .lb-cf-textarea:focus { border-bottom-color:var(--ink); }
+  .lb-cf-textarea::placeholder { color:var(--ink-light); }
+
+  .lb-cf-submit { font-family:var(--sans); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; background:var(--ink); color:var(--paper); padding:9px 20px; border:1.5px solid var(--ink); cursor:pointer; transition:all 0.15s; width:100%; margin-bottom:16px; }
+  .lb-cf-submit:hover { background:transparent; color:var(--ink); }
+
+  .lb-comment-list { display:flex; flex-direction:column; gap:0; }
+  .lb-comment-item { padding:12px 0; border-bottom:0.5px solid var(--rule-light); }
+  .lb-comment-item:last-child { border-bottom:none; }
+  .lb-ci-header { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:5px; gap:8px; }
+  .lb-ci-name { font-size:12px; font-weight:500; color:var(--ink); }
+  .lb-ci-date { font-size:10px; color:var(--ink-light); white-space:nowrap; }
+  .lb-ci-text { font-size:12px; color:var(--ink-mid); line-height:1.6; }
+
+  .lb-no-comments { font-size:12px; color:var(--ink-light); font-style:italic; padding:8px 0; }
+
+  /* ── FOOTER ── */
+  footer { background:var(--ink); padding:48px; display:grid; grid-template-columns:1.2fr 1fr; gap:48px; }
+  .footer-brand .footer-logo { font-family:var(--serif); font-size:22px; color:var(--paper); margin-bottom:10px; }
+  .footer-brand .footer-tagline { font-size:11px; color:rgba(255,255,255,0.5); line-height:1.7; margin-bottom:20px; }
+  .footer-brand .footer-email { font-size:11px; color:rgba(255,255,255,0.7); }
+  .footer-nav { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  .footer-nav-title { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:16px; }
+  .footer-nav-links { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .footer-nav-links li a { font-size:12px; color:rgba(255,255,255,0.65); transition:color 0.15s; }
+  .footer-nav-links li a:hover { color:#fff; }
+  .footer-bottom { background:#111; padding:16px 48px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-bottom span { font-size:10px; letter-spacing:0.08em; color:rgba(255,255,255,0.35); }
+  .footer-visitor { font-size:10px; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:8px; }
+  .fdot { width:6px; height:6px; border-radius:50%; background:#fff; animation:pulse 2s infinite; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width:960px) {
+    nav { padding:0 20px; }
+    .nav-links { display:none; }
+    .page-header { grid-template-columns:1fr; }
+    .ph-divider { display:none; }
+    .ph-left, .ph-right { padding:28px 24px; }
+    .cat-tab { padding:16px 20px; }
+    .cat-tab-icon { font-size:18px; }
+    #gallery-section { padding:0 24px 40px; }
+    .gallery-grid { column-count:2; }
+    .gallery-grid.cols-4 { column-count:2; }
+    .gallery-grid.cols-2 { column-count:1; }
+    .gallery-toolbar { padding:12px 24px; }
+    .lb-card { grid-template-columns:1fr; width:min(560px, calc(100vw - 24px)); }
+    .lb-img-panel { min-height:240px; max-height:50vh; }
+    .lb-info { max-height:50vh; border-left:none; border-top:1px solid var(--rule); }
+    .lb-arr.left  { left:4px; }
+    .lb-arr.right { right:4px; }
+    footer { grid-template-columns:1fr; gap:32px; padding:36px 24px; }
+    .footer-bottom { padding:14px 24px; flex-direction:column; gap:6px; text-align:center; }
+    .sitemap-bar { padding:10px 24px; }
+  }
+  @media (max-width:540px) {
+    .gallery-grid, .gallery-grid.cols-4 { column-count:1; }
+    .footer-nav { grid-template-columns:1fr; gap:24px; }
+    .cat-tab-name { font-size:9px; }
+    .ph-stats { gap:16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+<div class="sitemap-bar">
+  <span>Navigate →</span>
+  <a href="sitemap.html">Sitemap</a>
+</div>
+
+<!-- NAVBAR -->
+<nav class="reveal reveal-1">
+  <div class="nav-logo"><a href="index.html">D. Pokharanakar</a></div>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="index.html#education">Education</a></li>
+    <li><a href="certifications.html">Certifications</a></li>
+    <li><a href="art.html" class="active">Art</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="resume.pdf" download class="nav-cta">Download CV</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="ph-left reveal reveal-2">
+    <div>
+      <div class="ph-breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Art Gallery</div>
+      <h1 class="ph-title">Art &amp; <em>Hobbies</em></h1>
+    </div>
+  </div>
+  <div class="ph-divider"></div>
+  <div class="ph-right reveal reveal-3">
+    <p class="ph-desc">A personal gallery of sketches, paintings, handcrafts, and more — creative work made outside of engineering hours. Art sharpens the eye and quiets the mind.</p>
+    <div class="ph-stats">
+      <div class="ph-stat"><div class="n" id="stat-total">0</div><div class="l">Works</div></div>
+      <div class="ph-stat"><div class="n" id="stat-cats">5</div><div class="l">Categories</div></div>
+      <div class="ph-stat"><div class="n" id="stat-likes">0</div><div class="l">Total likes</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY TABS -->
+<div class="cat-tabs reveal reveal-2" id="cat-tabs">
+  <!-- Injected by JS -->
+</div>
+
+<!-- TOOLBAR -->
+<div class="gallery-toolbar reveal reveal-2">
+  <div class="gt-left">
+    <span class="gt-count" id="gt-count">Loading…</span>
+    <div class="gt-sort">
+      <button class="gt-sort-btn active" onclick="setSort('default',this)">Default</button>
+      <button class="gt-sort-btn" onclick="setSort('liked',this)">Most liked</button>
+      <button class="gt-sort-btn" onclick="setSort('newest',this)">Newest</button>
+    </div>
+  </div>
+  <div class="gt-right">
+    <button class="gt-view-btn active" id="btn-cols3" onclick="setCols(3,this)" title="3 columns">
+      <svg viewBox="0 0 18 18"><rect x="1" y="1" width="4" height="16"/><rect x="7" y="1" width="4" height="16"/><rect x="13" y="1" width="4" height="16"/></svg>
+    </button>
+    <button class="gt-view-btn" id="btn-cols4" onclick="setCols(4,this)" title="4 columns">
+      <svg viewBox="0 0 20 18"><rect x="1" y="1" width="3" height="16"/><rect x="6" y="1" width="3" height="16"/><rect x="11" y="1" width="3" height="16"/><rect x="16" y="1" width="3" height="16"/></svg>
+    </button>
+    <button class="gt-view-btn" id="btn-cols2" onclick="setCols(2,this)" title="2 columns">
+      <svg viewBox="0 0 14 18"><rect x="1" y="1" width="5" height="16"/><rect x="8" y="1" width="5" height="16"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div id="gallery-section">
+  <div class="gallery-grid" id="gallery-grid"></div>
+  <div class="gallery-empty" id="gallery-empty">
+    <p>Nothing here yet — check back soon.</p>
+  </div>
+</div>
+
+<!-- ═══════════ LIGHTBOX ═══════════ -->
+<div class="lightbox" id="lightbox" onclick="handleLbBgClick(event)">
+  <button class="lb-close-btn" onclick="closeLb()">✕</button>
+
+  <button class="lb-arr left"  id="lb-prev" onclick="lbNav(-1)">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="lb-arr right" id="lb-next" onclick="lbNav(1)">
+    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+
+  <div class="lb-pos-indicator" id="lb-pos"></div>
+
+  <div class="lb-card">
+    <!-- Image -->
+    <div class="lb-img-panel" id="lb-img-panel"></div>
+
+    <!-- Info -->
+    <div class="lb-info">
+      <div class="lb-info-top">
+        <div class="lb-cat"><span class="lb-cat-dot"></span><span id="lb-cat"></span></div>
+        <h2 class="lb-title"  id="lb-title"></h2>
+        <p  class="lb-desc"   id="lb-desc"></p>
+      </div>
+
+      <div class="lb-tools-section">
+        <div class="lb-section-label">Artform &amp; tools</div>
+        <div class="lb-tool-tags" id="lb-tools"></div>
+      </div>
+
+      <div class="lb-engage-section">
+        <div class="lb-like-widget">
+          <button class="lb-like-btn" id="lb-like-btn" onclick="toggleArtLike()">
+            <svg class="lb-like-icon" viewBox="0 0 24 24">
+              <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+            </svg>
+          </button>
+          <div class="lb-like-info">
+            <div class="lb-like-count" id="lb-like-count">0</div>
+            <div class="lb-like-label">Likes</div>
+          </div>
+        </div>
+        <button class="lb-comments-toggle" onclick="toggleLbComments()">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          <span id="lb-comment-toggle-label">Comments</span>
+        </button>
+      </div>
+
+      <!-- Comments -->
+      <div class="lb-comments-section" id="lb-comments-section">
+        <div class="lb-comments-inner">
+          <div class="lb-comment-form-label">Add a comment</div>
+          <input  class="lb-cf-input"    id="lb-cf-name"  type="text"  placeholder="Your name *"/>
+          <textarea class="lb-cf-textarea" id="lb-cf-text"  placeholder="Your comment..."></textarea>
+          <button class="lb-cf-submit" onclick="submitArtComment()">Post Comment</button>
+          <div class="lb-comment-list" id="lb-comment-list"></div>
+          <p class="lb-no-comments" id="lb-no-comments">No comments yet — be the first!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-logo">Devadatta<br>Pokharanakar</div>
+    <div class="footer-tagline">Data Scientist · Developer · Artist<br>MTech @ IIT Palakkad</div>
+    <div class="footer-email">dmpokharanakar@gmail.com</div>
+  </div>
+  <div class="footer-nav">
+    <div>
+      <div class="footer-nav-title">Navigate</div>
+      <ul class="footer-nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#education">Education</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-nav-title">Pages</div>
+      <ul class="footer-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2025 Devadatta Mahesh Pokharanakar · Built with plain HTML, CSS & JS</span>
+  <div class="footer-visitor">
+    <div class="fdot"></div>
+    <span id="footer-visitor-display">Loading…</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     DATA + LOGIC
+══════════════════════════════════════ -->
+<script>
+/* ═══════════════════════════════════
+   ART DATA
+   To add a piece:
+   - img: path to your image file (e.g. "art/sketch-1.jpg")
+   - Leave img:"" to show a labelled placeholder
+   - tools: artform / tools used
+   - date: "YYYY-MM-DD" for sorting
+═══════════════════════════════════ */
+const CATEGORIES = [
+  { id:'all',       label:'All Works',  icon:'◈' },
+  { id:'sketch',    label:'Sketches',   icon:'✏' },
+  { id:'painting',  label:'Paintings',  icon:'🎨' },
+  { id:'handcraft', label:'Handcrafts', icon:'✂' },
+  { id:'digital',   label:'Digital Art',icon:'⬡' },
+  { id:'tabla',     label:'Tabla',      icon:'♪' },
+];
+
+const ARTWORKS = [
+  /* ── SKETCHES ── */
+  {
+    id:1, cat:'sketch',
+    title:'Portrait Study — Charcoal',
+    desc:'A study in light and shadow using compressed charcoal on textured cartridge paper. Focus on capturing expression through minimal strokes.',
+    tools:['Charcoal','Cartridge Paper','Blending Stump'],
+    date:'2025-01-10', img:''
+  },
+  {
+    id:2, cat:'sketch',
+    title:'Urban Sketch — Ratnagiri Harbour',
+    desc:'Quick 30-minute ink sketch of the fishing harbour at golden hour. Drawn on-location with a fountain pen.',
+    tools:['Fountain Pen','Ink','Sketchbook'],
+    date:'2024-11-20', img:''
+  },
+  {
+    id:3, cat:'sketch',
+    title:'Gesture Drawing Series',
+    desc:'Five-minute gesture drawings from a life drawing session — focus on flow and proportion over detail.',
+    tools:['Graphite','Newsprint'],
+    date:'2024-09-05', img:''
+  },
+  {
+    id:4, cat:'sketch',
+    title:'Architectural Study — Old Town',
+    desc:'Detailed pencil study of colonial-era architecture with attention to perspective and texture.',
+    tools:['Pencil 2B / 4B','Cartridge Paper'],
+    date:'2024-07-14', img:''
+  },
+  /* ── PAINTINGS ── */
+  {
+    id:5, cat:'painting',
+    title:'Monsoon Light — Watercolour',
+    desc:'Watercolour study capturing the diffused light and wet-road reflections during a heavy Ratnagiri monsoon.',
+    tools:['Watercolour','Cold Press Paper','Round Brushes'],
+    date:'2024-08-18', img:''
+  },
+  {
+    id:6, cat:'painting',
+    title:'Still Life — Mangoes & Brass',
+    desc:'A classical still-life arrangement combining warm mangoes against a cool brass vessel. Painted over two sessions.',
+    tools:['Acrylic','Canvas Board','Palette Knife'],
+    date:'2024-06-03', img:''
+  },
+  {
+    id:7, cat:'painting',
+    title:'Abstract — Data Flow',
+    desc:'Abstract interpretation of neural network data propagation — layers of translucent colour washing over each other.',
+    tools:['Watercolour','Masking Fluid','Hot Press Paper'],
+    date:'2025-02-12', img:''
+  },
+  {
+    id:8, cat:'painting',
+    title:'Konkan Coast — Oil Pastel',
+    desc:'Landscape of the Konkan coastline at dusk using oil pastels, built up in thick impasto strokes.',
+    tools:['Oil Pastels','Pastel Paper'],
+    date:'2024-04-22', img:''
+  },
+  /* ── HANDCRAFTS ── */
+  {
+    id:9, cat:'handcraft',
+    title:'Warli Art Panel',
+    desc:'Traditional Warli tribal art on black cloth using white paint — depicting a harvest festival scene.',
+    tools:['Fabric Paint','Black Cloth','Thin Brushes'],
+    date:'2024-12-01', img:''
+  },
+  {
+    id:10, cat:'handcraft',
+    title:'Mandala — Dot Painting',
+    desc:'Intricate mandala created using dot-painting technique on a 12-inch circular canvas. 400+ individual dots.',
+    tools:['Acrylic','Dotting Tools','Canvas'],
+    date:'2024-10-08', img:''
+  },
+  {
+    id:11, cat:'handcraft',
+    title:'Origami Mobile',
+    desc:'A hanging mobile of 50 folded cranes — a traditional Japanese Senbazuru, symbolising patience and dedication.',
+    tools:['Washi Paper','Thread','Patience'],
+    date:'2024-05-17', img:''
+  },
+  {
+    id:12, cat:'handcraft',
+    title:'Clay Relief Tile',
+    desc:'Hand-moulded relief tile depicting a Ganesh motif, sun-dried and finished with terracotta wash.',
+    tools:['Air-dry Clay','Sculpting Tools','Terracotta Paint'],
+    date:'2023-12-25', img:''
+  },
+  /* ── DIGITAL ── */
+  {
+    id:13, cat:'digital',
+    title:'Vector Portrait — Line Art',
+    desc:'Minimal vector portrait using clean line-work in Inkscape. Inspired by mid-century book illustration style.',
+    tools:['Inkscape','Vector','Line Art'],
+    date:'2025-01-28', img:''
+  },
+  {
+    id:14, cat:'digital',
+    title:'UI Concept — Dark Dashboard',
+    desc:'Personal UI exploration — a dark-mode analytics dashboard concept created in Figma during the Figma Bootcamp.',
+    tools:['Figma','UI Design','Dark Mode'],
+    date:'2024-10-20', img:''
+  },
+  {
+    id:15, cat:'digital',
+    title:'Generative Pattern Study',
+    desc:'Algorithmic art generated with a Python script using Turtle graphics — iterative geometric recursion.',
+    tools:['Python','Turtle Graphics','Algorithmic Art'],
+    date:'2024-08-30', img:''
+  },
+  /* ── TABLA ── */
+  {
+    id:16, cat:'tabla',
+    title:'Tabla — Teentaal Practice Session',
+    desc:'A recording of a Teentaal (16 beat) practice session exploring kaida and tukra variations. Learned under self-study from classical recordings.',
+    tools:['Tabla (Bayan + Dayan)','Teentaal','Classical'],
+    date:'2025-03-01', img:''
+  },
+  {
+    id:17, cat:'tabla',
+    title:'My Tabla Setup',
+    desc:'My personal tabla pair — a wooden dayan and metal bayan, tuned to Sa. These have been my companions for several years.',
+    tools:['Tabla','Dayan','Bayan','Syahi'],
+    date:'2024-07-07', img:''
+  },
+];
+
+/* ═══════════════════════
+   STATE
+═══════════════════════ */
+let currentCat  = 'all';
+let currentSort = 'default';
+let currentCols = 3;
+let filteredIds = [];   // ordered list of artwork IDs currently visible
+let lbIndex     = 0;    // index into filteredIds
+let lbCommentsOpen = false;
+
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+/* ── localStorage helpers ── */
+function getArtLikes()    { try{return JSON.parse(localStorage.getItem('dp_art_likes')||'{}')}catch(e){return{}} }
+function getArtComments() { try{return JSON.parse(localStorage.getItem('dp_art_comments')||'{}')}catch(e){return{}} }
+function setArtLikes(v)   { try{localStorage.setItem('dp_art_likes',JSON.stringify(v))}catch(e){} }
+function setArtComments(v){ try{localStorage.setItem('dp_art_comments',JSON.stringify(v))}catch(e){} }
+
+function artLikeCount(id){ const l=getArtLikes(); return (l[id]&&l[id].count)||0; }
+function artIsLiked(id)  { const l=getArtLikes(); return !!(l[id]&&l[id].liked); }
+function artCommentCount(id){ const c=getArtComments(); return (c[id]||[]).length; }
+
+/* ═══════════════════════
+   CATEGORY TABS
+═══════════════════════ */
+function buildTabs() {
+  const wrap = document.getElementById('cat-tabs');
+  wrap.innerHTML = CATEGORIES.map(cat => {
+    const cnt = cat.id==='all'
+      ? ARTWORKS.length
+      : ARTWORKS.filter(a=>a.cat===cat.id).length;
+    return `<button class="cat-tab ${cat.id==='all'?'active':''}"
+      onclick="selectCat('${cat.id}',this)">
+      <span class="cat-tab-icon">${cat.icon}</span>
+      <span class="cat-tab-name">${cat.label}</span>
+      <span class="cat-tab-count">${cnt}</span>
+    </button>`;
+  }).join('');
+}
+
+function selectCat(id, btn) {
+  document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  currentCat = id;
+  renderGrid();
+}
+
+/* ═══════════════════════
+   GRID RENDER
+═══════════════════════ */
+function getFiltered() {
+  let list = ARTWORKS.filter(a => currentCat==='all' || a.cat===currentCat);
+  if (currentSort==='liked')  list = [...list].sort((a,b)=>artLikeCount(b.id)-artLikeCount(a.id));
+  if (currentSort==='newest') list = [...list].sort((a,b)=>b.date.localeCompare(a.date));
+  return list;
+}
+
+function renderGrid() {
+  const list = getFiltered();
+  filteredIds = list.map(a=>a.id);
+
+  const grid  = document.getElementById('gallery-grid');
+  const empty = document.getElementById('gallery-empty');
+
+  // Update stats
+  const totalLikes = ARTWORKS.reduce((s,a)=>s+artLikeCount(a.id),0);
+  document.getElementById('stat-total').textContent = ARTWORKS.length;
+  document.getElementById('stat-likes').textContent = totalLikes;
+  document.getElementById('gt-count').textContent   =
+    `${list.length} work${list.length!==1?'s':''} shown`;
+
+  if(list.length===0){
+    grid.innerHTML=''; empty.style.display='block'; return;
+  }
+  empty.style.display='none';
+
+  grid.innerHTML = list.map((art,i)=>{
+    const likes    = artLikeCount(art.id);
+    const comments = artCommentCount(art.id);
+    const imgHTML  = art.img
+      ? `<img class="gi-img" src="${esc(art.img)}" alt="${esc(art.title)}" loading="lazy"/>`
+      : `<div class="gi-placeholder">
+           <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+           <span>${esc(art.title)}</span>
+         </div>`;
+    return `
+    <div class="grid-item" onclick="openLb(${i})" style="animation-delay:${Math.min(i*0.05,0.5)}s">
+      ${imgHTML}
+      <div class="gi-overlay">
+        <div class="gi-overlay-title">${esc(art.title)}</div>
+        <div class="gi-overlay-meta">
+          <span class="gi-overlay-cat">${CATEGORIES.find(c=>c.id===art.cat)?.label||art.cat}</span>
+          <span class="gi-overlay-likes">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            ${likes}
+          </span>
+          ${comments>0?`<span class="gi-overlay-likes"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>${comments}</span>`:''}
+        </div>
+      </div>
+      <div class="gi-caption">
+        <div class="gi-caption-title">${esc(art.title)}</div>
+        <div class="gi-caption-sub">${art.tools.slice(0,2).join(' · ')}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  // Apply column class
+  grid.className = `gallery-grid${currentCols===4?' cols-4':currentCols===2?' cols-2':''}`;
+}
+
+function setSort(s, btn){
+  document.querySelectorAll('.gt-sort-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentSort=s; renderGrid();
+}
+
+function setCols(n, btn){
+  document.querySelectorAll('.gt-view-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  currentCols=n; renderGrid();
+}
+
+/* ═══════════════════════
+   LIGHTBOX
+═══════════════════════ */
+function openLb(idx){
+  lbIndex = idx;
+  lbCommentsOpen = false;
+  renderLb();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeLb(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+  // Refresh grid to pick up any new likes
+  renderGrid();
+}
+
+function handleLbBgClick(e){
+  if(e.target===document.getElementById('lightbox')) closeLb();
+}
+
+function lbNav(dir){
+  const newIdx = lbIndex+dir;
+  if(newIdx<0||newIdx>=filteredIds.length) return;
+  lbIndex=newIdx;
+  lbCommentsOpen=false;
+  renderLb();
+}
+
+function renderLb(){
+  const artId = filteredIds[lbIndex];
+  const art   = ARTWORKS.find(a=>a.id===artId);
+  if(!art) return;
+
+  const cat     = CATEGORIES.find(c=>c.id===art.cat)||{label:art.cat};
+  const liked   = artIsLiked(art.id);
+  const likes   = artLikeCount(art.id);
+  const comments= getArtComments()[art.id]||[];
+
+  // Position indicator
+  document.getElementById('lb-pos').textContent =
+    `${lbIndex+1} / ${filteredIds.length}`;
+
+  // Nav arrows
+  document.getElementById('lb-prev').disabled = lbIndex===0;
+  document.getElementById('lb-next').disabled = lbIndex===filteredIds.length-1;
+
+  // Image
+  document.getElementById('lb-img-panel').innerHTML = art.img
+    ? `<img src="${esc(art.img)}" alt="${esc(art.title)}"/>`
+    : `<div class="lb-img-placeholder">
+         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+         <span>${esc(art.title)}</span>
+       </div>`;
+
+  // Info
+  document.getElementById('lb-cat').textContent   = `${cat.icon||''} ${cat.label}`;
+  document.getElementById('lb-title').textContent = art.title;
+  document.getElementById('lb-desc').textContent  = art.desc||'';
+
+  // Tools
+  document.getElementById('lb-tools').innerHTML =
+    art.tools.map(t=>`<span class="lb-tool-tag">${esc(t)}</span>`).join('');
+
+  // Like widget
+  const lbBtn = document.getElementById('lb-like-btn');
+  lbBtn.classList.toggle('liked', liked);
+  document.getElementById('lb-like-count').textContent = likes;
+
+  // Comments toggle label
+  document.getElementById('lb-comment-toggle-label').textContent =
+    `${comments.length} comment${comments.length!==1?'s':''}`;
+
+  // Comments panel state
+  const sec = document.getElementById('lb-comments-section');
+  sec.classList.toggle('open', lbCommentsOpen);
+
+  // Clear form
+  const nameEl=document.getElementById('lb-cf-name');
+  const textEl=document.getElementById('lb-cf-text');
+  if(nameEl) nameEl.value='';
+  if(textEl) textEl.value='';
+
+  renderLbComments(art.id);
+}
+
+function toggleLbComments(){
+  lbCommentsOpen = !lbCommentsOpen;
+  document.getElementById('lb-comments-section').classList.toggle('open', lbCommentsOpen);
+}
+
+function toggleArtLike(){
+  const artId = filteredIds[lbIndex];
+  const likes = getArtLikes();
+  const entry = likes[artId]||{count:0,liked:false};
+  if(entry.liked){ entry.count=Math.max(0,entry.count-1); entry.liked=false; }
+  else           { entry.count++; entry.liked=true; }
+  likes[artId]=entry;
+  setArtLikes(likes);
+
+  const btn=document.getElementById('lb-like-btn');
+  btn.classList.remove('popping'); void btn.offsetWidth; btn.classList.add('popping');
+  btn.classList.toggle('liked',entry.liked);
+  document.getElementById('lb-like-count').textContent=entry.count;
+}
+
+function submitArtComment(){
+  const artId = filteredIds[lbIndex];
+  const name  = document.getElementById('lb-cf-name').value.trim();
+  const text  = document.getElementById('lb-cf-text').value.trim();
+  if(!name||!text){
+    document.getElementById('lb-cf-name').style.borderBottomColor = name?'var(--ink)':'#c0392b';
+    document.getElementById('lb-cf-text').style.borderBottomColor = text?'var(--ink)':'#c0392b';
+    return;
+  }
+  const allC = getArtComments();
+  if(!allC[artId]) allC[artId]=[];
+  allC[artId].push({
+    name,text,
+    date:new Date().toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'})
+  });
+  setArtComments(allC);
+  document.getElementById('lb-cf-name').value='';
+  document.getElementById('lb-cf-text').value='';
+  document.getElementById('lb-cf-name').style.borderBottomColor='var(--ink)';
+  document.getElementById('lb-cf-text').style.borderBottomColor='var(--ink)';
+  renderLbComments(artId);
+
+  // Update toggle label
+  const c=allC[artId].length;
+  document.getElementById('lb-comment-toggle-label').textContent=
+    `${c} comment${c!==1?'s':''}`;
+}
+
+function renderLbComments(artId){
+  const allC = getArtComments();
+  const list = allC[artId]||[];
+  const listEl = document.getElementById('lb-comment-list');
+  const noEl   = document.getElementById('lb-no-comments');
+  if(list.length===0){
+    noEl.style.display='block'; listEl.innerHTML=''; return;
+  }
+  noEl.style.display='none';
+  listEl.innerHTML = list.map(c=>`
+    <div class="lb-comment-item">
+      <div class="lb-ci-header">
+        <span class="lb-ci-name">${esc(c.name)}</span>
+        <span class="lb-ci-date">${c.date}</span>
+      </div>
+      <div class="lb-ci-text">${esc(c.text)}</div>
+    </div>`).join('');
+}
+
+/* ── keyboard nav ── */
+document.addEventListener('keydown',e=>{
+  const lb=document.getElementById('lightbox');
+  if(!lb.classList.contains('open')) return;
+  if(e.key==='Escape')      closeLb();
+  if(e.key==='ArrowLeft')   lbNav(-1);
+  if(e.key==='ArrowRight')  lbNav(1);
+});
+
+/* ── visitor counter ── */
+(function(){
+  const total  = parseInt(localStorage.getItem('dp_total') ||'3842');
+  const unique = parseInt(localStorage.getItem('dp_unique')||'1231');
+  const el=document.getElementById('footer-visitor-display');
+  if(el) el.textContent=unique.toLocaleString()+' unique · '+total.toLocaleString()+' total visits';
+})();
+
+/* ── INIT ── */
+buildTabs();
+renderGrid();
+</script>
+</body>
+</html>

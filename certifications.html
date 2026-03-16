@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Certifications — Devadatta Pokharanakar</title>
+<meta name="description" content="32+ certifications earned by Devadatta Pokharanakar across ML, Cloud, Cybersecurity, Project Management, and more."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #0A0A0A;
+    --ink-mid:    #444444;
+    --ink-light:  #888888;
+    --paper:      #FAFAFA;
+    --paper-mid:  #F0EFED;
+    --paper-dark: #E4E2DF;
+    --rule:       #0A0A0A;
+    --rule-light: #DDDDDD;
+    --serif:      'DM Serif Display', Georgia, serif;
+    --sans:       'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); overflow-x: hidden; cursor: crosshair; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes pulse  { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+  .reveal   { opacity:0; animation:fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
+  .reveal-1 { animation-delay:0.05s; }
+  .reveal-2 { animation-delay:0.15s; }
+  .reveal-3 { animation-delay:0.25s; }
+
+  /* TOP RULE */
+  .top-rule { height:3px; background:var(--ink); }
+
+  /* SITEMAP BAR */
+  .sitemap-bar { background:var(--paper-mid); border-bottom:0.5px solid var(--rule-light); padding:10px 48px; display:flex; align-items:center; justify-content:flex-end; gap:8px; }
+  .sitemap-bar span { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); }
+  .sitemap-bar a { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid); border-bottom:0.5px solid var(--ink-mid); }
+
+  /* NAVBAR */
+  nav { display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:58px; border-bottom:0.5px solid var(--rule-light); position:sticky; top:0; background:var(--paper); z-index:100; }
+  .nav-logo { font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; }
+  .nav-links { display:flex; gap:24px; list-style:none; }
+  .nav-links a { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid); padding-bottom:2px; border-bottom:1.5px solid transparent; transition:color 0.15s; }
+  .nav-links a:hover, .nav-links a.active { color:var(--ink); border-bottom-color:var(--ink); }
+  .nav-cta { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; background:var(--ink); color:var(--paper); padding:8px 18px; border:none; cursor:pointer; display:inline-block; transition:background 0.15s; }
+  .nav-cta:hover { background:var(--ink-mid); }
+
+  /* PAGE HEADER */
+  .page-header { display:grid; grid-template-columns:1fr 1.5px 1fr; border-bottom:1px solid var(--rule); min-height:160px; }
+  .ph-left { padding:40px 48px; display:flex; flex-direction:column; justify-content:space-between; }
+  .ph-breadcrumb { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-light); margin-bottom:16px; }
+  .ph-breadcrumb a { border-bottom:0.5px solid var(--ink-light); }
+  .ph-title { font-family:var(--serif); font-size:clamp(32px,4vw,52px); line-height:1.04; letter-spacing:-0.02em; }
+  .ph-title em { font-style:italic; border-bottom:3px solid var(--ink); padding-bottom:2px; }
+  .ph-divider { background:var(--rule); }
+  .ph-right { padding:40px 48px; background:var(--paper-mid); display:flex; flex-direction:column; justify-content:space-between; }
+  .ph-desc { font-size:13px; color:var(--ink-mid); line-height:1.8; max-width:400px; margin-bottom:20px; }
+  .ph-stats { display:flex; gap:32px; }
+  .ph-stat .n { font-family:var(--serif); font-size:26px; color:var(--ink); line-height:1; }
+  .ph-stat .l { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); margin-top:4px; }
+
+  /* FILTER BAR */
+  .filter-bar { padding:0 48px; border-bottom:1px solid var(--rule); display:flex; align-items:center; gap:0; overflow-x:auto; background:var(--paper); scrollbar-width:none; }
+  .filter-bar::-webkit-scrollbar { display:none; }
+  .filter-label { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); padding:16px 20px 16px 0; border-right:0.5px solid var(--rule-light); margin-right:16px; white-space:nowrap; flex-shrink:0; }
+  .filter-btn { font-family:var(--sans); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; padding:16px 16px; background:transparent; color:var(--ink-light); border:none; border-bottom:2px solid transparent; cursor:pointer; white-space:nowrap; transition:color 0.15s, border-color 0.15s; flex-shrink:0; }
+  .filter-btn:hover { color:var(--ink); }
+  .filter-btn.active { color:var(--ink); border-bottom-color:var(--ink); font-weight:500; }
+  .filter-count { font-size:9px; color:var(--ink-light); margin-left:3px; }
+
+  /* SORT BAR */
+  .sort-bar { padding:12px 48px; border-bottom:0.5px solid var(--rule-light); display:flex; align-items:center; justify-content:space-between; background:var(--paper-mid); }
+  .sort-label { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); }
+  .sort-options { display:flex; gap:0; }
+  .sort-btn { font-family:var(--sans); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; padding:6px 14px; background:transparent; color:var(--ink-light); border:0.5px solid var(--rule-light); border-right:none; cursor:pointer; transition:background 0.15s, color 0.15s; }
+  .sort-btn:last-child { border-right:0.5px solid var(--rule-light); }
+  .sort-btn:hover { background:var(--paper-dark); color:var(--ink); }
+  .sort-btn.active { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+
+  /* CERT GRID — 3 column card grid */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+
+  .cert-card {
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    transition: background 0.15s;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .cert-card.hidden { display: none; }
+
+  .cert-card:hover { background: var(--paper-mid); }
+
+  /* Certificate image panel */
+  .cert-img-wrap {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: var(--paper-dark);
+    border-bottom: 0.5px solid var(--rule-light);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cert-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .cert-card:hover .cert-img-wrap img { transform: scale(1.03); }
+
+  /* Placeholder when no image */
+  .cert-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .cip-icon {
+    width: 40px; height: 40px;
+    border: 0.5px solid var(--rule-light);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cip-icon svg { width:18px; height:18px; stroke:var(--ink-light); fill:none; stroke-width:1.5; }
+
+  /* View overlay on hover */
+  .cert-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10,10,10,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .cert-card:hover .cert-img-overlay { opacity: 1; }
+  .cert-img-overlay span { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#fff; border-bottom:1px solid rgba(255,255,255,0.5); padding-bottom:2px; }
+
+  /* Card body */
+  .cert-body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; gap: 0; }
+
+  .cert-issuer-row { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+
+  .cert-issuer-badge {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3px 10px;
+    display: inline-block;
+  }
+
+  .cert-date {
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--ink-light);
+  }
+
+  .cert-title {
+    font-family: var(--serif);
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .cert-skills-label { font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-light); margin-bottom:8px; }
+
+  .cert-skill-tags { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:16px; }
+  .cert-skill-tag {
+    font-size:9px; letter-spacing:0.07em; text-transform:uppercase;
+    border:0.5px solid var(--rule-light); color:var(--ink-mid); padding:3px 8px;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .cert-skill-tag:hover { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+
+  /* Footer of card */
+  .cert-card-foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 0.5px solid var(--rule-light); }
+
+  .cert-link {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: opacity 0.15s;
+  }
+  .cert-link:hover { opacity: 0.6; }
+  .cert-link.disabled { color:var(--ink-light); border-color:var(--rule-light); cursor:default; pointer-events:none; }
+
+  .cert-num { font-size:10px; letter-spacing:0.08em; color:var(--ink-light); }
+
+  /* LIGHTBOX */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(10,10,10,0.92);
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .lightbox.open { display: flex; }
+
+  .lb-inner {
+    position: relative;
+    max-width: 880px;
+    width: 100%;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+  }
+
+  .lb-close {
+    position: absolute;
+    top: 14px; right: 14px;
+    width: 32px; height: 32px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 10;
+    transition: background 0.15s;
+  }
+  .lb-close:hover { background: var(--ink-mid); }
+
+  .lb-content { display: grid; grid-template-columns: 1.2fr 1fr; }
+
+  .lb-img-panel {
+    background: var(--paper-dark);
+    border-right: 1px solid var(--rule);
+    aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .lb-img-panel img { width:100%; height:100%; object-fit:cover; }
+  .lb-img-panel .lb-placeholder { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; width:100%; height:100%; }
+  .lb-img-panel .lb-placeholder svg { width:36px; height:36px; stroke:var(--ink-light); fill:none; stroke-width:1; }
+  .lb-img-panel .lb-placeholder span { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); }
+
+  .lb-info { padding:32px 28px; display:flex; flex-direction:column; gap:0; overflow-y:auto; max-height:480px; }
+  .lb-badge { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; background:var(--ink); color:var(--paper); padding:3px 10px; display:inline-block; margin-bottom:16px; }
+  .lb-title { font-family:var(--serif); font-size:20px; color:var(--ink); line-height:1.2; margin-bottom:8px; }
+  .lb-date { font-size:11px; color:var(--ink-light); letter-spacing:0.06em; margin-bottom:20px; }
+  .lb-divider { height:0.5px; background:var(--rule-light); margin:0 0 20px; }
+  .lb-skills-label { font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-light); margin-bottom:10px; }
+  .lb-skills { display:flex; gap:5px; flex-wrap:wrap; margin-bottom:20px; }
+  .lb-skill { font-size:9px; letter-spacing:0.07em; text-transform:uppercase; border:0.5px solid var(--rule-light); color:var(--ink-mid); padding:3px 8px; }
+  .lb-actions { margin-top:auto; padding-top:20px; border-top:0.5px solid var(--rule-light); display:flex; gap:8px; flex-wrap:wrap; }
+
+  .btn-primary { background:var(--ink); color:var(--paper); font-family:var(--sans); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; padding:11px 22px; border:1.5px solid var(--ink); cursor:pointer; transition:all 0.15s; display:inline-block; }
+  .btn-primary:hover { background:transparent; color:var(--ink); }
+  .btn-outline { background:transparent; color:var(--ink); font-family:var(--sans); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; padding:11px 22px; border:1.5px solid var(--ink); cursor:pointer; transition:all 0.15s; display:inline-block; }
+  .btn-outline:hover { background:var(--ink); color:var(--paper); }
+  .btn-disabled-sm { font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-light); cursor:default; }
+
+  /* EMPTY STATE */
+  #empty-state { display:none; padding:80px 48px; text-align:center; border-top:1px solid var(--rule); }
+  #empty-state p { font-family:var(--serif); font-size:22px; color:var(--ink-light); }
+
+  /* FOOTER */
+  footer { background:var(--ink); padding:48px; display:grid; grid-template-columns:1.2fr 1fr; gap:48px; }
+  .footer-brand .footer-logo { font-family:var(--serif); font-size:22px; color:var(--paper); margin-bottom:10px; }
+  .footer-brand .footer-tagline { font-size:11px; color:rgba(255,255,255,0.5); line-height:1.7; margin-bottom:20px; }
+  .footer-brand .footer-email { font-size:11px; color:rgba(255,255,255,0.7); }
+  .footer-nav { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  .footer-nav-title { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:16px; }
+  .footer-nav-links { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .footer-nav-links li a { font-size:12px; color:rgba(255,255,255,0.65); transition:color 0.15s; }
+  .footer-nav-links li a:hover { color:#fff; }
+  .footer-bottom { background:#111; padding:16px 48px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-bottom span { font-size:10px; letter-spacing:0.08em; color:rgba(255,255,255,0.35); }
+  .footer-visitor { font-size:10px; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:8px; }
+  .fdot { width:6px; height:6px; border-radius:50%; background:#fff; animation:pulse 2s infinite; }
+
+  /* RESPONSIVE */
+  @media (max-width:1100px) { .certs-grid { grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:960px) {
+    nav { padding:0 20px; }
+    .nav-links { display:none; }
+    .page-header { grid-template-columns:1fr; }
+    .ph-divider { display:none; }
+    .ph-left, .ph-right { padding:28px 24px; }
+    .filter-bar { padding:0 24px; }
+    .sort-bar { padding:12px 24px; }
+    .certs-grid { border-left:none; padding:0 24px; border-top:none; }
+    .cert-card { border-left:1px solid var(--rule); margin-bottom:0; }
+    .lb-content { grid-template-columns:1fr; }
+    .lb-img-panel { border-right:none; border-bottom:1px solid var(--rule); aspect-ratio:16/9; }
+    .lb-info { max-height:none; }
+    footer { grid-template-columns:1fr; gap:32px; padding:36px 24px; }
+    .footer-bottom { padding:14px 24px; flex-direction:column; gap:6px; text-align:center; }
+    .sitemap-bar { padding:10px 24px; }
+  }
+  @media (max-width:600px) {
+    .certs-grid { grid-template-columns:1fr; padding:0 16px; }
+    .footer-nav { grid-template-columns:1fr; gap:24px; }
+    .lb-inner { margin:12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<div class="sitemap-bar">
+  <span>Navigate →</span>
+  <a href="sitemap.html">Sitemap</a>
+</div>
+
+<!-- NAVBAR -->
+<nav class="reveal reveal-1">
+  <div class="nav-logo"><a href="index.html">D. Pokharanakar</a></div>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="index.html#education">Education</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="certifications.html" class="active">Certifications</a></li>
+    <li><a href="art.html">Art</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="resume.pdf" download class="nav-cta">Download CV</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="ph-left reveal reveal-2">
+    <div>
+      <div class="ph-breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Certifications</div>
+      <h1 class="ph-title">All <em>Certifications</em></h1>
+    </div>
+  </div>
+  <div class="ph-divider"></div>
+  <div class="ph-right reveal reveal-3">
+    <p class="ph-desc">A growing collection of professional certifications spanning machine learning, cloud platforms, cybersecurity, software development, project management, and more — issued by top institutions and technology companies.</p>
+    <div class="ph-stats">
+      <div class="ph-stat"><div class="n">32+</div><div class="l">Certifications</div></div>
+      <div class="ph-stat"><div class="n">10+</div><div class="l">Issuers</div></div>
+      <div class="ph-stat"><div class="n">8</div><div class="l">Skill domains</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar reveal reveal-2">
+  <span class="filter-label">Filter by skill</span>
+  <button class="filter-btn active" data-filter="all"       onclick="filterCerts('all',this)">All <span class="filter-count">32</span></button>
+  <button class="filter-btn"        data-filter="ml"        onclick="filterCerts('ml',this)">ML / AI <span class="filter-count">5</span></button>
+  <button class="filter-btn"        data-filter="cloud"     onclick="filterCerts('cloud',this)">Cloud <span class="filter-count">4</span></button>
+  <button class="filter-btn"        data-filter="devops"    onclick="filterCerts('devops',this)">DevOps <span class="filter-count">3</span></button>
+  <button class="filter-btn"        data-filter="security"  onclick="filterCerts('security',this)">Cybersecurity <span class="filter-count">2</span></button>
+  <button class="filter-btn"        data-filter="pm"        onclick="filterCerts('pm',this)">Project Mgmt <span class="filter-count">4</span></button>
+  <button class="filter-btn"        data-filter="dev"       onclick="filterCerts('dev',this)">Software Dev <span class="filter-count">5</span></button>
+  <button class="filter-btn"        data-filter="data"      onclick="filterCerts('data',this)">Data Analysis <span class="filter-count">4</span></button>
+  <button class="filter-btn"        data-filter="design"    onclick="filterCerts('design',this)">Design / Tools <span class="filter-count">3</span></button>
+</div>
+
+<!-- SORT BAR -->
+<div class="sort-bar reveal reveal-2">
+  <span class="sort-label" id="cert-count-label">Showing 32 certificates</span>
+  <div class="sort-options">
+    <button class="sort-btn active" onclick="sortCerts('date',this)">Newest first</button>
+    <button class="sort-btn"        onclick="sortCerts('issuer',this)">By issuer</button>
+    <button class="sort-btn"        onclick="sortCerts('title',this)">A → Z</button>
+  </div>
+</div>
+
+<!-- CERTIFICATES GRID -->
+<div class="certs-grid reveal reveal-2" id="certs-grid">
+  <!-- Cards injected by JS from data array below -->
+</div>
+
+<!-- Empty state -->
+<div id="empty-state">
+  <p>No certificates match that filter — try another category.</p>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lb-inner">
+    <button class="lb-close" onclick="closeLightbox(null, true)">✕</button>
+    <div class="lb-content">
+      <div class="lb-img-panel" id="lb-img"></div>
+      <div class="lb-info">
+        <span class="lb-badge" id="lb-issuer"></span>
+        <h2 class="lb-title"  id="lb-title"></h2>
+        <div class="lb-date"  id="lb-date"></div>
+        <div class="lb-divider"></div>
+        <div class="lb-skills-label">Skills covered</div>
+        <div class="lb-skills" id="lb-skills"></div>
+        <div class="lb-actions" id="lb-actions"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-logo">Devadatta<br>Pokharanakar</div>
+    <div class="footer-tagline">Data Scientist · Developer · Artist<br>MTech @ IIT Palakkad</div>
+    <div class="footer-email">dmpokharanakar@gmail.com</div>
+  </div>
+  <div class="footer-nav">
+    <div>
+      <div class="footer-nav-title">Navigate</div>
+      <ul class="footer-nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#education">Education</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-nav-title">Pages</div>
+      <ul class="footer-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">All Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="art.html">Art Gallery</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2025 Devadatta Mahesh Pokharanakar · Built with plain HTML, CSS & JS</span>
+  <div class="footer-visitor">
+    <div class="fdot"></div>
+    <span id="footer-visitor-display">Loading…</span>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════
+   CERTIFICATE DATA
+   — Add image path to `img` when available
+   — Add credential URL to `link`
+══════════════════════════════════════ */
+const CERTS = [
+  {
+    id:1, title:"Machine Learning",
+    issuer:"Columbia University", date:"Sep 2025",
+    tags:["ml","data"],
+    skills:["Supervised Learning","Regression","Classification","Neural Networks","Model Evaluation"],
+    link:"", img:""
+  },
+  {
+    id:2, title:"Agile Project Management Professional Certificate",
+    issuer:"Atlassian", date:"Jun 2025",
+    tags:["pm"],
+    skills:["Agile","Scrum","Sprint Planning","Jira","Kanban"],
+    link:"", img:""
+  },
+  {
+    id:3, title:"IT Service Management (ITSM) Professional Certificate",
+    issuer:"Atlassian", date:"Jun 2025",
+    tags:["pm","dev"],
+    skills:["ITSM","Incident Management","Service Desk","Jira Service Management"],
+    link:"", img:""
+  },
+  {
+    id:4, title:"Docker Foundations Professional Certificate",
+    issuer:"Docker", date:"Jun 2025",
+    tags:["devops","dev"],
+    skills:["Docker","Containers","Docker Compose","Dockerfile","CI/CD"],
+    link:"", img:""
+  },
+  {
+    id:5, title:"Java Foundations Professional Certificate",
+    issuer:"JetBrains", date:"Jun 2025",
+    tags:["dev"],
+    skills:["Java","OOP","Data Structures","IntelliJ IDEA","Java Collections"],
+    link:"", img:""
+  },
+  {
+    id:6, title:"Career Essentials in GitHub Professional Certificate",
+    issuer:"GitHub", date:"Jun 2025",
+    tags:["devops","dev"],
+    skills:["Git","GitHub","Version Control","Pull Requests","GitHub Actions"],
+    link:"", img:""
+  },
+  {
+    id:7, title:"Career Essentials in Business Analysis",
+    issuer:"Microsoft & LinkedIn", date:"Jun 2025",
+    tags:["pm","data"],
+    skills:["Business Analysis","Requirements Gathering","Stakeholder Management","Data Modelling"],
+    link:"", img:""
+  },
+  {
+    id:8, title:"Career Essentials in Project Management",
+    issuer:"Microsoft & LinkedIn", date:"Jun 2025",
+    tags:["pm"],
+    skills:["Project Management","Risk Management","Scheduling","MS Project","Agile"],
+    link:"", img:""
+  },
+  {
+    id:9, title:"Career Essentials in Software Development",
+    issuer:"Microsoft & LinkedIn", date:"Jun 2025",
+    tags:["dev"],
+    skills:["Software Engineering","SDLC","Testing","Debugging","Clean Code"],
+    link:"", img:""
+  },
+  {
+    id:10, title:"Microsoft Azure AI Essentials Professional Certificate",
+    issuer:"Microsoft & LinkedIn", date:"Jun 2025",
+    tags:["cloud","ml"],
+    skills:["Azure AI","Cognitive Services","Azure ML","Computer Vision API","NLP"],
+    link:"", img:""
+  },
+  {
+    id:11, title:"Microsoft Security Essentials Professional Certificate",
+    issuer:"Microsoft & LinkedIn", date:"Jun 2025",
+    tags:["security","cloud"],
+    skills:["Cybersecurity","Azure Security","Identity Management","Zero Trust","Threat Protection"],
+    link:"", img:""
+  },
+  {
+    id:12, title:"Career Essentials in Data Analysis",
+    issuer:"Microsoft & LinkedIn", date:"Mar 2025",
+    tags:["data","ml"],
+    skills:["Data Analysis","Excel","Power BI","Statistics","Data Visualisation"],
+    link:"", img:""
+  },
+  {
+    id:13, title:"Introduction to Data Science",
+    issuer:"Cisco Networking Academy", date:"Oct 2024",
+    tags:["data","ml"],
+    skills:["Data Science","Python","NumPy","Pandas","Data Cleaning"],
+    link:"", img:""
+  },
+  {
+    id:14, title:"Figma Bootcamp",
+    issuer:"LetsUpgrade", date:"Oct 2024",
+    tags:["design"],
+    skills:["Figma","UI Design","Prototyping","Wireframing","Design Systems"],
+    link:"", img:""
+  },
+  {
+    id:15, title:"Google Cloud Computing Foundations",
+    issuer:"FutureSkills Prime", date:"Oct 2024",
+    tags:["cloud"],
+    skills:["Google Cloud","GCP","Cloud Infrastructure","Cloud Storage","BigQuery"],
+    link:"", img:""
+  },
+  {
+    id:16, title:"Career Essentials in Cybersecurity",
+    issuer:"Microsoft & LinkedIn", date:"Sep 2024",
+    tags:["security"],
+    skills:["Network Security","Threat Intelligence","Incident Response","Firewalls"],
+    link:"", img:""
+  },
+  {
+    id:17, title:"Career Essentials in Generative AI",
+    issuer:"Microsoft & LinkedIn", date:"Jun 2024",
+    tags:["ml","data"],
+    skills:["Generative AI","LLMs","Prompt Engineering","Azure OpenAI","ChatGPT"],
+    link:"", img:""
+  },
+  {
+    id:18, title:"Foundational C# with Microsoft",
+    issuer:"freeCodeCamp", date:"Jun 2024",
+    tags:["dev"],
+    skills:["C#",".NET","OOP","ASP.NET","Data Types & Control Flow"],
+    link:"", img:""
+  },
+  {
+    id:19, title:"Flutter Zero to Hero",
+    issuer:"LetsUpgrade", date:"Mar 2024",
+    tags:["dev","design"],
+    skills:["Flutter","Dart","Mobile UI","State Management","Widgets"],
+    link:"", img:""
+  },
+  {
+    id:20, title:"Google IT Automation with Python",
+    issuer:"Google / Coursera", date:"Mar 2024",
+    tags:["dev","devops"],
+    skills:["Python","Automation","Bash","Git","Regular Expressions","APIs"],
+    link:"", img:""
+  },
+  {
+    id:21, title:"IBM CSRBOX — Data Science Internship",
+    issuer:"IBM", date:"Feb–Mar 2024",
+    tags:["data","ml"],
+    skills:["Data Science","Python","Scikit-learn","Data Visualisation","EDA"],
+    link:"", img:""
+  },
+  {
+    id:22, title:"IBM CSRBOX — Generative AI Internship",
+    issuer:"IBM", date:"Feb–Mar 2024",
+    tags:["ml"],
+    skills:["Generative AI","IBM Watson","Prompt Engineering","LLM APIs"],
+    link:"", img:""
+  },
+  {
+    id:23, title:"IBM CSRBOX — Data Visualisation Using AI Tools",
+    issuer:"IBM", date:"Dec 2023–Jan 2024",
+    tags:["data","design"],
+    skills:["Data Visualisation","IBM Cognos","Power BI","Storytelling with Data"],
+    link:"", img:""
+  },
+  {
+    id:24, title:"Get Started in AI (MVIP)",
+    issuer:"MathWorks", date:"May–Sep 2023",
+    tags:["ml"],
+    skills:["MATLAB","Machine Learning","Deep Learning","Signal Processing","Image Recognition"],
+    link:"", img:""
+  },
+  {
+    id:25, title:"Machine Learning & Neural Networks",
+    issuer:"Azure Skynet Solutions", date:"May–Jun 2023",
+    tags:["ml"],
+    skills:["Neural Networks","Backpropagation","CNN","RNN","TensorFlow"],
+    link:"", img:""
+  },
+  {
+    id:26, title:"Industry 4.0",
+    issuer:"Gustovally Technovations", date:"Dec 2022–Jan 2023",
+    tags:["dev"],
+    skills:["IoT","IIoT","Automation","Smart Manufacturing","Cloud Integration"],
+    link:"", img:""
+  },
+  {
+    id:27, title:"Google IT Support Professional Certificate",
+    issuer:"Google / Coursera", date:"2024",
+    tags:["security","dev"],
+    skills:["IT Support","Networking","Operating Systems","Security","Troubleshooting"],
+    link:"", img:""
+  },
+  {
+    id:28, title:"AWS Cloud Practitioner Essentials",
+    issuer:"Amazon Web Services", date:"2024",
+    tags:["cloud"],
+    skills:["AWS","Cloud Concepts","EC2","S3","IAM","Pricing & Support"],
+    link:"", img:""
+  },
+  {
+    id:29, title:"Python for Data Science, AI & Development",
+    issuer:"IBM / Coursera", date:"2023",
+    tags:["data","ml","dev"],
+    skills:["Python","Pandas","NumPy","Web Scraping","REST APIs"],
+    link:"", img:""
+  },
+  {
+    id:30, title:"Databases and SQL for Data Science with Python",
+    issuer:"IBM / Coursera", date:"2023",
+    tags:["data"],
+    skills:["SQL","PostgreSQL","DB2","Joins","Stored Procedures","Python + SQL"],
+    link:"", img:""
+  },
+  {
+    id:31, title:"Data Visualisation with Python",
+    issuer:"IBM / Coursera", date:"2023",
+    tags:["data","design"],
+    skills:["Matplotlib","Seaborn","Plotly","Folium","Dashboards"],
+    link:"", img:""
+  },
+  {
+    id:32, title:"Responsive Web Design",
+    issuer:"freeCodeCamp", date:"2023",
+    tags:["dev","design"],
+    skills:["HTML","CSS","Flexbox","CSS Grid","Accessibility","Responsive Layouts"],
+    link:"", img:""
+  },
+];
+
+/* ══════════════════════════════════════
+   RENDER
+══════════════════════════════════════ */
+let currentFilter = 'all';
+let currentSort   = 'date';
+
+function buildCard(cert, idx) {
+  const hasImg  = cert.img && cert.img.length > 0;
+  const hasLink = cert.link && cert.link.length > 0;
+
+  const skillsHTML = cert.skills.map(s =>
+    `<span class="cert-skill-tag">${s}</span>`
+  ).join('');
+
+  const imgHTML = hasImg
+    ? `<img src="${cert.img}" alt="${cert.title}" loading="lazy"/>`
+    : `<div class="cert-img-placeholder">
+         <div class="cip-icon">
+           <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+         </div>
+       </div>`;
+
+  const linkHTML = hasLink
+    ? `<a href="${cert.link}" target="_blank" class="cert-link">View Credential ↗</a>`
+    : `<span class="cert-link disabled">Link coming</span>`;
+
+  return `
+    <div class="cert-card" data-tags="${cert.tags.join(' ')}" data-id="${cert.id}"
+         onclick="openLightbox(${cert.id})">
+      <div class="cert-img-wrap">
+        ${imgHTML}
+        <div class="cert-img-overlay"><span>View details</span></div>
+      </div>
+      <div class="cert-body">
+        <div class="cert-issuer-row">
+          <span class="cert-issuer-badge">${cert.issuer}</span>
+          <span class="cert-date">${cert.date}</span>
+        </div>
+        <div class="cert-title">${cert.title}</div>
+        <div class="cert-skills-label">Skills</div>
+        <div class="cert-skill-tags">${skillsHTML}</div>
+        <div class="cert-card-foot">
+          ${linkHTML}
+          <span class="cert-num">${String(idx+1).padStart(2,'0')} / ${CERTS.length}</span>
+        </div>
+      </div>
+    </div>`;
+}
+
+function getSorted(arr) {
+  const copy = [...arr];
+  if (currentSort === 'issuer') {
+    copy.sort((a,b) => a.issuer.localeCompare(b.issuer));
+  } else if (currentSort === 'title') {
+    copy.sort((a,b) => a.title.localeCompare(b.title));
+  } else {
+    // newest first: keep original order (already sorted newest→oldest in data)
+  }
+  return copy;
+}
+
+function renderGrid() {
+  const grid = document.getElementById('certs-grid');
+  const sorted = getSorted(CERTS);
+  const filtered = sorted.filter(c =>
+    currentFilter === 'all' || c.tags.includes(currentFilter)
+  );
+
+  grid.innerHTML = filtered.map((c, i) => buildCard(c, i)).join('');
+
+  const label = document.getElementById('cert-count-label');
+  if (label) label.textContent = `Showing ${filtered.length} certificate${filtered.length !== 1 ? 's':''}`;
+
+  document.getElementById('empty-state').style.display =
+    filtered.length === 0 ? 'block' : 'none';
+}
+
+function filterCerts(tag, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentFilter = tag;
+  renderGrid();
+}
+
+function sortCerts(by, btn) {
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  currentSort = by;
+  renderGrid();
+}
+
+/* ══════════════════════════════════════
+   LIGHTBOX
+══════════════════════════════════════ */
+function openLightbox(id) {
+  const cert = CERTS.find(c => c.id === id);
+  if (!cert) return;
+
+  const hasImg  = cert.img  && cert.img.length > 0;
+  const hasLink = cert.link && cert.link.length > 0;
+
+  document.getElementById('lb-issuer').textContent = cert.issuer;
+  document.getElementById('lb-title').textContent  = cert.title;
+  document.getElementById('lb-date').textContent   = cert.date;
+
+  document.getElementById('lb-skills').innerHTML = cert.skills
+    .map(s => `<span class="lb-skill">${s}</span>`).join('');
+
+  document.getElementById('lb-img').innerHTML = hasImg
+    ? `<img src="${cert.img}" alt="${cert.title}"/>`
+    : `<div class="lb-placeholder">
+         <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
+         <span>Certificate image coming</span>
+       </div>`;
+
+  document.getElementById('lb-actions').innerHTML = hasLink
+    ? `<a href="${cert.link}" target="_blank" class="btn-primary">View Credential ↗</a>`
+    : `<span class="btn-disabled-sm">Credential link coming soon</span>`;
+
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e, force) {
+  if (force || !e || e.target === document.getElementById('lightbox')) {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox(null, true);
+});
+
+/* VISITOR COUNTER */
+(function(){
+  let total  = parseInt(localStorage.getItem('dp_total')  || '3842');
+  let unique = parseInt(localStorage.getItem('dp_unique') || '1231');
+  const el = document.getElementById('footer-visitor-display');
+  if (el) el.textContent = unique.toLocaleString() + ' unique · ' + total.toLocaleString() + ' total visits';
+})();
+
+/* INIT */
+renderGrid();
+</script>
+</body>
+</html>

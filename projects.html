@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Projects — Devadatta Pokharanakar</title>
+<meta name="description" content="All projects by Devadatta Pokharanakar — Machine Learning, Web Development, Computer Vision, Android."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #0A0A0A;
+    --ink-mid:    #444444;
+    --ink-light:  #888888;
+    --paper:      #FAFAFA;
+    --paper-mid:  #F0EFED;
+    --paper-dark: #E4E2DF;
+    --rule:       #0A0A0A;
+    --rule-light: #DDDDDD;
+    --serif:      'DM Serif Display', Georgia, serif;
+    --sans:       'DM Sans', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); overflow-x: hidden; cursor: crosshair; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes pulse  { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+
+  .reveal { opacity:0; animation: fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
+  .reveal-1 { animation-delay:0.05s; }
+  .reveal-2 { animation-delay:0.15s; }
+  .reveal-3 { animation-delay:0.25s; }
+
+  /* ── TOP RULE ── */
+  .top-rule { height:3px; background:var(--ink); }
+
+  /* ── SITEMAP BAR ── */
+  .sitemap-bar { background:var(--paper-mid); border-bottom:0.5px solid var(--rule-light); padding:10px 48px; display:flex; align-items:center; justify-content:flex-end; gap:8px; }
+  .sitemap-bar span { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); }
+  .sitemap-bar a { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid); border-bottom:0.5px solid var(--ink-mid); }
+
+  /* ── NAVBAR ── */
+  nav { display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:58px; border-bottom:0.5px solid var(--rule-light); position:sticky; top:0; background:var(--paper); z-index:100; }
+  .nav-logo { font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; }
+  .nav-links { display:flex; gap:24px; list-style:none; }
+  .nav-links a { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid); padding-bottom:2px; border-bottom:1.5px solid transparent; transition:color 0.15s; }
+  .nav-links a:hover, .nav-links a.active { color:var(--ink); border-bottom-color:var(--ink); }
+  .nav-cta { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; background:var(--ink); color:var(--paper); padding:8px 18px; border:none; cursor:pointer; display:inline-block; transition:background 0.15s; }
+  .nav-cta:hover { background:var(--ink-mid); }
+
+  /* ── PAGE HEADER ── */
+  .page-header {
+    display:grid;
+    grid-template-columns: 1fr 1.5px 1fr;
+    border-bottom:1px solid var(--rule);
+    min-height:160px;
+  }
+
+  .ph-left {
+    padding:40px 48px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+
+  .ph-breadcrumb { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-light); margin-bottom:16px; }
+  .ph-breadcrumb a { border-bottom:0.5px solid var(--ink-light); }
+  .ph-breadcrumb a:hover { color:var(--ink); }
+
+  .ph-title { font-family:var(--serif); font-size:clamp(32px,4vw,52px); line-height:1.04; letter-spacing:-0.02em; }
+  .ph-title em { font-style:italic; border-bottom:3px solid var(--ink); padding-bottom:2px; }
+
+  .ph-divider { background:var(--rule); }
+
+  .ph-right {
+    padding:40px 48px;
+    background:var(--paper-mid);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+
+  .ph-desc { font-size:13px; color:var(--ink-mid); line-height:1.8; max-width:400px; margin-bottom:20px; }
+
+  .ph-stats { display:flex; gap:32px; }
+  .ph-stat .n { font-family:var(--serif); font-size:26px; color:var(--ink); line-height:1; }
+  .ph-stat .l { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); margin-top:4px; }
+
+  /* ── FILTER BAR ── */
+  .filter-bar {
+    padding:0 48px;
+    border-bottom:1px solid var(--rule);
+    display:flex;
+    align-items:center;
+    gap:0;
+    overflow-x:auto;
+    background:var(--paper);
+  }
+
+  .filter-label { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); padding:16px 20px 16px 0; border-right:0.5px solid var(--rule-light); margin-right:16px; white-space:nowrap; }
+
+  .filter-btn {
+    font-family:var(--sans);
+    font-size:10px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:16px 18px;
+    background:transparent;
+    color:var(--ink-light);
+    border:none;
+    border-bottom:2px solid transparent;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:color 0.15s, border-color 0.15s;
+  }
+  .filter-btn:hover { color:var(--ink); }
+  .filter-btn.active { color:var(--ink); border-bottom-color:var(--ink); font-weight:500; }
+
+  .filter-count { font-size:9px; color:var(--ink-light); margin-left:4px; }
+
+  /* ── PROJECT BLOCKS ── */
+  #projects-list { }
+
+  .project-block {
+    display:grid;
+    grid-template-columns:1fr 1.5px 1fr;
+    border-bottom:1px solid var(--rule);
+    transition:background 0.15s;
+  }
+
+  .project-block.hidden { display:none; }
+
+  /* Alternate: odd = text left / even = text right */
+  .project-block.flip { grid-template-columns:1fr 1.5px 1fr; }
+  .project-block.flip .pb-content { order:3; }
+  .project-block.flip .pb-divider { order:2; }
+  .project-block.flip .pb-gallery  { order:1; }
+
+  .pb-content {
+    padding:48px 48px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:0;
+  }
+
+  .pb-divider { background:var(--rule); }
+
+  .pb-gallery {
+    background:var(--paper-mid);
+    position:relative;
+    min-height:320px;
+    overflow:hidden;
+    display:flex;
+    align-items:stretch;
+  }
+
+  /* Gallery slides */
+  .gallery-slides { position:relative; width:100%; overflow:hidden; }
+
+  .gallery-slide {
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    transition:opacity 0.35s ease;
+    background:var(--paper-dark);
+  }
+
+  .gallery-slide.active { opacity:1; position:relative; }
+
+  .gallery-slide img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+
+  /* Placeholder when no image */
+  .gallery-placeholder {
+    width:100%;
+    min-height:320px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    background:var(--paper-dark);
+  }
+
+  .gallery-placeholder .gp-icon {
+    width:48px; height:48px;
+    border:1px solid var(--rule-light);
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .gallery-placeholder .gp-icon svg { width:22px; height:22px; stroke:var(--ink-light); fill:none; stroke-width:1.5; }
+  .gallery-placeholder .gp-label { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); }
+
+  /* Gallery controls */
+  .gallery-controls {
+    position:absolute;
+    bottom:16px;
+    right:16px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    z-index:10;
+  }
+
+  .gallery-arr {
+    width:32px; height:32px;
+    background:var(--paper);
+    border:0.5px solid var(--rule);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    font-size:14px;
+    color:var(--ink);
+    transition:background 0.15s, color 0.15s;
+    user-select:none;
+  }
+  .gallery-arr:hover { background:var(--ink); color:var(--paper); }
+
+  .gallery-counter {
+    font-size:10px;
+    letter-spacing:0.08em;
+    color:var(--ink-mid);
+    background:var(--paper);
+    padding:4px 10px;
+    border:0.5px solid var(--rule-light);
+  }
+
+  /* Dot indicators */
+  .gallery-dots {
+    position:absolute;
+    bottom:18px;
+    left:16px;
+    display:flex;
+    gap:5px;
+    z-index:10;
+  }
+
+  .gdot {
+    width:5px; height:5px;
+    border-radius:50%;
+    background:var(--ink-light);
+    cursor:pointer;
+    transition:background 0.15s, transform 0.15s;
+  }
+  .gdot.active { background:var(--ink); transform:scale(1.3); }
+
+  /* Content pieces */
+  .pb-top { margin-bottom:20px; }
+
+  .pb-num {
+    font-size:10px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-light);
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  .pb-status {
+    font-size:9px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:2px 8px;
+    border:0.5px solid;
+  }
+  .pb-status.complete  { border-color:#2a2a2a; color:#2a2a2a; background:var(--paper-dark); }
+  .pb-status.ongoing   { border-color:#888; color:#666; background:transparent; }
+  .pb-status.featured  { border-color:var(--ink); color:var(--paper); background:var(--ink); }
+
+  .pb-title {
+    font-family:var(--serif);
+    font-size:clamp(22px,2.8vw,34px);
+    line-height:1.1;
+    color:var(--ink);
+    margin-bottom:16px;
+    letter-spacing:-0.01em;
+  }
+
+  .pb-tagline {
+    font-size:11px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-light);
+    margin-bottom:14px;
+  }
+
+  .pb-desc {
+    font-size:13px;
+    color:var(--ink-mid);
+    line-height:1.8;
+    margin-bottom:20px;
+  }
+
+  /* Feature bullets */
+  .pb-features { list-style:none; display:flex; flex-direction:column; gap:6px; margin-bottom:24px; }
+  .pb-features li { font-size:12px; color:var(--ink-mid); padding-left:16px; position:relative; line-height:1.6; }
+  .pb-features li::before { content:'—'; position:absolute; left:0; color:var(--ink-light); }
+
+  /* Tech stack */
+  .pb-stack-label { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-light); margin-bottom:10px; }
+  .pb-tags { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:28px; }
+  .pb-tag {
+    font-size:9px; letter-spacing:0.08em; text-transform:uppercase;
+    border:0.5px solid var(--rule-light); color:var(--ink-mid);
+    padding:4px 10px; transition:background 0.15s, color 0.15s, border-color 0.15s;
+    cursor:default;
+  }
+  .pb-tag:hover { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+
+  /* Action buttons */
+  .pb-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:auto; }
+
+  .btn-gh {
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--ink); color:var(--paper);
+    font-family:var(--sans); font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    padding:11px 22px;
+    border:1.5px solid var(--ink);
+    cursor:pointer; transition:all 0.15s;
+  }
+  .btn-gh:hover { background:transparent; color:var(--ink); }
+  .btn-gh svg { width:14px; height:14px; fill:currentColor; flex-shrink:0; }
+
+  .btn-demo {
+    display:inline-flex; align-items:center; gap:8px;
+    background:transparent; color:var(--ink);
+    font-family:var(--sans); font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    padding:11px 22px;
+    border:1.5px solid var(--ink);
+    cursor:pointer; transition:all 0.15s;
+  }
+  .btn-demo:hover { background:var(--ink); color:var(--paper); }
+
+  .btn-disabled {
+    display:inline-flex; align-items:center; gap:8px;
+    background:transparent; color:var(--ink-light);
+    font-family:var(--sans); font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    padding:11px 22px;
+    border:1.5px solid var(--rule-light);
+    cursor:not-allowed; opacity:0.6;
+  }
+
+  /* ── EMPTY STATE ── */
+  #empty-state {
+    display:none;
+    padding:80px 48px;
+    text-align:center;
+    border-bottom:1px solid var(--rule);
+  }
+  #empty-state p { font-family:var(--serif); font-size:22px; color:var(--ink-light); }
+
+  /* ── FOOTER ── */
+  footer { background:var(--ink); padding:48px; display:grid; grid-template-columns:1.2fr 1fr; gap:48px; }
+  .footer-brand .footer-logo { font-family:var(--serif); font-size:22px; color:var(--paper); margin-bottom:10px; }
+  .footer-brand .footer-tagline { font-size:11px; color:rgba(255,255,255,0.5); line-height:1.7; margin-bottom:20px; }
+  .footer-brand .footer-email { font-size:11px; color:rgba(255,255,255,0.7); }
+  .footer-nav { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+  .footer-nav-title { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:16px; }
+  .footer-nav-links { list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .footer-nav-links li a { font-size:12px; color:rgba(255,255,255,0.65); transition:color 0.15s; }
+  .footer-nav-links li a:hover { color:#fff; }
+  .footer-bottom { background:#111; padding:16px 48px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-bottom span { font-size:10px; letter-spacing:0.08em; color:rgba(255,255,255,0.35); }
+  .footer-visitor { font-size:10px; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:8px; }
+  .fdot { width:6px; height:6px; border-radius:50%; background:#fff; animation:pulse 2s infinite; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    nav { padding:0 20px; }
+    .nav-links { display:none; }
+    .page-header { grid-template-columns:1fr; min-height:auto; }
+    .ph-divider { display:none; }
+    .ph-left, .ph-right { padding:28px 24px; }
+    .filter-bar { padding:0 24px; }
+    .project-block,
+    .project-block.flip { grid-template-columns:1fr; }
+    .project-block.flip .pb-content { order:1; }
+    .project-block.flip .pb-divider { order:2; display:none; }
+    .project-block.flip .pb-gallery  { order:3; }
+    .pb-divider { display:none; }
+    .pb-content { padding:32px 24px; }
+    .pb-gallery { min-height:240px; }
+    .gallery-placeholder { min-height:240px; }
+    footer { grid-template-columns:1fr; gap:32px; padding:36px 24px; }
+    .footer-bottom { padding:14px 24px; flex-direction:column; gap:6px; text-align:center; }
+    .sitemap-bar { padding:10px 24px; }
+  }
+
+  @media (max-width:540px) {
+    .ph-stats { gap:20px; }
+    .pb-actions { flex-direction:column; }
+    .footer-nav { grid-template-columns:1fr; gap:24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-rule"></div>
+
+<div class="sitemap-bar">
+  <span>Navigate →</span>
+  <a href="sitemap.html">Sitemap</a>
+</div>
+
+<!-- NAVBAR -->
+<nav class="reveal reveal-1">
+  <div class="nav-logo"><a href="index.html">D. Pokharanakar</a></div>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="index.html#education">Education</a></li>
+    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="certifications.html">Certifications</a></li>
+    <li><a href="art.html">Art</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="resume.pdf" download class="nav-cta">Download CV</a>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="ph-left reveal reveal-2">
+    <div>
+      <div class="ph-breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Projects</div>
+      <h1 class="ph-title">All <em>Projects</em></h1>
+    </div>
+  </div>
+  <div class="ph-divider"></div>
+  <div class="ph-right reveal reveal-3">
+    <p class="ph-desc">A collection of personal, academic, and professional projects spanning machine learning, computer vision, full-stack web development, and Android — each solving a real problem.</p>
+    <div class="ph-stats">
+      <div class="ph-stat"><div class="n">5</div><div class="l">Projects</div></div>
+      <div class="ph-stat"><div class="n">3</div><div class="l">Domains</div></div>
+      <div class="ph-stat"><div class="n">8+</div><div class="l">Tech stacks</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar reveal reveal-2">
+  <span class="filter-label">Filter by</span>
+  <button class="filter-btn active" data-filter="all" onclick="filterProjects('all',this)">All <span class="filter-count">5</span></button>
+  <button class="filter-btn" data-filter="ml" onclick="filterProjects('ml',this)">ML / AI <span class="filter-count">2</span></button>
+  <button class="filter-btn" data-filter="cv" onclick="filterProjects('cv',this)">Computer Vision <span class="filter-count">2</span></button>
+  <button class="filter-btn" data-filter="web" onclick="filterProjects('web',this)">Web / Full-Stack <span class="filter-count">2</span></button>
+  <button class="filter-btn" data-filter="android" onclick="filterProjects('android',this)">Android <span class="filter-count">2</span></button>
+  <button class="filter-btn" data-filter="gis" onclick="filterProjects('gis',this)">GIS / IoT <span class="filter-count">1</span></button>
+</div>
+
+<!-- ═══════════════════════════════════
+     PROJECTS LIST
+═══════════════════════════════════ -->
+<div id="projects-list">
+
+  <!-- ── PROJECT 1: AquaSense ── -->
+  <div class="project-block reveal reveal-2" data-tags="web gis">
+
+    <div class="pb-content">
+      <div class="pb-top">
+        <div class="pb-num">
+          01
+          <span class="pb-status featured">Featured</span>
+          <span class="pb-status complete">Completed</span>
+        </div>
+        <h2 class="pb-title">AquaSense</h2>
+        <div class="pb-tagline">Water Supply Network Monitoring System</div>
+        <p class="pb-desc">A GIS-powered web platform for real-time monitoring and visualisation of urban water supply networks. Built with React on the frontend and PostgreSQL with PostGIS on the backend, with a designed-in pathway for live IoT sensor integration.</p>
+        <ul class="pb-features">
+          <li>Interactive GIS map showing pipe network, nodes, and pressure zones</li>
+          <li>Real-time status overlays — leak detection, flow anomalies</li>
+          <li>PostgreSQL + PostGIS spatial queries for network analysis</li>
+          <li>IoT-ready architecture: sensor data ingestion pipeline designed</li>
+          <li>Responsive React dashboard with filterable map layers</li>
+        </ul>
+      </div>
+      <div>
+        <div class="pb-stack-label">Tech Stack</div>
+        <div class="pb-tags">
+          <span class="pb-tag">React</span><span class="pb-tag">PostgreSQL</span>
+          <span class="pb-tag">PostGIS</span><span class="pb-tag">Leaflet.js</span>
+          <span class="pb-tag">Python</span><span class="pb-tag">GIS</span>
+          <span class="pb-tag">IoT</span><span class="pb-tag">REST API</span>
+        </div>
+        <div class="pb-actions">
+          <a href="https://github.com/DevadattaP/AquaSense" target="_blank" class="btn-gh">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            View on GitHub
+          </a>
+          <span class="btn-disabled">Live Demo — Coming Soon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pb-divider"></div>
+
+    <div class="pb-gallery">
+      <div class="gallery-slides" id="gallery-0">
+        <!-- Slide 1 -->
+        <div class="gallery-slide active">
+          <div class="gallery-placeholder">
+            <div class="gp-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg></div>
+            <div class="gp-label">GIS Map Dashboard</div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="gallery-slide">
+          <div class="gallery-placeholder">
+            <div class="gp-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg></div>
+            <div class="gp-label">Real-time Sensor Data</div>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="gallery-slide">
+          <div class="gallery-placeholder">
+            <div class="gp-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="gp-label">Network Node View</div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-dots" id="dots-0"></div>
+      <div class="gallery-controls">
+        <button class="gallery-arr" onclick="galleryPrev(0)">&#8592;</button>
+        <span class="gallery-counter" id="counter-0">1 / 3</span>
+        <button class="gallery-arr" onclick="galleryNext(0)">&#8594;</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── PROJECT 2: ZeroG ── -->
+  <div class="project-block flip reveal reveal-2" data-tags="cv ml">
+
+    <div class="pb-content">
+      <div class="pb-top">
+        <div class="pb-num">
+          02
+          <span class="pb-status complete">Completed</span>
+        </div>
+        <h2 class="pb-title">ZeroG</h2>
+        <div class="pb-tagline">The Seamless Gesture Interface</div>
+        <p class="pb-desc">A computer vision system that replaces physical mouse and keyboard input with hand gestures, tracked in real time via webcam. Uses Mediapipe's hand-landmark model to translate finger positions into system-level mouse and keyboard events.</p>
+        <ul class="pb-features">
+          <li>21-point hand landmark tracking using Mediapipe</li>
+          <li>Gesture-to-action mapping: pinch to click, swipe to scroll, spread to zoom</li>
+          <li>Custom gesture vocabulary — user-definable shortcuts</li>
+          <li>Zero hardware dependency — works with any standard webcam</li>
+          <li>Low-latency pipeline optimised with frame skipping</li>
+        </ul>
+      </div>
+      <div>
+        <div class="pb-stack-label">Tech Stack</div>
+        <div class="pb-tags">
+          <span class="pb-tag">Python</span><span class="pb-tag">OpenCV</span>
+          <span class="pb-tag">Mediapipe</span><span class="pb-tag">PyAutoGUI</span>
+          <span class="pb-tag">NumPy</span><span class="pb-tag">Computer Vision</span>
+        </div>
+        <div class="pb-actions">
+          <a href="https://github.com/DevadattaP/ZeroG" target="_blank" class="btn-gh">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pb-divider"></div>
+
+    <div class="pb-gallery">
+      <div class="gallery-slides" id="gallery-1">
+        <div class="gallery-slide active">
+          <div class="gallery-placeholder">
+            <div class="gp-icon"><svg viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 00-2-2v0a2 2 0 00-2 2v0M14 10V4a2 2 0 00-2-2v0a2 2 0 00-2 2v2M10 10.5V6a2 2 0 00-2-2v0a2 2 0 00-2 2v8"/><path d="M18 11a2 2 0 114 0v3a8 8 0 01-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 012.83-2.82L7 15"/></svg></div>
+            <div class="gp-label">Hand Landmark Detection</div>
+          </div>
+        </div>
+        <div class="gallery-slide">
+          <div class="gallery-placeholder">
+            <div class="gp-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+            <div class="gp-label">Gesture Mapping Interface</div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-dots" id="dots-1"></div>
+      <div class="gallery-controls">
+        <button class="gallery-arr" onclick="galleryPrev(1)">&#8592;</button>
+        <span class="gallery-counter" id="counter-1">1 / 2</span>
+        <button class="gallery-arr" onclick="galleryNext(1)">&#8594;</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── PROJECT 3: HealthAssist ── -->
+  <div class="project-block reveal reveal-2" data-tags="android ml">
+
+    <div class="pb-content">
+      <div class="pb-top">
+        <div class="pb-num">
+          03
+          <span class="pb-status complete">Completed</span>
+        </div>
+        <h2 class="pb-title">HealthAssist</h2>
+        <div class="pb-tagline">Your Personal Health Buddy — Android App</div>
+        <p class="pb-desc">An Android application that diagnoses the likelihood of diabetes, anemia, and hypertension from user-reported symptoms using a fuzzy logic inference engine. Designed to assist in regions with limited access to immediate medical consultation.</p>
+        <ul class="pb-features">
+          <li>Fuzzy logic reasoning engine for three disease diagnoses</li>
+          <li>Symptom input via conversational question flow</li>
+          <li>Likelihood scoring with confidence levels, not binary yes/no</li>
+          <li>Offline-first — no internet required for diagnosis</li>
+          <li>Clean Material Design UI built in Java for Android</li>
+        </ul>
+      </div>
+      <div>
+        <div class="pb-stack-label">Tech Stack</div>
+        <div class="pb-tags">
+          <span class="pb-tag">Android</span><span class="pb-tag">Java</span>
+          <span class="pb-tag">Fuzzy Logic</span><span class="pb-tag">XML Layouts</span>
+          <span class="pb-tag">SQLite</span><span class="pb-tag">Material Design</span>
+        </div>
+        <div class="pb-actions">
+          <a href="https://github.com/DevadattaP/HealthAssist" target="_blank" class="btn-gh">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            View on GitHub
+          </a>
+          <a href="#" class="btn-demo">Download APK ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pb-divider"></div>
+
+    <div class="pb-gallery">
+      <div class="gallery-slides" id="gallery-2">
+        <div class="gallery-slide active">
+          <div class="gallery-placeholder">
+            <div class="gp-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
+            <div class="gp-label">Home Screen</div>
+          </div>
+        </div>
+        <div class="gallery-slide">
+          <div class="gallery-placeholder">
+            <div class="gp-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg></div>
+            <div class="gp-label">Symptom Input Flow</div>
+          </div>
+        </div>
+        <div class="gallery-slide">
+          <div class="gallery-placeholder">
+            <div class="gp-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="gp-label">Diagnosis Result</div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-dots" id="dots-2"></div>
+      <div class="gallery-controls">
+        <button class="gallery-arr" onclick="galleryPrev(2)">&#8592;</button>
+        <span class="gallery-counter" id="counter-2">1 / 3</span>
+        <button class="gallery-arr" onclick="galleryNext(2)">&#8594;</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── PROJECT 4: Stock Predictor ── -->
+  <div class="project-block flip reveal reveal-2" data-tags="web ml">
+
+    <div class="pb-content">
+      <div class="pb-top">
+        <div class="pb-num">
+          04
+          <span class="pb-status complete">Completed</span>
+        </div>
+        <h2 class="pb-title">Stock Predictor</h2>
+        <div class="pb-tagline">ML-Powered Stock Price & Movement Forecasting</div>
+        <p class="pb-desc">A full-stack Django web application built during the Pleximus internship that fetches live market data, applies multiple ML models, and presents predictions with interactive charts. Supports both price regression and directional movement classification.</p>
+        <ul class="pb-features">
+          <li>Live market data ingestion via Yahoo Finance API</li>
+          <li>Models: Random Forest, LSTM, and XGBoost with ensemble voting</li>
+          <li>Technical indicator feature engineering (RSI, MACD, Bollinger Bands)</li>
+          <li>Django backend with REST API for frontend chart rendering</li>
+          <li>Interactive candlestick charts with prediction overlay</li>
+        </ul>
+      </div>
+      <div>
+        <div class="pb-stack-label">Tech Stack</div>
+        <div class="pb-tags">
+          <span class="pb-tag">Python</span><span class="pb-tag">Django</span>
+          <span class="pb-tag">Scikit-learn</span><span class="pb-tag">TensorFlow</span>
+          <span class="pb-tag">XGBoost</span><span class="pb-tag">Pandas</span>
+          <span class="pb-tag">JavaScript</span><span class="pb-tag">Chart.js</span>
+        </div>
+        <div class="pb-actions">
+          <a href="https://github.com/DevadattaP" target="_blank" class="btn-gh">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pb-divider"></div>
+
+    <div class="pb-gallery">
+      <div class="gallery-slides" id="gallery-3">
+        <div class="gallery-slide active">
+          <div class="gallery-placeholder">
+            <div class="gp-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div class="gp-label">Prediction Dashboard</div>
+          </div>
+        </div>
+        <div class="gallery-slide">
+          <div class="gallery-placeholder">
+            <div class="gp-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <div class="gp-label">Model Comparison View</div>
+          </div>
+        </div>
+        <div class="gallery-slide">
+          <div class="gallery-placeholder">
+            <div class="gp-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6"  y1="20" x2="6"  y2="14"/></svg></div>
+            <div class="gp-label">Candlestick + Overlay</div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-dots" id="dots-3"></div>
+      <div class="gallery-controls">
+        <button class="gallery-arr" onclick="galleryPrev(3)">&#8592;</button>
+        <span class="gallery-counter" id="counter-3">1 / 3</span>
+        <button class="gallery-arr" onclick="galleryNext(3)">&#8594;</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── PROJECT 5: Smart Attendance ── -->
+  <div class="project-block reveal reveal-2" data-tags="cv android">
+
+    <div class="pb-content">
+      <div class="pb-top">
+        <div class="pb-num">
+          05
+          <span class="pb-status complete">Completed</span>
+        </div>
+        <h2 class="pb-title">Smart Attendance</h2>
+        <div class="pb-tagline">Face Recognition-Based Attendance System</div>
+        <p class="pb-desc">An end-to-end attendance management system built at Pleximus Inc., combining a Python backend for face recognition with an Android mobile app for on-device capture and an admin dashboard for reporting and management.</p>
+        <ul class="pb-features">
+          <li>Face detection and recognition using DeepFace + OpenCV pipeline</li>
+          <li>Android app for employee face capture and live attendance marking</li>
+          <li>Python/Flask REST API backend with employee face database</li>
+          <li>Anti-spoofing check — photo and video replay detection</li>
+          <li>Admin panel: attendance reports, employee management, CSV export</li>
+        </ul>
+      </div>
+      <div>
+        <div class="pb-stack-label">Tech Stack</div>
+        <div class="pb-tags">
+          <span class="pb-tag">Python</span><span class="pb-tag">DeepFace</span>
+          <span class="pb-tag">OpenCV</span><span class="pb-tag">Flask</span>
+          <span class="pb-tag">Android</span><span class="pb-tag">Java</span>
+          <span class="pb-tag">SQLite</span><span class="pb-tag">REST API</span>
+        </div>
+        <div class="pb-actions">
+          <a href="https://github.com/DevadattaP" target="_blank" class="btn-gh">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pb-divider"></div>
+
+    <div class="pb-gallery">
+      <div class="gallery-slides" id="gallery-4">
+        <div class="gallery-slide active">
+          <div class="gallery-placeholder">
+            <div class="gp-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+            <div class="gp-label">Face Capture Screen</div>
+          </div>
+        </div>
+        <div class="gallery-slide">
+          <div class="gallery-placeholder">
+            <div class="gp-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <div class="gp-label">Recognition in Progress</div>
+          </div>
+        </div>
+        <div class="gallery-slide">
+          <div class="gallery-placeholder">
+            <div class="gp-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg></div>
+            <div class="gp-label">Admin Attendance Report</div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-dots" id="dots-4"></div>
+      <div class="gallery-controls">
+        <button class="gallery-arr" onclick="galleryPrev(4)">&#8592;</button>
+        <span class="gallery-counter" id="counter-4">1 / 3</span>
+        <button class="gallery-arr" onclick="galleryNext(4)">&#8594;</button>
+      </div>
+    </div>
+
+  </div>
+
+</div><!-- /#projects-list -->
+
+<!-- Empty state -->
+<div id="empty-state">
+  <p>No projects match that filter — try another category.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="footer-logo">Devadatta<br>Pokharanakar</div>
+    <div class="footer-tagline">Data Scientist · Developer · Artist<br>MTech @ IIT Palakkad</div>
+    <div class="footer-email">dmpokharanakar@gmail.com</div>
+  </div>
+  <div class="footer-nav">
+    <div>
+      <div class="footer-nav-title">Navigate</div>
+      <ul class="footer-nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#education">Education</a></li>
+        <li><a href="index.html#skills">Skills</a></li>
+        <li><a href="index.html#certifications">Certifications</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-nav-title">Pages</div>
+      <ul class="footer-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">All Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="art.html">Art Gallery</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2025 Devadatta Mahesh Pokharanakar · Built with plain HTML, CSS & JS</span>
+  <div class="footer-visitor">
+    <div class="fdot"></div>
+    <span id="footer-visitor-display">Loading…</span>
+  </div>
+</div>
+
+<script>
+/* ── GALLERY STATE ── */
+const galleryState = {};
+
+function initGallery(id) {
+  const wrap   = document.getElementById('gallery-' + id);
+  if (!wrap) return;
+  const slides = wrap.querySelectorAll('.gallery-slide');
+  galleryState[id] = { current: 0, total: slides.length };
+
+  // Build dots
+  const dotsEl = document.getElementById('dots-' + id);
+  if (dotsEl) {
+    dotsEl.innerHTML = '';
+    slides.forEach((_, i) => {
+      const d = document.createElement('span');
+      d.className = 'gdot' + (i === 0 ? ' active' : '');
+      d.onclick = () => goToSlide(id, i);
+      dotsEl.appendChild(d);
+    });
+  }
+
+  // Fix positioning: only first slide should be relative
+  slides.forEach((s, i) => {
+    if (i > 0) s.style.position = 'absolute';
+  });
+}
+
+function goToSlide(id, idx) {
+  const wrap   = document.getElementById('gallery-' + id);
+  const slides = wrap.querySelectorAll('.gallery-slide');
+  const dots   = document.querySelectorAll('#dots-' + id + ' .gdot');
+  const state  = galleryState[id];
+
+  slides[state.current].classList.remove('active');
+  slides[state.current].style.position = 'absolute';
+  if (dots[state.current]) dots[state.current].classList.remove('active');
+
+  state.current = (idx + state.total) % state.total;
+
+  slides[state.current].classList.add('active');
+  slides[state.current].style.position = 'relative';
+  if (dots[state.current]) dots[state.current].classList.add('active');
+
+  const counter = document.getElementById('counter-' + id);
+  if (counter) counter.textContent = (state.current + 1) + ' / ' + state.total;
+}
+
+function galleryNext(id) { goToSlide(id, galleryState[id].current + 1); }
+function galleryPrev(id) { goToSlide(id, galleryState[id].current - 1); }
+
+/* ── FILTER ── */
+function filterProjects(tag, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const blocks = document.querySelectorAll('.project-block');
+  let visible = 0;
+
+  blocks.forEach(b => {
+    const tags = b.getAttribute('data-tags') || '';
+    const show = tag === 'all' || tags.split(' ').includes(tag);
+    b.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+
+  document.getElementById('empty-state').style.display = visible === 0 ? 'block' : 'none';
+}
+
+/* ── VISITOR COUNTER ── */
+(function(){
+  let total  = parseInt(localStorage.getItem('dp_total')  || '3842');
+  let unique = parseInt(localStorage.getItem('dp_unique') || '1231');
+  const el = document.getElementById('footer-visitor-display');
+  if (el) el.textContent = unique.toLocaleString() + ' unique · ' + total.toLocaleString() + ' total visits';
+})();
+
+/* ── INIT ALL GALLERIES ── */
+document.addEventListener('DOMContentLoaded', () => {
+  [0,1,2,3,4].forEach(i => initGallery(i));
+});
+</script>
+</body>
+</html>
