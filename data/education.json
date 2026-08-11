@@ -1,0 +1,36 @@
+{
+  "degrees": [
+    {
+      "year": "2025 – Present",
+      "institution": "Indian Institute of Technology, Palakkad",
+      "degree": "MTech in Data Science · CGPA: 9.03 (Sem 2)",
+      "badges": ["HTTA Scholar"]
+    },
+    {
+      "year": "2021 – 2025",
+      "institution": "FAMT, Ratnagiri · University of Mumbai",
+      "degree": "BE in CSE (AI & ML) with Honours in Data Science · CGPA: 9.55",
+      "badges": ["TFWS Scholar", "Dept. Rank 3"]
+    },
+    {
+      "year": "2019 – 2021",
+      "institution": "Abhyankar Kulkarni Junior College, Ratnagiri",
+      "degree": "Higher Secondary Certificate (HSC) · 98.5%",
+      "badges": []
+    },
+    {
+      "year": "2019",
+      "institution": "Patwardhan Highschool, Ratnagiri",
+      "degree": "Secondary School Certificate (SSC) · 95.2%",
+      "badges": []
+    }
+  ],
+  "honours": [
+    { "name": "GATE 2025 — AIR 1070", "sub": "Data Science & Artificial Intelligence", "year": "2025" },
+    { "name": "3rd Rank — Dept. of CSE (AI & ML)", "sub": "University of Mumbai", "year": "2025" },
+    { "name": "MIT Manipal Hackathon (M#23)", "sub": "Led the only team from Maharashtra | 36hr offline challange", "year": "2023" },
+    { "name": "1st Prize — Project Presentation", "sub": "CSE Dept., FAMT", "year": "2023" },
+    { "name": "1st Prize — Code Hunt, TechVenture", "sub": "CSE Dept., FAMT", "year": "2023" },
+    { "name": "3rd Prize — Project Presentation", "sub": "Chemical Eng. Dept., FAMT", "year": "2023" }
+  ]
+}

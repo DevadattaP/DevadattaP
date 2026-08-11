@@ -1,186 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Education — Devadatta Pokharanakar</title>
-<meta name="description" content="Education and honours of Devadatta Pokharanakar — IIT Palakkad, University of Mumbai, and academic awards."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet"/>
-<style>
-  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-  :root {
-    --ink:#0A0A0A; --ink-mid:#444444; --ink-light:#888888;
-    --paper:#FAFAFA; --paper-mid:#F0EFED; --paper-dark:#E4E2DF;
-    --rule:#0A0A0A; --rule-light:#DDDDDD;
-    --serif:'DM Serif Display', Georgia, serif; --sans:'DM Sans', system-ui, sans-serif;
-  }
-  html { scroll-behavior:smooth; }
-  body { font-family:var(--sans); background:var(--paper); color:var(--ink); overflow-x:hidden; cursor:crosshair; }
-  a { color:inherit; text-decoration:none; }
-  @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
-  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
-  .reveal { opacity:0; animation:fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
-  .reveal-1 { animation-delay:0.05s; }
-  .reveal-2 { animation-delay:0.15s; }
-  .reveal-3 { animation-delay:0.25s; }
-  .reveal-4 { animation-delay:0.35s; }
-  .top-rule { height:3px; background:var(--ink); }
-  .sitemap-bar { background:var(--paper-mid); border-bottom:0.5px solid var(--rule-light); padding:10px 48px; display:flex; align-items:center; justify-content:flex-end; gap:8px; }
-  .sitemap-bar span { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); }
-  .sitemap-bar a { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid); border-bottom:0.5px solid var(--ink-mid); }
-  nav { display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:58px; border-bottom:0.5px solid var(--rule-light); position:sticky; top:0; background:var(--paper); z-index:100; }
-  .nav-logo { font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; }
-  .nav-links { display:flex; gap:24px; list-style:none; }
-  .nav-links a { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid); padding-bottom:2px; border-bottom:1.5px solid transparent; transition:color 0.15s; }
-  .nav-links a:hover, .nav-links a.active { color:var(--ink); border-bottom-color:var(--ink); }
-  .nav-cta { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; background:var(--ink); color:var(--paper); padding:8px 18px; border:none; cursor:pointer; display:inline-block; transition:background 0.15s; }
-  .nav-cta:hover { background:var(--ink-mid); }
-  .page-header { display:grid; grid-template-columns:1fr 1.5px 1fr; border-bottom:1px solid var(--rule); min-height:160px; }
-  .ph-left { padding:40px 48px; display:flex; flex-direction:column; justify-content:space-between; }
-  .ph-breadcrumb { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-light); margin-bottom:16px; }
-  .ph-breadcrumb a { border-bottom:0.5px solid var(--ink-light); }
-  .ph-title { font-family:var(--serif); font-size:clamp(32px,4vw,52px); line-height:1.04; letter-spacing:-0.02em; }
-  .ph-title em { font-style:italic; border-bottom:3px solid var(--ink); padding-bottom:2px; }
-  .ph-divider { background:var(--rule); }
-  .ph-right { padding:40px 48px; background:var(--paper-mid); display:flex; flex-direction:column; justify-content:space-between; }
-  .ph-desc { font-size:13px; color:var(--ink-mid); line-height:1.8; max-width:420px; margin-bottom:20px; }
-  .ph-stats { display:flex; gap:32px; flex-wrap:wrap; }
-  .ph-stat .n { font-family:var(--serif); font-size:26px; color:var(--ink); line-height:1; }
-  .ph-stat .l { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); margin-top:4px; }
-  .two-col { display:grid; grid-template-columns:2fr 1fr; border-bottom:1px solid var(--rule); }
-  .col-main { padding:56px 48px; border-right:1px solid var(--rule); }
-  .col-side { padding:56px 36px; }
-  .section-header { display:flex; align-items:baseline; justify-content:space-between; padding:0 0 16px; border-bottom:1px solid var(--rule); margin-bottom:32px; }
-  .section-title { font-family:var(--serif); font-size:28px; color:var(--ink); letter-spacing:-0.02em; }
-  .edu-item { display:grid; grid-template-columns:100px 1fr; gap:24px; padding:24px 0; border-bottom:0.5px solid var(--rule-light); }
-  .edu-item:last-child { border-bottom:none; }
-  .edu-year { font-size:11px; letter-spacing:0.06em; color:var(--ink-light); padding-top:3px; }
-  .edu-inst { font-family:var(--serif); font-size:16px; color:var(--ink); margin-bottom:4px; }
-  .edu-degree { font-size:12px; color:var(--ink-mid); margin-bottom:6px; line-height:1.6; }
-  .edu-badge { display:inline-block; font-size:9px; letter-spacing:0.08em; text-transform:uppercase; background:var(--ink); color:var(--paper); padding:3px 10px; margin-top:4px; }
-  .award-item { padding:14px 0; border-bottom:0.5px solid var(--rule-light); display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
-  .award-item:last-child { border-bottom:none; }
-  .award-name { font-size:12px; color:var(--ink); font-weight:500; line-height:1.5; }
-  .award-year { font-size:10px; color:var(--ink-light); white-space:nowrap; letter-spacing:0.06em; }
-  .footer-bottom { background:#111; padding:16px 48px; display:flex; justify-content:space-between; align-items:center; }
-  .footer-bottom span { font-size:10px; letter-spacing:0.08em; color:rgba(255,255,255,0.35); }
-  .footer-visitor { font-size:10px; letter-spacing:0.08em; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:8px; }
-  .fdot { width:6px; height:6px; border-radius:50%; background:#fff; flex-shrink:0; animation:pulse 2s infinite; }
-  @media (max-width:960px) {
-    nav { padding:0 20px; }
-    .nav-links { display:none; }
-    .page-header { grid-template-columns:1fr; min-height:auto; }
-    .ph-divider { display:none; }
-    .ph-left, .ph-right { padding:28px 24px; }
-    .two-col { grid-template-columns:1fr; }
-    .col-main { padding:32px 24px; border-right:none; border-bottom:1px solid var(--rule); }
-    .col-side { padding:32px 24px; }
-    .sitemap-bar { padding:10px 24px; }
-    .footer-bottom { padding:14px 24px; flex-direction:column; gap:6px; text-align:center; }
-  }
-  @media (max-width:540px) {
-    .ph-stats { gap:18px; }
-    .edu-item { grid-template-columns:1fr; gap:8px; }
-  }
-</style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Education</title>
+<link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
-<div class="top-rule"></div>
-<div class="sitemap-bar"><span>Navigate →</span><a href="sitemap.html">Sitemap</a></div>
-<nav class="reveal reveal-1">
-  <div class="nav-logo"><a href="index.html">D. Pokharanakar</a></div>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="education.html" class="active">Education</a></li>
-    <li><a href="experience.html">Experience</a></li>
-    <li><a href="skills.html">Skills</a></li>
-    <li><a href="certifications.html">Certifications</a></li>
-    <li><a href="art.html">Art</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <a href="resume.pdf" download class="nav-cta">Download CV</a>
-</nav>
-<div class="page-header">
-  <div class="ph-left reveal reveal-2">
-    <div>
-      <div class="ph-breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Education</div>
-      <h1 class="ph-title">Education <em>&</em> Honours</h1>
-    </div>
-  </div>
-  <div class="ph-divider"></div>
-  <div class="ph-right reveal reveal-3">
-    <p class="ph-desc">A compact overview of my academic path, current MTech work at IIT Palakkad, and a set of honours earned through coursework, hackathons, and departmental competitions.</p>
-    <div class="ph-stats">
-      <div class="ph-stat"><div class="n">4</div><div class="l">Education entries</div></div>
-      <div class="ph-stat"><div class="n">6</div><div class="l">Honours listed</div></div>
-      <div class="ph-stat"><div class="n">9.55</div><div class="l">Top BE CGPA</div></div>
-    </div>
-  </div>
-</div>
-<div class="two-col">
-  <div class="col-main reveal reveal-4">
-    <div class="section-header"><h2 class="section-title">Education</h2></div>
-    <div class="edu-item">
-      <div class="edu-year">2025 –<br>Present</div>
-      <div>
-        <div class="edu-inst">Indian Institute of Technology, Palakkad</div>
-        <div class="edu-degree">MTech in Data Science · CGPA: 9.0 (Sem 1)</div>
-        <span class="edu-badge">HTTA Scholar</span>
-      </div>
-    </div>
-    <div class="edu-item">
-      <div class="edu-year">2021 –<br>2025</div>
-      <div>
-        <div class="edu-inst">FAMT, Ratnagiri · University of Mumbai</div>
-        <div class="edu-degree">BE in CSE (AI&ML) with Honours in Data Science · CGPA: 9.55</div>
-        <span class="edu-badge">TFWS Scholar</span>
-        <span class="edu-badge" style="margin-left:6px">Dept. Rank 3</span>
-      </div>
-    </div>
-    <div class="edu-item">
-      <div class="edu-year">2019 –<br>2021</div>
-      <div>
-        <div class="edu-inst">Abhyankar Kulkarni Junior College, Ratnagiri</div>
-        <div class="edu-degree">Higher Secondary Certificate (HSC) · 98.5%</div>
-      </div>
-    </div>
-    <div class="edu-item">
-      <div class="edu-year">2019</div>
-      <div>
-        <div class="edu-inst">Patwardhan Highschool, Ratnagiri</div>
-        <div class="edu-degree">Secondary School Certificate (SSC) · 95.2%</div>
-      </div>
-    </div>
-  </div>
-  <div class="col-side reveal reveal-4">
-    <div class="section-header"><h2 class="section-title" style="font-size:22px">Honours</h2></div>
-    <div class="award-item"><div class="award-name">GATE 2025 · AIR 1070<br><span style="font-size:10px;color:var(--ink-light);font-weight:400">Data Science & AI</span></div><div class="award-year">2025</div></div>
-    <div class="award-item"><div class="award-name">3rd Rank — Dept. of CSE (AI&ML)<br><span style="font-size:10px;color:var(--ink-light);font-weight:400">University of Mumbai</span></div><div class="award-year">2025</div></div>
-    <div class="award-item"><div class="award-name">MIT Manipal Hackathon (M#23)<br><span style="font-size:10px;color:var(--ink-light);font-weight:400">Only team from Maharashtra · 36hr offline</span></div><div class="award-year">2023</div></div>
-    <div class="award-item"><div class="award-name">1st Prize — Project Presentation<br><span style="font-size:10px;color:var(--ink-light);font-weight:400">CSE Dept., FAMT</span></div><div class="award-year">2023</div></div>
-    <div class="award-item"><div class="award-name">1st Prize — Code Hunt, TechVenture<br><span style="font-size:10px;color:var(--ink-light);font-weight:400">CSE Dept., FAMT</span></div><div class="award-year">2023</div></div>
-    <div class="award-item"><div class="award-name">3rd Prize — Project Presentation<br><span style="font-size:10px;color:var(--ink-light);font-weight:400">Chemical Eng. Dept., FAMT</span></div><div class="award-year">2023</div></div>
-  </div>
-</div>
-<div class="footer-bottom">
-  <span>© 2025 Devadatta Mahesh Pokharanakar · Built with plain HTML, CSS & JS</span>
-  <div class="footer-visitor"><div class="fdot"></div><span id="footer-visitor-display">Loading…</span></div>
-</div>
-<script>
-(function(){
-  let total  = parseInt(localStorage.getItem('dp_total')  || '3842');
-  let unique = parseInt(localStorage.getItem('dp_unique') || '1231');
-  let isNew  = !localStorage.getItem('dp_visited');
-  total++;
-  if(isNew){ unique++; localStorage.setItem('dp_visited','1'); localStorage.setItem('dp_unique',unique); }
-  localStorage.setItem('dp_total',total);
-  const el = document.getElementById('footer-visitor-display');
-  if(el) el.textContent = unique.toLocaleString() + ' unique · ' + total.toLocaleString() + ' total visits';
-})();
-</script>
+<body data-page="education">
+  <div class="topbar" id="topbar"></div>
+  <header class="band" id="band"></header>
+
+  <main class="wrap">
+    <section class="section">
+      <div class="section-label">Education</div>
+      <div class="field-list" id="degrees"><div class="loading">Loading…</div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Honours</div>
+      <div id="honours"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="siteFooter"></footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/pages/education.js"></script>
 </body>
 </html>

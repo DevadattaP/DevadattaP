@@ -3,28 +3,26 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Experience</title>
+<title>Games</title>
 <link rel="stylesheet" href="css/style.css" />
 </head>
-<body data-page="experience">
+<body data-page="games">
   <div class="topbar" id="topbar"></div>
   <header class="band" id="band"></header>
 
   <main class="wrap">
     <section class="section">
-      <div class="section-label">Experience</div>
-      <div id="roles"><div class="loading">Loading…</div></div>
-    </section>
-
-    <section class="section">
-      <div class="section-label">Online trainings</div>
-      <div id="trainings"></div>
+      <div class="section-label">Choose a game</div>
+      <div class="game-picker" id="gamePicker"><div class="loading">Loading…</div></div>
+      <div id="gamePanels"></div>
     </section>
   </main>
 
   <footer class="site-footer" id="siteFooter"></footer>
 
   <script src="js/app.js"></script>
-  <script src="js/pages/experience.js"></script>
+  <script src="js/games/snake.js"></script>
+  <script src="js/games/tictactoe.js"></script>
+  <script src="js/pages/games.js"></script>
 </body>
 </html>

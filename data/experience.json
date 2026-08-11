@@ -1,0 +1,21 @@
+{
+  "roles": [
+    {
+      "role": "Software Development Intern",
+      "company": "Pleximus Inc. · Ratnagiri, Maharashtra",
+      "date": "Aug 2024 – Jul 2025",
+      "bullets": [
+        "Stock price & movement prediction using ML — full-stack Django web application",
+        "Face recognition attendance system using OpenCV & DeepFace, with an Android app and Python backend"
+      ]
+    }
+  ],
+  "trainings": [
+    { "name": "IBM CSRBOX — Data Science", "issuer": "IBM", "date": "Feb–Mar 2024" },
+    { "name": "IBM CSRBOX — Generative AI", "issuer": "IBM", "date": "Feb–Mar 2024" },
+    { "name": "IBM CSRBOX — Data Visualization", "issuer": "IBM", "date": "Dec 2023" },
+    { "name": "Get Started in AI (MVIP)", "issuer": "MathWorks", "date": "May–Sep 2023" },
+    { "name": "ML & Neural Networks", "issuer": "Azure Skynet Solutions", "date": "May–Jun 2023" },
+    { "name": "Industry 4.0", "issuer": "Gustovally Technovations", "date": "Dec 2022" }
+  ]
+}

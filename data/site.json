@@ -1,0 +1,64 @@
+{
+  "name": "Devadatta Mahesh Pokharanakar",
+  "shortName": "Devadatta",
+  "kicker": "",
+  "role": "Data scientist , Developer , Artist",
+  "bio": "MTech Data Science student at IIT Palakkad. I build machine learning systems and software applications. I also like doing electronic projects, sketching, painting, and playing musical instruments.",
+  "avatar": "assets/images/avatar.jpg",
+  "resumeUrl": "assets/pdfs/resume.pdf",
+  "email": "dmpokharanakar@gmail.com",
+  "facts": [],
+  "pages": [
+    {
+      "key": "education", "label": "Education", "href": "education.html", "num": "01",
+      "title": "Education & Honours",
+      "intro": "A compact overview of my academic path, and a set of honours earned throughout academic pursuits."
+    },
+    {
+      "key": "experience", "label": "Experience", "href": "experience.html", "num": "02",
+      "title": "Experience & Trainings",
+      "intro": "Professional work, internship output, and a compact record of online training that shaped my applied development practice."
+    },
+    {
+      "key": "projects", "label": "Projects", "href": "projects.html", "num": "03",
+      "title": "Projects",
+      "intro": "My development work, from small web and mobile apps to machine learning systems and data pipelines — all built with a focus on simplicity, clarity, and performance."
+    },
+    {
+      "key": "skills", "label": "Skills", "href": "skills.html", "num": "04",
+      "title": "Skills Overview",
+      "intro": "A practical stack built around software delivery, data work, and creative problem solving, with enough breadth to move across web, mobile, and ML projects."
+    },
+    {
+      "key": "certifications", "label": "Certifications", "href": "certifications.html", "num": "05",
+      "title": "Certifications",
+      "intro": "32+ certifications earned across machine learning, cloud, cybersecurity, project management, and design."
+    },
+    {
+      "key": "blog", "label": "Writing", "href": "blog.html", "num": "06",
+      "title": "Blog & Notes",
+      "intro": "A collections of my thoughts, and experiences regarding tech."
+    },
+    {
+      "key": "art", "label": "Art Gallery", "href": "art.html", "num": "07",
+      "title": "Art Gallery",
+      "intro": "Sketches, paintings, handcrafts, photography, and even electronics — the parts of the week that aren't spent at a keyboard."
+    },
+    {
+      "key": "games", "label": "Games", "href": "games.html", "num": "08",
+      "title": "Games",
+      "intro": "A couple of small browser games, Enjoy!"
+    },
+    {
+      "key": "contact", "label": "Contact", "href": "contact.html", "num": "09",
+      "title": "Get In Touch",
+      "intro": "Have a question, want to collaborate on a project, or have feedback about this site? Choose a topic and send a note — it opens your email client with everything filled in."
+    }
+  ],
+  "social": [
+    { "label": "Email", "href": "mailto:dmpokharanakar@gmail.com" },
+    { "label": "GitHub", "href": "https://github.com/DevadattaP" },
+    { "label": "LinkedIn", "href": "https://linkedin.com/in/devadatta-pokharanakar" }
+  ],
+  "copyright": "© 2026 Devadatta Mahesh Pokharanakar"
+}
