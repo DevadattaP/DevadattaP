@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — Devadatta Pokharanakar</title>
+<meta name="description" content="Contact Devadatta Pokharanakar for projects, collaboration, or feedback."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+  :root { --ink:#0A0A0A; --ink-mid:#444444; --ink-light:#888888; --paper:#FAFAFA; --paper-mid:#F0EFED; --paper-dark:#E4E2DF; --rule:#0A0A0A; --rule-light:#DDDDDD; --serif:'DM Serif Display', Georgia, serif; --sans:'DM Sans', system-ui, sans-serif; }
+  html { scroll-behavior:smooth; }
+  body { font-family:var(--sans); background:var(--paper); color:var(--ink); overflow-x:hidden; cursor:crosshair; }
+  a { color:inherit; text-decoration:none; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
+  .reveal { opacity:0; animation:fadeUp 0.55s cubic-bezier(0.22,1,0.36,1) forwards; }
+  .reveal-1 { animation-delay:0.05s; }
+  .reveal-2 { animation-delay:0.15s; }
+  .reveal-3 { animation-delay:0.25s; }
+  .reveal-4 { animation-delay:0.35s; }
+  .top-rule { height:3px; background:var(--ink); }
+  .sitemap-bar { background:var(--paper-mid); border-bottom:0.5px solid var(--rule-light); padding:10px 48px; display:flex; align-items:center; justify-content:flex-end; gap:8px; }
+  .sitemap-bar span { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); }
+  .sitemap-bar a { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid); border-bottom:0.5px solid var(--ink-mid); }
+  nav { display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:58px; border-bottom:0.5px solid var(--rule-light); position:sticky; top:0; background:var(--paper); z-index:100; }
+  .nav-logo { font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; }
+  .nav-links { display:flex; gap:24px; list-style:none; }
+  .nav-links a { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid); padding-bottom:2px; border-bottom:1.5px solid transparent; transition:color 0.15s; }
+  .nav-links a:hover, .nav-links a.active { color:var(--ink); border-bottom-color:var(--ink); }
+  .nav-cta { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; background:var(--ink); color:var(--paper); padding:8px 18px; border:none; cursor:pointer; display:inline-block; transition:background 0.15s; }
+  .nav-cta:hover { background:var(--ink-mid); }
+  .page-header { display:grid; grid-template-columns:1fr 1.5px 1fr; border-bottom:1px solid var(--rule); min-height:160px; }
+  .ph-left { padding:40px 48px; display:flex; flex-direction:column; justify-content:space-between; }
+  .ph-breadcrumb { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-light); margin-bottom:16px; }
+  .ph-breadcrumb a { border-bottom:0.5px solid var(--ink-light); }
+  .ph-title { font-family:var(--serif); font-size:clamp(32px,4vw,52px); line-height:1.04; letter-spacing:-0.02em; }
+  .ph-title em { font-style:italic; border-bottom:3px solid var(--ink); padding-bottom:2px; }
+  .ph-divider { background:var(--rule); }
+  .ph-right { padding:40px 48px; background:var(--paper-mid); display:flex; flex-direction:column; justify-content:space-between; }
+  .ph-desc { font-size:13px; color:var(--ink-mid); line-height:1.8; max-width:420px; margin-bottom:20px; }
+  .ph-stats { display:flex; gap:32px; flex-wrap:wrap; }
+  .ph-stat .n { font-family:var(--serif); font-size:26px; color:var(--ink); line-height:1; }
+  .ph-stat .l { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); margin-top:4px; }
+  .contact-section { padding:56px 48px; border-bottom:1px solid var(--rule); display:grid; grid-template-columns:1fr 1.5px 1.4fr; gap:0; align-items:start; }
+  .contact-intro { padding-right:48px; }
+  .contact-intro h2 { font-family:var(--serif); font-size:28px; color:var(--ink); letter-spacing:-0.02em; margin-bottom:14px; }
+  .contact-intro p { font-size:13px; color:var(--ink-mid); line-height:1.8; margin-bottom:28px; }
+  .contact-social { display:flex; flex-direction:column; gap:8px; }
+  .social-link { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; border:0.5px solid var(--rule-light); font-size:12px; color:var(--ink); transition:background 0.15s,color 0.15s; }
+  .social-link:hover { background:var(--ink); color:var(--paper); }
+  .social-link .sl-name { font-weight:500; }
+  .social-link .sl-handle { font-size:10px; color:var(--ink-light); transition:color 0.15s; }
+  .social-link:hover .sl-handle { color:rgba(255,255,255,0.6); }
+  .social-link .sl-arrow { font-size:14px; }
+  .contact-vdivider { background:var(--rule); }
+  .contact-form-wrap { padding-left:48px; }
+  .topic-tabs { display:flex; margin-bottom:28px; border:1px solid var(--rule); }
+  .topic-tab { flex:1; padding:11px 6px; font-family:var(--sans); font-size:10px; letter-spacing:0.1em; text-transform:uppercase; text-align:center; background:transparent; color:var(--ink-light); border:none; border-right:1px solid var(--rule); cursor:pointer; transition:background 0.15s,color 0.15s; }
+  .topic-tab:last-child { border-right:none; }
+  .topic-tab:hover { background:var(--paper-dark); color:var(--ink); }
+  .topic-tab.active { background:var(--ink); color:var(--paper); }
+  .form-panel { display:none; }
+  .form-panel.active { display:block; }
+  .contact-form input, .contact-form textarea { width:100%; font-family:var(--sans); font-size:12px; color:var(--ink); background:transparent; border:none; border-bottom:1px solid var(--ink); padding:10px 0; margin-bottom:14px; outline:none; resize:none; transition:border-color 0.15s; }
+  .contact-form input::placeholder, .contact-form textarea::placeholder { color:var(--ink-light); }
+  .contact-form textarea { height:80px; }
+  .btn-primary { background:var(--ink); color:var(--paper); font-family:var(--sans); font-size:11px; letter-spacing:0.1em; text-transform:uppercase; padding:12px 28px; border:1.5px solid var(--ink); cursor:pointer; transition:all 0.15s; display:inline-block; }
+  .btn-primary:hover { background:transparent; color:var(--ink); }
+  .footer-bottom { background:#111; padding:16px 48px; display:flex; justify-content:space-between; align-items:center; }
+  .footer-bottom span { font-size:10px; letter-spacing:0.08em; color:rgba(255,255,255,0.35); }
+  .footer-visitor { font-size:10px; letter-spacing:0.08em; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:8px; }
+  .fdot { width:6px; height:6px; border-radius:50%; background:#fff; flex-shrink:0; animation:pulse 2s infinite; }
+  @media (max-width:960px) {
+    nav { padding:0 20px; }
+    .nav-links { display:none; }
+    .page-header { grid-template-columns:1fr; min-height:auto; }
+    .ph-divider { display:none; }
+    .ph-left, .ph-right { padding:28px 24px; }
+    .contact-section { grid-template-columns:1fr; padding:36px 24px; }
+    .contact-intro { padding-right:0; padding-bottom:32px; border-bottom:1px solid var(--rule-light); margin-bottom:32px; }
+    .contact-vdivider { display:none; }
+    .contact-form-wrap { padding-left:0; }
+    .sitemap-bar { padding:10px 24px; }
+    .footer-bottom { padding:14px 24px; flex-direction:column; gap:6px; text-align:center; }
+  }
+  @media (max-width:540px) {
+    .topic-tab { font-size:9px; letter-spacing:0.05em; padding:10px 4px; }
+    .ph-stats { gap:18px; }
+  }
+</style>
+</head>
+<body>
+<div class="top-rule"></div>
+<div class="sitemap-bar"><span>Navigate →</span><a href="sitemap.html">Sitemap</a></div>
+<nav class="reveal reveal-1">
+  <div class="nav-logo"><a href="index.html">D. Pokharanakar</a></div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="education.html">Education</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="certifications.html">Certifications</a></li>
+    <li><a href="art.html">Art</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <a href="resume.pdf" download class="nav-cta">Download CV</a>
+</nav>
+<div class="page-header">
+  <div class="ph-left reveal reveal-2">
+    <div>
+      <div class="ph-breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Contact</div>
+      <h1 class="ph-title">Get <em>In Touch</em></h1>
+    </div>
+  </div>
+  <div class="ph-divider"></div>
+  <div class="ph-right reveal reveal-3">
+    <p class="ph-desc">Use the links below for direct contact, or send a note through one of the topic cards if you want to discuss collaboration, a website change, or a project idea.</p>
+    <div class="ph-stats">
+      <div class="ph-stat"><div class="n">3</div><div class="l">Direct links</div></div>
+      <div class="ph-stat"><div class="n">3</div><div class="l">Message topics</div></div>
+      <div class="ph-stat"><div class="n">1</div><div class="l">Best reply path</div></div>
+    </div>
+  </div>
+</div>
+<section id="contact" class="contact-section reveal reveal-4">
+  <div class="contact-intro">
+    <h2>Get in Touch</h2>
+    <p>Have a question, want to collaborate on a project, or have feedback about this site? Choose a topic and send me a message.</p>
+    <div class="contact-social">
+      <a href="https://github.com/DevadattaP" target="_blank" class="social-link">
+        <div><span class="sl-name">GitHub</span><br><span class="sl-handle">DevadattaP</span></div>
+        <span class="sl-arrow">↗</span>
+      </a>
+      <a href="https://linkedin.com/in/devadatta-pokharanakar" target="_blank" class="social-link">
+        <div><span class="sl-name">LinkedIn</span><br><span class="sl-handle">devadatta-pokharanakar</span></div>
+        <span class="sl-arrow">↗</span>
+      </a>
+      <a href="mailto:dmpokharanakar@gmail.com" class="social-link">
+        <div><span class="sl-name">Email</span><br><span class="sl-handle">dmpokharanakar@gmail.com</span></div>
+        <span class="sl-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+  <div class="contact-vdivider"></div>
+  <div class="contact-form-wrap">
+    <div class="topic-tabs">
+      <button class="topic-tab active" onclick="switchTopic('hello',this)">Say Hello</button>
+      <button class="topic-tab" onclick="switchTopic('website',this)">Suggest Website</button>
+      <button class="topic-tab" onclick="switchTopic('project',this)">Project Help</button>
+    </div>
+    <div class="form-panel active" id="form-hello">
+      <div class="contact-form">
+        <input type="text" placeholder="Your name"/>
+        <input type="email" placeholder="Your email"/>
+        <textarea placeholder="Your message..."></textarea>
+        <button class="btn-primary" style="width:100%;text-align:center">Send Message</button>
+      </div>
+    </div>
+    <div class="form-panel" id="form-website">
+      <div class="contact-form">
+        <input type="text" placeholder="Your name"/>
+        <input type="email" placeholder="Your email"/>
+        <textarea placeholder="What would you like to see added or improved on this website?"></textarea>
+        <button class="btn-primary" style="width:100%;text-align:center">Send Suggestion</button>
+      </div>
+    </div>
+    <div class="form-panel" id="form-project">
+      <div class="contact-form">
+        <input type="text" placeholder="Your name"/>
+        <input type="email" placeholder="Your email"/>
+        <input type="text" placeholder="Project domain (e.g. ML, Web Dev, Android)"/>
+        <textarea placeholder="Describe your project and what kind of help you need..."></textarea>
+        <button class="btn-primary" style="width:100%;text-align:center">Request Collaboration</button>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="footer-bottom">
+  <span>© 2025 Devadatta Mahesh Pokharanakar · Built with plain HTML, CSS & JS</span>
+  <div class="footer-visitor"><div class="fdot"></div><span id="footer-visitor-display">Loading…</span></div>
+</div>
+<script>
+function switchTopic(topic, btn) {
+  document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.topic-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('form-' + topic).classList.add('active');
+  btn.classList.add('active');
+}
+(function(){
+  let total  = parseInt(localStorage.getItem('dp_total')  || '3842');
+  let unique = parseInt(localStorage.getItem('dp_unique') || '1231');
+  let isNew  = !localStorage.getItem('dp_visited');
+  total++;
+  if(isNew){ unique++; localStorage.setItem('dp_visited','1'); localStorage.setItem('dp_unique',unique); }
+  localStorage.setItem('dp_total',total);
+  const el = document.getElementById('footer-visitor-display');
+  if(el) el.textContent = unique.toLocaleString() + ' unique · ' + total.toLocaleString() + ' total visits';
+})();
+</script>
+</body>
+</html>

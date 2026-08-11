@@ -365,15 +365,6 @@
   #empty-state p { font-family:var(--serif); font-size:22px; color:var(--ink-light); }
 
   /* ── FOOTER ── */
-  footer { background:var(--ink); padding:48px; display:grid; grid-template-columns:1.2fr 1fr; gap:48px; }
-  .footer-brand .footer-logo { font-family:var(--serif); font-size:22px; color:var(--paper); margin-bottom:10px; }
-  .footer-brand .footer-tagline { font-size:11px; color:rgba(255,255,255,0.5); line-height:1.7; margin-bottom:20px; }
-  .footer-brand .footer-email { font-size:11px; color:rgba(255,255,255,0.7); }
-  .footer-nav { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
-  .footer-nav-title { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:16px; }
-  .footer-nav-links { list-style:none; display:flex; flex-direction:column; gap:8px; }
-  .footer-nav-links li a { font-size:12px; color:rgba(255,255,255,0.65); transition:color 0.15s; }
-  .footer-nav-links li a:hover { color:#fff; }
   .footer-bottom { background:#111; padding:16px 48px; display:flex; justify-content:space-between; align-items:center; }
   .footer-bottom span { font-size:10px; letter-spacing:0.08em; color:rgba(255,255,255,0.35); }
   .footer-visitor { font-size:10px; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:8px; }
@@ -396,7 +387,6 @@
     .pb-content { padding:32px 24px; }
     .pb-gallery { min-height:240px; }
     .gallery-placeholder { min-height:240px; }
-    footer { grid-template-columns:1fr; gap:32px; padding:36px 24px; }
     .footer-bottom { padding:14px 24px; flex-direction:column; gap:6px; text-align:center; }
     .sitemap-bar { padding:10px 24px; }
   }
@@ -404,7 +394,6 @@
   @media (max-width:540px) {
     .ph-stats { gap:20px; }
     .pb-actions { flex-direction:column; }
-    .footer-nav { grid-template-columns:1fr; gap:24px; }
   }
 </style>
 </head>
@@ -421,14 +410,15 @@
 <nav class="reveal reveal-1">
   <div class="nav-logo"><a href="index.html">D. Pokharanakar</a></div>
   <ul class="nav-links">
-    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="projects.html" class="active">Projects</a></li>
-    <li><a href="index.html#education">Education</a></li>
-    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="education.html">Education</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="skills.html">Skills</a></li>
     <li><a href="certifications.html">Certifications</a></li>
     <li><a href="art.html">Art</a></li>
     <li><a href="blog.html">Blog</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="resume.pdf" download class="nav-cta">Download CV</a>
 </nav>
@@ -469,7 +459,7 @@
 <div id="projects-list">
 
   <!-- ── PROJECT 1: AquaSense ── -->
-  <div class="project-block reveal reveal-2" data-tags="web gis">
+  <div id="aquasense" class="project-block reveal reveal-2" data-tags="web gis">
 
     <div class="pb-content">
       <div class="pb-top">
@@ -544,7 +534,7 @@
   </div>
 
   <!-- ── PROJECT 2: ZeroG ── -->
-  <div class="project-block flip reveal reveal-2" data-tags="cv ml">
+  <div id="zerog" class="project-block flip reveal reveal-2" data-tags="cv ml">
 
     <div class="pb-content">
       <div class="pb-top">
@@ -607,7 +597,7 @@
   </div>
 
   <!-- ── PROJECT 3: HealthAssist ── -->
-  <div class="project-block reveal reveal-2" data-tags="android ml">
+  <div id="healthassist" class="project-block reveal reveal-2" data-tags="android ml">
 
     <div class="pb-content">
       <div class="pb-top">
@@ -677,7 +667,7 @@
   </div>
 
   <!-- ── PROJECT 4: Stock Predictor ── -->
-  <div class="project-block flip reveal reveal-2" data-tags="web ml">
+  <div id="stock-predictor" class="project-block flip reveal reveal-2" data-tags="web ml">
 
     <div class="pb-content">
       <div class="pb-top">
@@ -747,7 +737,7 @@
   </div>
 
   <!-- ── PROJECT 5: Smart Attendance ── -->
-  <div class="project-block reveal reveal-2" data-tags="cv android">
+  <div id="smart-attendance" class="project-block reveal reveal-2" data-tags="cv android">
 
     <div class="pb-content">
       <div class="pb-top">
@@ -823,37 +813,6 @@
   <p>No projects match that filter — try another category.</p>
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-brand">
-    <div class="footer-logo">Devadatta<br>Pokharanakar</div>
-    <div class="footer-tagline">Data Scientist · Developer · Artist<br>MTech @ IIT Palakkad</div>
-    <div class="footer-email">dmpokharanakar@gmail.com</div>
-  </div>
-  <div class="footer-nav">
-    <div>
-      <div class="footer-nav-title">Navigate</div>
-      <ul class="footer-nav-links">
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#education">Education</a></li>
-        <li><a href="index.html#skills">Skills</a></li>
-        <li><a href="index.html#certifications">Certifications</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-nav-title">Pages</div>
-      <ul class="footer-nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">All Projects</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="certifications.html">Certifications</a></li>
-        <li><a href="art.html">Art Gallery</a></li>
-        <li><a href="sitemap.html">Sitemap</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
 <div class="footer-bottom">
   <span>© 2025 Devadatta Mahesh Pokharanakar · Built with plain HTML, CSS & JS</span>
   <div class="footer-visitor">

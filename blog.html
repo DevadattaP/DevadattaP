@@ -381,15 +381,6 @@
   .no-comments { padding:24px 0 16px; font-size:13px; color:var(--ink-light); font-style:italic; }
 
   /* ── FOOTER ── */
-  footer { background:var(--ink); padding:48px; display:grid; grid-template-columns:1.2fr 1fr; gap:48px; }
-  .footer-brand .footer-logo { font-family:var(--serif); font-size:22px; color:var(--paper); margin-bottom:10px; }
-  .footer-brand .footer-tagline { font-size:11px; color:rgba(255,255,255,0.5); line-height:1.7; margin-bottom:20px; }
-  .footer-brand .footer-email { font-size:11px; color:rgba(255,255,255,0.7); }
-  .footer-nav { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
-  .footer-nav-title { font-size:9px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:16px; }
-  .footer-nav-links { list-style:none; display:flex; flex-direction:column; gap:8px; }
-  .footer-nav-links li a { font-size:12px; color:rgba(255,255,255,0.65); transition:color 0.15s; }
-  .footer-nav-links li a:hover { color:#fff; }
   .footer-bottom { background:#111; padding:16px 48px; display:flex; justify-content:space-between; align-items:center; }
   .footer-bottom span { font-size:10px; letter-spacing:0.08em; color:rgba(255,255,255,0.35); }
   .footer-visitor { font-size:10px; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:8px; }
@@ -415,14 +406,12 @@
     .cf-row { grid-template-columns:1fr; }
     .comments-close-row { padding-bottom:24px; }
     .art-nav-bar { padding:12px 24px; }
-    footer { grid-template-columns:1fr; gap:32px; padding:36px 24px; }
     .footer-bottom { padding:14px 24px; flex-direction:column; gap:6px; text-align:center; }
     .sitemap-bar { padding:10px 24px; }
     .art-nav-center { display:none; }
   }
 
   @media (max-width:540px) {
-    .footer-nav { grid-template-columns:1fr; gap:24px; }
     .ph-stats { gap:20px; }
   }
 </style>
@@ -439,14 +428,15 @@
 <nav class="reveal reveal-1">
   <div class="nav-logo" onclick="showList()"><a href="index.html">D. Pokharanakar</a></div>
   <ul class="nav-links">
-    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
-    <li><a href="index.html#education">Education</a></li>
-    <li><a href="index.html#skills">Skills</a></li>
+    <li><a href="education.html">Education</a></li>
+    <li><a href="experience.html">Experience</a></li>
+    <li><a href="skills.html">Skills</a></li>
     <li><a href="certifications.html">Certifications</a></li>
     <li><a href="art.html">Art</a></li>
     <li><a href="blog.html" class="active">Blog</a></li>
-    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
   </ul>
   <a href="resume.pdf" download class="nav-cta">Download CV</a>
 </nav>
@@ -616,35 +606,6 @@
 
 </div><!-- /#article-view -->
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-brand">
-    <div class="footer-logo">Devadatta<br>Pokharanakar</div>
-    <div class="footer-tagline">Data Scientist · Developer · Artist<br>MTech @ IIT Palakkad</div>
-    <div class="footer-email">dmpokharanakar@gmail.com</div>
-  </div>
-  <div class="footer-nav">
-    <div>
-      <div class="footer-nav-title">Navigate</div>
-      <ul class="footer-nav-links">
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#education">Education</a></li>
-        <li><a href="index.html#skills">Skills</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-nav-title">Pages</div>
-      <ul class="footer-nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">All Projects</a></li>
-        <li><a href="certifications.html">Certifications</a></li>
-        <li><a href="art.html">Art Gallery</a></li>
-        <li><a href="sitemap.html">Sitemap</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
 <div class="footer-bottom">
   <span>© 2025 Devadatta Mahesh Pokharanakar · Built with plain HTML, CSS & JS</span>
   <div class="footer-visitor">
@@ -969,14 +930,21 @@ function openPost(index) {
   renderArticle();
   document.getElementById('list-view').style.display    = 'none';
   document.getElementById('article-view').style.display = 'block';
+  history.replaceState(null, '', '#' + POSTS[index].slug);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function showList() {
   document.getElementById('article-view').style.display = 'none';
   document.getElementById('list-view').style.display    = 'block';
+  history.replaceState(null, '', window.location.pathname + window.location.search);
   renderList();
   window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function openPostBySlug(slug) {
+  const index = POSTS.findIndex(post => post.slug === slug);
+  if (index >= 0) openPost(index);
 }
 
 function navigatePost(dir) {
@@ -1215,6 +1183,17 @@ function escHtml(s) {
    INIT
 ══════════════════════════════ */
 renderList();
+if (window.location.hash) {
+  openPostBySlug(decodeURIComponent(window.location.hash.slice(1)));
+}
+window.addEventListener('hashchange', () => {
+  const slug = decodeURIComponent(window.location.hash.slice(1));
+  if (slug) {
+    openPostBySlug(slug);
+  } else {
+    showList();
+  }
+});
 </script>
 </body>
 </html>
