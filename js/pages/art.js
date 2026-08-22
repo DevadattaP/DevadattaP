@@ -91,6 +91,12 @@
     S.renderPageBand(document.getElementById("band"), site, "art");
     return S.fetchJSON("data/art.json");
   }).then(function (data) {
+    if (!data.length) {
+      document.getElementById("filters").style.display = "none";
+      document.getElementById("countLabel").textContent = "Art Gallery";
+      S.empty(document.getElementById("artGrid"), "Coming soon — stay tuned!");
+      return;
+    }
     pieces = data;
     renderFilters();
     renderGrid();

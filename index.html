@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Portfolio</title>
 <meta name="description" content="Portfolio" />
+<link rel="icon" href="assets/images/favicon.ico" />
 <link rel="stylesheet" href="css/style.css" />
 </head>
 <body data-page="home">
@@ -18,17 +19,18 @@
       <div class="facts" id="facts"><div class="loading">Loading…</div></div>
     </section>
 
-    <nav class="section" aria-label="Site contents">
-      <div class="section-label">Contents</div>
-      <ul class="toc" id="toc"></ul>
-    </nav>
+    <section class="section" id="highlightsSection">
+      <div class="section-label">Highlights</div>
+      <div class="highlights" id="highlights"></div>
+    </section>
 
-    <section class="section">
-      <div class="section-label">Selected projects</div>
-      <div class="idx-list" id="projList"><div class="loading">Loading…</div></div>
-      <p style="margin-top:20px"><a class="back-link" href="projects.html">View all projects →</a></p>
+    <section class="section" id="updatesSection">
+      <div class="section-label">Recent updates</div>
+      <ul class="updates" id="updates"></ul>
     </section>
   </main>
+
+  <blockquote class="quote-block" id="quoteBlock"></blockquote>
 
   <footer class="site-footer" id="siteFooter"></footer>
 
@@ -36,8 +38,3 @@
   <script src="js/pages/home.js"></script>
 </body>
 </html>
-
-<!-- TODO: change color of number indices
- TODO: change color of invert button in dark theme to white
- TODO: make the dots in table of content appear uniformly and also keep them on mobile screen
- TODO: top navbar should convert into a dropdown on smaller screens -->

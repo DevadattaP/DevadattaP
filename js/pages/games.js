@@ -64,15 +64,25 @@
   S.init("games").then(function (site) {
     S.renderPageBand(document.getElementById("band"), site, "games");
     return S.fetchJSON("data/games.json");
-  }).then(function (games) {
+  }).then(function (allGames) {
+    var isMobile = window.matchMedia("(max-width: 640px)").matches;
+    var games = isMobile ? allGames.filter(function (g) { return g.showOnMobile !== false; }) : allGames;
+    var hidden = allGames.length - games.length;
+
+    if (!games.length) {
+      S.empty(document.getElementById("gamePicker"), "These games aren't available on mobile — try again on a larger screen.");
+      document.getElementById("gamePanels").innerHTML = "";
+      return;
+    }
+
     document.getElementById("gamePicker").innerHTML = games.map(function (g, i) {
       return '<button class="game-tab' + (i === 0 ? " active" : "") + '" data-key="' + g.key + '">' + S.escapeHtml(g.title) + "</button>";
-    }).join("");
+    }).join("") + (hidden ? '<p class="game-note" style="width:100%">Some games are hidden on mobile for a better experience.</p>' : "");
     document.getElementById("gamePanels").innerHTML = games.map(panelHtml).join("");
     document.querySelectorAll(".game-tab").forEach(function (btn) {
       btn.addEventListener("click", function () { selectGame(btn.dataset.key); });
     });
-    if (games.length) selectGame(games[0].key);
+    selectGame(games[0].key);
   }).catch(function (err) {
     S.fail(document.getElementById("gamePicker"), err);
   });

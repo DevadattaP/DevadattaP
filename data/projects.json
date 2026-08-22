@@ -53,16 +53,5 @@
     "github": "",
     "demo": "",
     "images": ["assets/images/projects/smart-attendance/1.jpg", "assets/images/projects/smart-attendance/2.jpg", "assets/images/projects/smart-attendance/3.jpg"]
-  },
-  {
-    "id": 6,
-    "slug": "",
-    "title": "More Projects Coming Soon",
-    "status": "In Progress",
-    "description": "I am continuously working on new projects and expanding my portfolio. Stay tuned for more updates and exciting developments in the near future.",
-    "stack": [],
-    "github": "",
-    "demo": "",
-    "images": []
   }
 ]

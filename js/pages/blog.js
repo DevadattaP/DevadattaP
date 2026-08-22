@@ -34,6 +34,10 @@
       var post = posts.filter(function (p) { return p.slug === slug; })[0];
       if (post) { renderArticle(post); return; }
     }
+    if (!posts.length) {
+      S.empty(document.getElementById("postList"), "Coming soon — stay tuned!");
+      return;
+    }
     renderList(posts);
   }).catch(function (err) {
     S.fail(document.getElementById("postList"), err);

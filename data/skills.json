@@ -1,6 +1,6 @@
 [
-  { "label": "Languages", "items": ["Python", "Java", "C++", "C"] },
-  { "label": "Frameworks & Tools", "items": ["Django · React", "Flutter · Android", "OpenCV · DeepFace", "Docker · Git"] },
-  { "label": "Cloud & Data", "items": ["Azure AI", "Google Cloud", "PostgreSQL", "Advanced Excel"] },
+  { "label": "Languages", "items": ["Python", "Java", "C  · C++", "Javascript"] },
+  { "label": "Frameworks & Tools", "items": ["Django · React", "Flutter · Android", "OpenCV · DeepFace", "Docker · Git · Linux"] },
+  { "label": "Cloud & Data", "items": ["AWS · Google Cloud", "PostgreSQL · Supabase", "MySQL · Firebase", "Advanced Excel"] },
   { "label": "Creative & Soft", "items": ["Project Management", "Team Leadership", "Tabla · Sketching", "Handcrafts · Painting"] }
 ]

@@ -1,4 +1,4 @@
 [
-  { "key": "snake", "title": "Snake", "desc": "Classic snake — eat, grow, don't hit yourself.", "controls": "Arrow keys or WASD to move. Space to restart after game over." },
-  { "key": "tictactoe", "title": "Tic-Tac-Toe", "desc": "Two players, one device — X always goes first.", "controls": "Click an empty cell to place your mark." }
+  { "key": "snake", "title": "Snake", "desc": "Classic snake — eat, grow, don't hit yourself.", "controls": "Arrow keys or WASD to move. Space to restart after game over.", "showOnMobile": false },
+  { "key": "tictactoe", "title": "Tic-Tac-Toe", "desc": "Two players, one device — X always goes first.", "controls": "Click an empty cell to place your mark.", "showOnMobile": true }
 ]

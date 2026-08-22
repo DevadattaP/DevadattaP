@@ -51,8 +51,20 @@
       '<div class="topbar-right">' +
         (site.resumeUrl ? '<a class="cv-link" href="' + escapeHtml(site.resumeUrl) + '" download>Download CV</a>' : "") +
         '<button class="invert-btn" id="invertBtn" aria-pressed="false" aria-label="Invert page colors"></button>' +
+        '<button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Toggle navigation"><span></span><span></span><span></span></button>' +
       "</div>";
     initInvertToggle();
+    initNavToggle();
+  }
+
+  function initNavToggle() {
+    var el = document.getElementById("topbar");
+    var btn = document.getElementById("navToggle");
+    if (!el || !btn) return;
+    btn.addEventListener("click", function () {
+      var open = el.classList.toggle("nav-open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
   }
 
   function renderFooter(site) {
@@ -76,11 +88,10 @@
     return found || {};
   }
 
-  /** Renders the standard sub-page band (kicker w/ number, title, intro) straight from site.json. */
+  /** Renders the standard sub-page band (title, intro) straight from site.json. */
   function renderPageBand(el, site, key) {
     var meta = pageMeta(site, key);
     renderBand(el, {
-      kicker: meta.num + " — " + meta.label,
       titleHtml: escapeHtml(meta.title || meta.label),
       desc: meta.intro,
       small: true
@@ -89,14 +100,22 @@
 
   /**
    * Renders the inverted "band" header used at the top of every page.
-   * opts: { kicker, titleHtml, role, desc }
+   * opts: { titleHtml, role, desc, avatar }
    * titleHtml is inserted as-is (so callers can add <br>), everything else is escaped.
    */
   function renderBand(el, opts) {
+    var head = "<h1>" + opts.titleHtml + "</h1>";
+    if (opts.role) head += '<p class="role">' + escapeHtml(opts.role) + "</p>";
+
     var html = '<div class="wrap">';
-    if (opts.kicker) html += '<div class="kicker">' + escapeHtml(opts.kicker) + "</div>";
-    html += "<h1>" + opts.titleHtml + "</h1>";
-    if (opts.role) html += '<p class="role">' + escapeHtml(opts.role) + "</p>";
+    if (opts.avatar) {
+      html += '<div class="band-head">' +
+        '<div class="avatar"><img src="' + escapeHtml(opts.avatar) + '" alt="" /></div>' +
+        '<div class="band-head-text">' + head + "</div>" +
+      "</div>";
+    } else {
+      html += head;
+    }
     if (opts.role) html += '<div class="rule"></div>';
     if (opts.desc) html += '<p class="desc">' + escapeHtml(opts.desc) + "</p>";
     html += "</div>";

@@ -5,11 +5,24 @@
     var words = site.name.split(" ");
     var titleHtml = S.escapeHtml(words[0]) + "<br>" + S.escapeHtml(words.slice(1).join(" "));
     S.renderBand(document.getElementById("band"), {
-      kicker: site.kicker,
       titleHtml: titleHtml,
       role: site.role,
-      desc: site.bio
+      desc: site.bio,
+      avatar: site.avatar
     });
+  }
+
+  function renderHighlights(highlights) {
+    var el = document.getElementById("highlights");
+    if (!highlights || !highlights.length) {
+      document.getElementById("highlightsSection").style.display = "none";
+      return;
+    }
+    el.innerHTML = highlights.map(function (h) {
+      var tag = h.href ? "a" : "div";
+      var hrefAttr = h.href ? ' href="' + S.escapeHtml(h.href) + '"' : "";
+      return "<" + tag + ' class="highlight"' + hrefAttr + '><div class="v">' + S.escapeHtml(h.value) + '</div><div class="l">' + S.escapeHtml(h.label) + "</div></" + tag + ">";
+    }).join("");
   }
 
   function renderFacts(facts) {
@@ -26,40 +39,34 @@
     document.getElementById("facts").innerHTML = "<p>" + html + "</p>";
   }
 
-  function renderContents(pages) {
-    var leader = S.dotLeader();
-    document.getElementById("toc").innerHTML = pages.map(function (p) {
-      return '<li><a href="' + S.escapeHtml(p.href) + '">' +
-        "<span>" + S.escapeHtml(p.label) + "</span>" +
-        '<span class="leader">' + leader + "</span>" +
-        '<span class="num">' + S.escapeHtml(p.num) + "</span>" +
-        "</a></li>";
+  function renderUpdates(updates) {
+    var section = document.getElementById("updatesSection");
+    if (!updates || !updates.length) {
+      section.style.display = "none";
+      return;
+    }
+    document.getElementById("updates").innerHTML = updates.map(function (u) {
+      return "<li>" + S.escapeHtml(u) + "</li>";
     }).join("");
   }
 
-  function renderProjects(projects) {
-    document.getElementById("projList").innerHTML = projects.map(function (p, i) {
-      var num = String(i + 1).padStart(2, "0");
-      return (
-        '<div class="idx-row">' +
-          '<div class="ghost">' + num + "</div>" +
-          "<div>" +
-            '<div class="t"><a href="projects.html#' + S.escapeHtml(p.slug) + '">' + S.escapeHtml(p.title) + "</a></div>" +
-            '<p class="d">' + S.escapeHtml(p.description) + "</p>" +
-            '<div class="tags">' + p.stack.slice(0, 4).map(function (s) { return "<span>" + S.escapeHtml(s) + "</span>"; }).join("") + "</div>" +
-          "</div>" +
-        "</div>"
-      );
-    }).join("");
+  function renderQuote(quote) {
+    var el = document.getElementById("quoteBlock");
+    if (!quote || !quote.text) {
+      el.style.display = "none";
+      return;
+    }
+    el.innerHTML =
+      '<p class="q-text">“' + S.escapeHtml(quote.text) + '”</p>' +
+      (quote.author ? '<p class="q-author">— ' + S.escapeHtml(quote.author) + "</p>" : "");
   }
 
   S.init("home").then(function (site) {
     renderBand(site);
     renderFacts(site.facts);
-    renderContents(site.pages);
-    return S.fetchJSON("data/projects.json");
-  }).then(function (projects) {
-    renderProjects(projects);
+    renderHighlights(site.highlights);
+    renderUpdates(site.updates);
+    renderQuote(site.quote);
   }).catch(function (err) {
     S.fail(document.getElementById("facts"), err);
   });
