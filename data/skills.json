@@ -1,6 +1,8 @@
 [
   { "label": "Languages", "items": ["Python", "Java", "C  · C++", "Javascript"] },
-  { "label": "Frameworks & Tools", "items": ["Django · React", "Flutter · Android", "OpenCV · DeepFace", "Docker · Git · Linux"] },
+  { "label": "Frameworks & Tools", "items": ["Django · React · Next.js", "Tailwind CSS", "Flutter · Kotlin · Android", "Docker · Git · Linux"] },
   { "label": "Cloud & Data", "items": ["AWS · Google Cloud", "PostgreSQL · Supabase", "MySQL · Firebase", "Advanced Excel"] },
-  { "label": "Creative & Soft", "items": ["Project Management", "Team Leadership", "Tabla · Sketching", "Handcrafts · Painting"] }
+  { "label": "AI & ML", "items": ["NLP · LLMs", "Computer Vision · OpenCV · DeepFace", "PyTorch · TensorFlow", "NumPy · Pandas", "Scikit-learn · Matplotlib"] },
+  { "label": "Soft Skills", "items": ["Project Management", "Team Leadership", "Communication", "Problem Solving"] },
+  { "label": "Creativity", "items": ["Tabla", "Sketching · Painting", "Handcrafts"] }
 ]

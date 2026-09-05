@@ -1,6 +1,13 @@
 (function () {
   var S = window.Site;
 
+  function certLink(text, url) {
+    var label = S.escapeHtml(text);
+    if (!url) return label;
+    return '<a class="cert-link" href="' + S.escapeHtml(url) + '" target="_blank" rel="noreferrer">' +
+      label + '<span class="cert-arrow">↗</span></a>';
+  }
+
   function renderDegrees(degrees) {
     document.getElementById("degrees").innerHTML = degrees.map(function (d) {
       var badges = (d.badges || []).map(function (b) {
@@ -11,7 +18,7 @@
           '<div class="y">' + S.escapeHtml(d.year) + "</div>" +
           "<div>" +
             '<div class="inst">' + S.escapeHtml(d.institution) + "</div>" +
-            '<div class="deg">' + S.escapeHtml(d.degree) + "</div>" +
+            '<div class="deg">' + certLink(d.degree, d.certUrl) + "</div>" +
             badges +
           "</div>" +
         "</div>"
@@ -23,7 +30,7 @@
     document.getElementById("honours").innerHTML = honours.map(function (h) {
       return (
         '<div class="award-row">' +
-          "<div><span class=\"name\">" + S.escapeHtml(h.name) + "</span>" +
+          "<div><span class=\"name\">" + certLink(h.name, h.certUrl) + "</span>" +
           '<span class="sub">' + S.escapeHtml(h.sub) + "</span></div>" +
           '<div class="year">' + S.escapeHtml(h.year) + "</div>" +
         "</div>"

@@ -3,55 +3,55 @@
     "id": 1,
     "slug": "aquasense",
     "title": "AquaSense",
-    "status": "Completed",
+    "status": "B.E. Sem-6 Project",
     "description": "A GIS-powered web platform for real-time monitoring and visualisation of urban water supply networks. Built with React on the frontend and PostgreSQL with PostGIS on the backend, with a designed-in pathway for live IoT sensor integration.",
     "stack": ["React", "PostgreSQL", "PostGIS", "Leaflet.js", "Python", "GIS", "IoT", "REST API"],
     "github": "https://github.com/DevadattaP/AquaSense",
     "demo": "",
-    "images": ["assets/images/projects/aquasense/1.jpg", "assets/images/projects/aquasense/2.jpg", "assets/images/projects/aquasense/3.jpg"]
+    "images": []
   },
   {
     "id": 2,
     "slug": "zerog",
     "title": "ZeroG",
-    "status": "Completed",
+    "status": "B.E. Sem-5 Project",
     "description": "A computer vision system that replaces physical mouse and keyboard input with hand gestures, tracked in real time via webcam. Uses Mediapipe's hand-landmark model to translate finger positions into system-level mouse and keyboard events.",
     "stack": ["Python", "OpenCV", "Mediapipe", "PyAutoGUI", "NumPy", "Computer Vision"],
     "github": "https://github.com/DevadattaP/ZeroG",
     "demo": "",
-    "images": ["assets/images/projects/zerog/1.jpg", "assets/images/projects/zerog/2.jpg"]
+    "images": []
   },
   {
     "id": 3,
     "slug": "healthassist",
     "title": "HealthAssist",
-    "status": "Completed",
+    "status": "B.E. Sem-4 Project",
     "description": "An Android application that diagnoses the likelihood of diabetes, anemia, and hypertension from user-reported symptoms using a fuzzy logic inference engine. Designed to assist in regions with limited access to immediate medical consultation.",
     "stack": ["Android", "Java", "Fuzzy Logic", "XML Layouts", "SQLite", "Material Design"],
     "github": "https://github.com/DevadattaP/HealthAssist",
     "demo": "",
-    "images": ["assets/images/projects/healthassist/1.jpg", "assets/images/projects/healthassist/2.jpg", "assets/images/projects/healthassist/3.jpg"]
+    "images": []
   },
   {
     "id": 4,
     "slug": "stock-predictor",
     "title": "Stock Price Prediction",
-    "status": "Completed · Pleximus internship",
+    "status": "Deployed · Pleximus internship",
     "description": "A full-stack Django web application built during the Pleximus internship that fetches live market data, applies multiple ML models, and presents predictions with interactive charts. Supports both price regression and directional movement classification.",
     "stack": ["Python", "Django", "Scikit-learn", "TensorFlow", "XGBoost", "Pandas", "JavaScript", "Chart.js"],
     "github": "",
     "demo": "",
-    "images": ["assets/images/projects/stock-predictor/1.jpg", "assets/images/projects/stock-predictor/2.jpg", "assets/images/projects/stock-predictor/3.jpg"]
+    "images": []
   },
   {
     "id": 5,
-    "slug": "smart-attendance",
-    "title": "Smart Attendance",
-    "status": "Completed · Pleximus internship",
+    "slug": "face-attendance",
+    "title": "Face Recognition Attendance",
+    "status": "Deployed · Pleximus internship",
     "description": "An end-to-end attendance management system built at Pleximus Inc., combining a Python backend for face recognition with an Android mobile app for on-device capture and an admin dashboard for reporting and management.",
     "stack": ["Python", "DeepFace", "OpenCV", "Flask", "Android", "Java", "SQLite", "REST API"],
     "github": "",
     "demo": "",
-    "images": ["assets/images/projects/smart-attendance/1.jpg", "assets/images/projects/smart-attendance/2.jpg", "assets/images/projects/smart-attendance/3.jpg"]
+    "images": []
   }
 ]

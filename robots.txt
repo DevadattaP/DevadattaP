@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://devadattap.github.io/sitemap.xml

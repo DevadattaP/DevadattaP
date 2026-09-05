@@ -4,33 +4,37 @@
       "year": "2025 – Present",
       "institution": "Indian Institute of Technology, Palakkad",
       "degree": "MTech in Data Science · CGPA: 9.03 (Sem 2)",
-      "badges": ["HTTA Scholar"]
+      "badges": ["HTTA Scholar"],
+      "certUrl": ""
     },
     {
       "year": "2021 – 2025",
       "institution": "FAMT, Ratnagiri · University of Mumbai",
       "degree": "BE in CSE (AI & ML) with Honours in Data Science · CGPA: 9.55",
-      "badges": ["TFWS Scholar", "Dept. Rank 3"]
+      "badges": ["TFWS Scholar", "Dept. Rank 3"],
+      "certUrl": ""
     },
     {
       "year": "2019 – 2021",
       "institution": "Abhyankar Kulkarni Junior College, Ratnagiri",
       "degree": "Higher Secondary Certificate (HSC) · 98.5%",
-      "badges": []
+      "badges": ["College Rank 2"],
+      "certUrl": ""
     },
     {
       "year": "2019",
       "institution": "Patwardhan Highschool, Ratnagiri",
       "degree": "Secondary School Certificate (SSC) · 95.2%",
-      "badges": []
+      "badges": ["School Rank 3"],
+      "certUrl": ""
     }
   ],
   "honours": [
-    { "name": "GATE 2025 — AIR 1070", "sub": "Data Science & Artificial Intelligence", "year": "2025" },
-    { "name": "3rd Rank — Dept. of CSE (AI & ML)", "sub": "University of Mumbai", "year": "2025" },
-    { "name": "MIT Manipal Hackathon (M#23)", "sub": "Led the only team from Maharashtra | 36hr offline challange", "year": "2023" },
-    { "name": "1st Prize — Project Presentation", "sub": "CSE Dept., FAMT", "year": "2023" },
-    { "name": "1st Prize — Code Hunt, TechVenture", "sub": "CSE Dept., FAMT", "year": "2023" },
-    { "name": "3rd Prize — Project Presentation", "sub": "Chemical Eng. Dept., FAMT", "year": "2023" }
+    { "name": "GATE 2025 — AIR 1070", "sub": "Data Science & Artificial Intelligence", "year": "2025", "certUrl": "" },
+    { "name": "3rd Rank — Dept. of CSE (AI & ML)", "sub": "University of Mumbai", "year": "2025", "certUrl": "" },
+    { "name": "MIT Manipal Hackathon (M#23)", "sub": "Led the only team from Maharashtra | 36hr offline challange", "year": "2023", "certUrl": "https://devadatta.short.gy/mit-manipal-hackathon" },
+    { "name": "1st Prize — Project Presentation", "sub": "CSE Dept., FAMT", "year": "2023", "certUrl": "" },
+    { "name": "1st Prize — Code Hunt, TechVenture", "sub": "CSE Dept., FAMT", "year": "2023", "certUrl": "" },
+    { "name": "3rd Prize — Project Presentation", "sub": "Chemical Eng. Dept., FAMT", "year": "2023", "certUrl": "" }
   ]
 }

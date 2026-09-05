@@ -30,15 +30,18 @@
 
   function renderList() {
     var list = activeTag === "all" ? certs : certs.filter(function (c) { return c.tags.indexOf(activeTag) !== -1; });
-    document.getElementById("countLabel").textContent = "Certifications — showing " + list.length + " of " + certs.length;
+    // document.getElementById("countLabel").textContent = "Certifications — showing " + list.length + " of " + certs.length;
     if (!list.length) { S.empty(document.getElementById("certList"), "No certifications in this category."); return; }
     document.getElementById("certList").innerHTML = list.map(function (c) {
+      var tag = c.link ? "a" : "div";
+      var attrs = c.link ? ' href="' + S.escapeHtml(c.link) + '" target="_blank" rel="noreferrer"' : "";
+      var title = S.escapeHtml(c.title) + (c.link ? '<span class="cert-arrow">↗</span>' : "");
       return (
-        '<li class="row-item">' +
-          '<div><div class="main">' + S.escapeHtml(c.title) + "</div>" +
+        '<li><' + tag + ' class="row-item' + (c.link ? " linkable" : "") + '"' + attrs + ">" +
+          '<div><div class="main">' + title + "</div>" +
           '<div class="sub">' + S.escapeHtml(c.issuer) + " · " + c.skills.map(S.escapeHtml).join(", ") + "</div></div>" +
           '<div class="meta">' + S.escapeHtml(c.date) + "</div>" +
-        "</li>"
+        "</" + tag + "></li>"
       );
     }).join("");
   }

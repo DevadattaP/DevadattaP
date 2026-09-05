@@ -2,7 +2,7 @@
   "name": "Devadatta Mahesh Pokharanakar",
   "shortName": "Devadatta",
   "role": "Data scientist , Developer , Artist",
-  "bio": "MTech Data Science student at IIT Palakkad. I build machine learning systems and software applications. I also like doing electronic projects, sketching, painting, and playing musical instruments.",
+  "bio": "MTech Data Science student at IIT Palakkad. I build backend applications, data-driven systems, machine learning pipelines, web and mobile apps. I like doing electronic projects, sketching, painting, and playing musical instruments.",
   "avatar": "assets/images/profile.jpg",
   "resumeUrl": "assets/pdfs/resume.pdf",
   "email": "dmpokharanakar@gmail.com",
@@ -10,12 +10,11 @@
   "highlights": [
     { "value": "AIR 1070", "label": "GATE DA 2025", "href": "education.html" },
     { "value": "9.03", "label": "CGPA · MTech, IIT Palakkad", "href": "education.html" },
-    { "value": "32+", "label": "Certifications", "href": "certifications.html" },
+    { "value": "50+", "label": "Certifications", "href": "certifications.html" },
     { "value": "10+", "label": "Projects", "href": "projects.html" }
   ],
   "updates": [
-    "Open to full-time roles starting June 2027 — Software Developer, Data Engineer, or AI/ML positions. Preferred locations: Remote, or Pune, Mumbai, Hyderabad, Bengaluru, Chennai.",
-    "Currently working on MTech Project in collaboration with TCS research — 'Detecting citation manipulation and AI generated references in CS literature'."
+    "Currently working on MTech Project in collaboration with TCS research — 'Detecting citation manipulation and AI generated references in Computer Science literature'."
   ],
   "quote": { "text": "AI is the tool. Intention is the operator.", "author": "Unknown" },
   "pages": [
@@ -42,22 +41,7 @@
     {
       "key": "certifications", "label": "Certifications", "href": "certifications.html",
       "title": "Certifications",
-      "intro": "32+ certifications earned across machine learning, cloud, cybersecurity, project management, and design."
-    },
-    {
-      "key": "blog", "label": "Writing", "href": "blog.html",
-      "title": "Blog & Notes",
-      "intro": "A collections of my thoughts, and experiences regarding tech."
-    },
-    {
-      "key": "art", "label": "Art Gallery", "href": "art.html",
-      "title": "Art Gallery",
-      "intro": "Sketches, paintings, handcrafts, photography, and even electronics — the parts of the week that aren't spent at a keyboard."
-    },
-    {
-      "key": "games", "label": "Games", "href": "games.html",
-      "title": "Games",
-      "intro": "A couple of small browser games, Enjoy!"
+      "intro": "50+ certifications earned across machine learning, cloud, cybersecurity, project management, and design."
     },
     {
       "key": "contact", "label": "Contact", "href": "contact.html",

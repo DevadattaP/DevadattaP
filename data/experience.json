@@ -4,18 +4,34 @@
       "role": "Software Development Intern",
       "company": "Pleximus Inc. · Ratnagiri, Maharashtra",
       "date": "Aug 2024 – Jul 2025",
+      "certUrl": "https://devadatta.short.gy/pleximus-internship",
       "bullets": [
-        "Stock price & movement prediction using ML — full-stack Django web application",
-        "Face recognition attendance system using OpenCV & DeepFace, with an Android app and Python backend"
+        {
+          "text": "Stock price & movement prediction",
+          "details": [
+            "Developed a data-driven full-stack application using Python, Django, PostgreSQL, TimeScaleDB, and Redis.",
+            "Designed REST APIs and database-backed workflows for financial time-series data and ML predictions.",
+            "Integrated Upstox API for real-time stock data and trading functionalities.",
+            "Trained, evaluated and compared multiple ML and DL models for short-term price movement forecasts."
+          ]
+        },
+        {
+          "text": "Face recognition attendance system",
+          "details": [
+            "Built a computer vision-based attendance system with a Flutter Android client and Flask backend.",
+            "Used DeepFace and OpenCV for face detection and recognition, with MySQL for data storage.",
+            "Optimized image preprocessing and face recognition pipeline for low-latency real-time execution."
+          ]
+        }
       ]
     }
   ],
   "trainings": [
-    { "name": "IBM CSRBOX — Data Science", "issuer": "IBM", "date": "Feb–Mar 2024" },
-    { "name": "IBM CSRBOX — Generative AI", "issuer": "IBM", "date": "Feb–Mar 2024" },
-    { "name": "IBM CSRBOX — Data Visualization", "issuer": "IBM", "date": "Dec 2023" },
-    { "name": "Get Started in AI (MVIP)", "issuer": "MathWorks", "date": "May–Sep 2023" },
-    { "name": "ML & Neural Networks", "issuer": "Azure Skynet Solutions", "date": "May–Jun 2023" },
-    { "name": "Industry 4.0", "issuer": "Gustovally Technovations", "date": "Dec 2022" }
+    { "name": "IBM CSRBOX — Data Science", "issuer": "IBM", "date": "Feb–Mar 2024", "certUrl": "https://devadatta.short.gy/csrbox-data-science" },
+    { "name": "IBM CSRBOX — Generative AI", "issuer": "IBM", "date": "Feb–Mar 2024", "certUrl": "https://devadatta.short.gy/csrbox-genai" },
+    { "name": "IBM CSRBOX — Data Visualization", "issuer": "IBM", "date": "Dec 2023", "certUrl": "https://devadatta.short.gy/csrbox-data-visualization" },
+    { "name": "Get Started in AI (MVIP)", "issuer": "MathWorks", "date": "May–Sep 2023", "certUrl": "https://devadatta.short.gy/mathworks-internship" },
+    { "name": "ML & Neural Networks", "issuer": "Azure Skynet Solutions", "date": "May–Jun 2023", "certUrl": "https://devadatta.short.gy/azure-skynet-internship" },
+    { "name": "Industry 4.0", "issuer": "Gustovally Technovations", "date": "Dec 2022", "certUrl": "https://devadatta.short.gy/gustovally-internship" }
   ]
 }
